@@ -18,23 +18,69 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #116530; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --blue-1: #000000;
+  --blue-2: #001262;
+  --blue-3: #002db6;
+  --blue-4: #094eff;
+  --blue-5: #204fe7;
+  --blue-6: #4e608d;
+  --blue-7: #8897bd;
+
+  --green-1: #000000;
+  --green-2: #151d18;
+  --green-3: #334138;
+  --green-4: #56675c;
+  --green-5: #a8baae;
+  --green-6: #d6e7db;
+  --green-7: #eafff1;
+
+  --black-1: #000000;
+  --black-2: #1b1b1b;
+  --black-3: #3e3e3e;
+  --black-4: #636363;
+  --black-5: #b6b6b6;
+  --black-6: #e2e2e2;
+
+  --white-1: #000000;
+  --white-2: #1b1b1b;
+  --white-3: #3e3e3e;
+  --white-4: #636363;
+  --white-5: #929292;
+  --white-6: #b6b6b6;
+  --white-7: #e2e2e2;
+  --white-8: #ffffff;
+
+  --yellow-1: #000000;
+  --yellow-2: #2a1c00;
+  --yellow-3: #464000;
+  --yellow-4: #6c6600;
+  --yellow-5: #c9b800;
+  --yellow-6: #f9e44c;
+  --yellow-7: #ffea00;
+
+  --blue-color: var(--blue-4);
+  --green-color: var(--green-7);
+  --black-color: var(--black-1);
+  --white-color: var(--white-8);
+  --yellow-color: var(--yellow-7);
+
+  --background-color: var(--white-color); /* Background color for the entire website, including individual sections */
+  --default-color: var(--black-color); /* Default color used for the majority of the text content across the entire website */
+  --heading-color: var(--blue-color); /* Color for headings, subheadings and title throughout the website */
+  --accent-color: var(--yellow-color); /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: var(--white-color); /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: var(--black-color); /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #212529;  /* The default color of the main navmenu links */
-  --nav-hover-color: #116530; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #116530; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: var(--black-color);  /* The default color of the main navmenu links */
+  --nav-hover-color: var(--blue-color); /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: var(--white-color); /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: var(--white-color); /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: var(--black-color); /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: var(--blue-color); /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
