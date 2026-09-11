@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Farmer's Basin — Map Prototype</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, "Inter", sans-serif;
+      margin: 0;
+      background: #eff3f7;
+    }
+    header {
+      background: linear-gradient(to right, #094eff, #eaf7f0);
+      color: white;
+      padding: 16px 24px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 24px;
+    }
+    #map {
+      grid-column: span 2;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e2e6ea;
+      min-height: 500px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e2e6ea;
+      padding: 16px;
+    }
+    .card-title {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .stat {
+      background: #f4f6f8;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #8a8f98;
+    }
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .policy-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .policy-buttons button {
+      flex: 1;
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      border: 1px solid #e2e6ea;
+      background: #f8f9fb;
+      cursor: pointer;
+    }
+    .policy-buttons button.active {
+      border: 2px solid #094eff;
+      background: #e6edff;
+      color: #094eff;
+      font-weight: 500;
+    }
+    #policy-summary {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    table {
+      width: 100%;
+      font-size: 13px;
+      border-collapse: collapse;
+    }
+    table td {
+      padding: 4px 0;
+    }
+    table td:last-child {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <header>The Farmer's Basin — Map Prototype</header>
+
+  <div class="layout">
+    <div id="map"></div>
+
+    <div class="card">
+      <div class="card-title">Water Security Snapshot</div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-label">Allocation reliability</div>
+          <div class="stat-value" id="reliability">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Income risk</div>
+          <div class="stat-value" id="risk">—</div>
+        </div>
+      </div>
+      <div class="card-title">Economic Impact</div>
+      <table>
+        <tr><td>Est. price volatility</td><td id="volatility">—</td></tr>
+        <tr><td>GVIAP trend</td><td id="gviap">—</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Policy Comparison</div>
+      <div class="policy-buttons">
+        <button id="btn-current" class="active" onclick="setPolicy('current'); toggleButtons('current')">Current Policy</button>
+        <button id="btn-proposed" onclick="setPolicy('proposed'); toggleButtons('proposed')">Proposed Policy</button>
+      </div>
+      <div id="policy-summary">Select a region on the map to see details.</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleButtons(active) {
+      document.getElementById("btn-current").classList.toggle("active", active === "current");
+      document.getElementById("btn-proposed").classList.toggle("active", active === "proposed");
+    }
+  </script>
+  <script src="map.js"></script>
+
+</body>
+</html>
