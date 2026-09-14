@@ -535,9 +535,16 @@ h6 {
 
 .home-wireframe-page {
   margin: 0;
+  padding: 0;
   background: #ffffff;
   color: #000000;
   font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+html, body.home-wireframe-page {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
 }
 
 .home-wireframe-page img,
@@ -550,6 +557,7 @@ h6 {
   width: 100%;
   height: 84px;
   background: linear-gradient(90deg, #094EFF 0%, #EAFFF1 100%);
+  margin-bottom: 0;
 }
 
 .home-header-inner {
@@ -597,13 +605,15 @@ h6 {
 .home-main {
   max-width: 1440px;
   margin: 0 auto;
-  padding-bottom: 0;
+  padding: 0;
 }
 
 .home-hero {
   position: relative;
   width: 100%;
   height: 810px;
+  margin: 0 !important;
+  padding: 0 !important;
   overflow: hidden;
   background: #dfe9ee;
 }
@@ -621,12 +631,8 @@ h6 {
 }
 
 .home-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(129.08deg, rgba(255, 250, 250, 0) 27.59%, rgba(0, 0, 0, 0.88) 95.67%);
-  z-index: 1;
-  pointer-events: none;
+  content: none;
+  display: none;
 }
 
 .home-hero .carousel-indicators {
@@ -819,21 +825,36 @@ h6 {
   padding: 0 75px 0;
 }
 
-.home-footer {
-  position: relative;
+.site-footer {
   width: 100%;
-  height: 560px;
-  margin-top: 30px;
-  overflow: hidden;
+  min-height: 164px;
   background: linear-gradient(90deg, #094EFF 0%, #EAFFF1 100%);
+  margin-top: 48px;
+}
+
+.site-footer-inner {
+  max-width: 1440px;
+  min-height: 164px;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+}
+
+.site-footer-brand,
+.site-footer-links,
+.site-footer-copy {
+  display: none;
+}
+
+.home-footer {
+  width: 100%;
+  min-height: 164px;
+  background: linear-gradient(90deg, #094EFF 0%, #EAFFF1 100%);
+  margin-top: 48px;
 }
 
 .footer-wave {
-  position: absolute;
-  inset: 0;
-  background: url("../img/homepage-design-blue.jpg") center bottom / 100% 100% no-repeat;
-  opacity: 1;
-  transform: none;
+  display: none;
 }
 
 @media (max-width: 1100px) {
