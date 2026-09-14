@@ -10,12 +10,56 @@
       margin: 0;
       background: #eff3f7;
     }
-    header {
-      background: linear-gradient(to right, #094eff, #eaf7f0);
-      color: white;
-      padding: 16px 24px;
-      font-weight: 600;
-      font-size: 18px;
+    .home-header {
+      width: 100%;
+      height: 84px;
+      background: linear-gradient(90deg, #094EFF 0%, #EAFFF1 100%);
+    }
+
+    .home-header-inner {
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px 0 24px;
+    }
+
+    .home-brand {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 84px;
+    }
+
+    .home-brand img {
+      width: 190px;
+      height: 190px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .home-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    .home-nav a {
+      color: #4E608D;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    .home-nav a.active,
+    .home-nav a:hover {
+      color: #ffffff;
+      font-weight: 400;
     }
     .layout {
       display: grid;
@@ -100,7 +144,21 @@
 </head>
 <body>
 
-  <header>The Farmer's Basin — Map Prototype</header>
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <header class="home-header">
+    <div class="home-header-inner">
+      <a href="../home.html" class="home-brand" aria-label="Go to homepage">
+        <img src="../assets/img/logo-farmers.png" alt="The Farmer's Basin logo">
+      </a>
+
+      <nav class="home-nav" aria-label="Main navigation">
+        <a href="../home.html">Home</a>
+        <a href="index.html" class="active">Map</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
 
   <div class="layout">
     <div id="map"></div>
