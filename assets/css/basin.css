@@ -61,35 +61,63 @@ select {
   min-width: 0;
 }
 
-.site-header {
-  min-height: 64px;
-  padding: 16px 3%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+/* Main navigation bar */
+.home-header {
+  width: 100%;
   background: linear-gradient(90deg, #094EFF 0%, #EAFFF1 100%);
 }
 
-.brand {
-  font-weight: 700;
-  color: white;
-  font-size: 18px;
-}
-
-.brand i {
-  margin-left: 8px;
-}
-
-.site-header nav {
+.home-header-inner {
+  width: 100%;
+  min-height: 72px;
+  padding: 10px 4%;
   display: flex;
-  gap: 18px;
-  color: #435b70;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.site-header nav a[aria-current] {
-  color: #142e61;
-  font-weight: 700;
+.home-brand {
+  display: flex;
+  align-items: center;
+}
+
+.home-brand img {
+  display: block;
+  height: 35px;
+  width: auto;
+}
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.home-nav a {
+  color: #25313a;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+}
+
+.home-nav a.active,
+.home-nav a[aria-current="page"] {
+  color: #2456ee;
+  font-weight: 600;
+}
+
+.home-nav a.active::after,
+.home-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #2456ee;
 }
 
 .page-heading {
@@ -263,6 +291,10 @@ select {
   gap: 20px;
   max-width: 1500px;
   margin: auto;
+}
+
+.details-layout h2{
+  font-weight: 700;
 }
 
 .farmer-column {

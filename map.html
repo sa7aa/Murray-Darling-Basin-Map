@@ -15,20 +15,26 @@
     <script defer src="Map/dashboard.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.html"
-        >The Farmer's Basin <i class="bi bi-water" aria-hidden="true"></i
-      ></a>
-      <!-- navigation bar -->
-      <nav aria-label="Main navigation">
-        <a href="index.html">Home</a
-        ><a href="map.html" aria-current="page">Map</a
-        ><a href="about.html">About</a>
+  <header class="home-header">
+    <div class="home-header-inner">
+
+      <a href="home.html" class="home-brand" aria-label="Go to homepage">
+        <img
+          src="assets/img/logo-farmers.png"
+          alt="The Farmer's Basin logo"
+        >
+      </a>
+
+      <nav class="home-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="map.html" class="active" aria-current="page">Map</a>
+        <a href="about.html">About</a>
       </nav>
-    </header>
+
+    </div>
+  </header>
     <main>
        <!-- Murray-Darling Basin Interactive Map -->
-      <h1 class="page-heading">Map of the Murray-Darling Basin</h1>
       <section class="map-section" aria-label="Basin map">
         <!-- Region selector and data disclaimer -->
         <div class="map-toolbar">
