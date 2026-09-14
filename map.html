@@ -1,93 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Farmer's Basin | Murray-Darling Map</title>
+    <link rel="icon" href="assets/img/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/basin.css" />
+    <script defer src="assets/vendor/d3/d3.min.js"></script>
+    <script defer src="Map/dashboard-data.js"></script>
+    <script defer src="Map/dashboard.js"></script>
+  </head>
+  <body>
+  <header class="home-header">
+    <div class="home-header-inner">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Map</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-</head>
-
-<body class="about-page">
-
-  <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" alt="AgriCulture">
-        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+      <a href="home.html" class="home-brand" aria-label="Go to homepage">
+        <img
+          src="assets/img/logo-farmers.png"
+          alt="The Farmer's Basin logo"
+        >
       </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="map.html" class="active">Map</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <nav class="home-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="map.html" class="active" aria-current="page">Map</a>
+        <a href="about.html">About</a>
       </nav>
 
     </div>
   </header>
+    <main>
+       <!-- Murray-Darling Basin Interactive Map -->
+      <section class="map-section" aria-label="Basin map">
+        <!-- Region selector and data disclaimer -->
+        <div class="map-toolbar">
+          <label for="region-select">Water resource region</label>
+          <select id="region-select" disabled>
+            <option>Loading regions...</option>
+          </select>
+          <span class="sample-note">Illustrative data only</span>
+        </div>
+        <div class="map-surface">
+          <div class="map-caption">
+            <strong>MURRAY-DARLING BASIN</strong
+            ><span>Surface water resource plan areas</span>
+          </div>
+          <!-- MDB map controls -->
+          <div class="map-controls" aria-label="Map controls">
+            <button
+              id="zoom-in"
+              type="button"
+              title="Zoom in"
+              aria-label="Zoom in"
+              disabled
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+            <button
+              id="zoom-out"
+              type="button"
+              title="Zoom out"
+              aria-label="Zoom out"
+              disabled
+            >
+              <i class="bi bi-dash-lg"></i>
+            </button>
+            <button
+              id="reset-map"
+              type="button"
+              title="Fit basin"
+              aria-label="Fit basin"
+              disabled
+            >
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+          </div>
+          <div id="map-status" role="status">Loading basin boundaries...</div>
+          <svg
+            id="basin-map"
+            viewBox="0 0 1000 520"
+            aria-label="Murray-Darling Basin regions"
+          ></svg>
+          <div class="map-legend">
+            <span><b class="swatch selected"></b>Selected region</span
+            ><span><b class="swatch sample"></b>Allocated farmer</span
+            ><span><b class="swatch other"></b>Other regions</span>
+          </div>
+          <span class="boundary-credit">Boundaries: supplied MDB GeoJSON</span>
+        </div>
+      </section>
 
-  <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
-      <div class="container position-relative">
-        <h1>Map</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Map</li>
-          </ol>
-        </nav>
+      <!-- Farmer profile panel -->
+      <div class="details-layout">
+        <aside class="farmer-column" aria-labelledby="farmer-heading">
+          <h2 class="section-strip" id="farmer-heading">Farmer Persona</h2>
+          <div class="farmer-content">
+            <label class="field-label" for="farmer-select"
+              >Sample profile</label
+            >
+            <select id="farmer-select" disabled>
+              <option>Loading profiles...</option>
+            </select>
+            <div id="farmer-profile">
+              <img
+                id="farmer-photo"
+                src="assets/img/img_sq_1.jpg"
+                alt="Illustrative farmer portrait"
+              />
+              <h3 id="farmer-name">Sample farmer</h3>
+              <p class="muted" id="farmer-role"></p>
+              <p id="farmer-description"></p>
+              <dl class="profile-facts">
+                <div>
+                  <dt><i class="bi bi-geo-alt-fill"></i>Region</dt>
+                  <dd id="farmer-region"></dd>
+                </div>
+                <div>
+                  <dt><i class="bi bi-flower1"></i>Main farm type</dt>
+                  <dd id="farmer-crop"></dd>
+                </div>
+              </dl>
+              <h4><i class="bi bi-bullseye"></i>Goals</h4>
+              <ul id="farmer-goals"></ul>
+              <h4><i class="bi bi-exclamation-triangle"></i>Key Concerns</h4>
+              <ul id="farmer-concerns"></ul>
+            </div>
+            <p id="no-profile" hidden>
+              No sample farmer or policy data is available for this region.
+            </p>
+          </div>
+        </aside>
+        <!-- Farmer data panel -->
+        <section class="data-column" aria-labelledby="data-heading">
+          <h2 class="section-strip" id="data-heading">
+            Data 
+          </h2>
+          <div class="data-panel" aria-live="polite">
+            <h3><i class="bi bi-water"></i>Water Security Snapshot</h3>
+            <div class="stats-grid">
+              <div class="stat">
+                <span>Allocation reliability</span
+                ><strong id="reliability">--</strong
+                ><progress
+                  id="reliability-bar"
+                  max="100"
+                  value="0"
+                  aria-label="Allocation reliability"
+                ></progress>
+              </div>
+              <div class="stat">
+                <span>Income risk</span><strong id="risk">--</strong>
+                <div id="risk-bar" class="risk-bar" aria-hidden="true">
+                  <b></b><b></b><b></b>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="data-panel">
+            <h3><i class="bi bi-file-earmark-text"></i>Policy</h3>
+            <div
+              class="policy-switch"
+              role="group"
+              aria-label="Policy scenario"
+            >
+              <button
+                type="button"
+                data-policy="current"
+                aria-pressed="true"
+                disabled
+              >
+                Current Policy</button
+              ><button
+                type="button"
+                data-policy="proposed"
+                aria-pressed="false"
+                disabled
+              >
+                Proposed Policy
+              </button>
+            </div>
+            <p id="policy-summary" aria-live="polite">
+              Loading sample scenarios...
+            </p>
+          </div>
+          <div class="data-panel">
+            <h3><i class="bi bi-graph-up-arrow"></i>Economic Impact</h3>
+            <p class="muted panel-subtitle">Sample economic indicators</p>
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="row">Est. price volatility</th>
+                  <td id="volatility">--</td>
+                </tr>
+                <tr>
+                  <th scope="row">GVIAP trend</th>
+                  <td id="gviap">--</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dominant crop</th>
+                  <td id="dominant-crop">--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
-    </div><!-- End Page Title -->
-
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+    </main>
+    <footer>
+      The Farmer's Basin
+    </footer>
+  </body>
 </html>
