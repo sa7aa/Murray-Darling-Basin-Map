@@ -100,12 +100,17 @@ select {
   font-weight: 500;
   text-decoration: none;
   padding: 8px 0;
-  position: relative;
+  transition: color 0.3s ease;
+}
+
+.home-nav a:hover,
+.home-nav a:focus {
+  color: white;
 }
 
 .home-nav a.active,
 .home-nav a[aria-current="page"] {
-  color: #2456ee;
+  color: white;
   font-weight: 600;
 }
 
