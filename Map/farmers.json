@@ -1,0 +1,85 @@
+[
+{
+  "name": "Emily",
+  "age": 33,
+  "role": "Irrigated cropping farmer",
+  "region": "Murrumbidgee",
+  "state": "NSW",
+  "crop": "Almonds, citrus and vegetables",
+  "photo": "assets/img/img_sq_9.png",
+
+  "description": "Emily runs a family-operated horticulture farm with her husband and three children. The farm depends heavily on reliable irrigation to maintain crop quality and protect permanent plantings. Changes in water availability can increase operating costs, disrupt production planning and place pressure on the family's main source of income.",
+
+  "goals": [
+    "Maintain reliable access to water for crop production",
+    "Plan planting and production around expected water availability",
+    "Keep the family farm financially sustainable as the household's main source of income"
+  ],
+
+  "concerns": [
+    "Having to shift toward lower-water-use crops when allocations are uncertain",
+    "Long-term water availability and security",
+    "Securing enough water to protect permanent almond and citrus plantings during low-allocation periods",
+    "Long-term drought and climate variability"
+  ],
+
+  "waterSecurity": {
+    "reliability": 46,
+    "risk": "High"
+  },
+
+  "economicImpact": {
+    "volatility": "High",
+    "gviap": "Variable"
+  },
+
+  "policy": {
+    "current": {
+      "summary": "Current water-sharing rules allocate available water according to entitlement type, with General Security users receiving lower and more variable allocations than High Security users."
+    },
+
+    "proposed": {
+      "summary": "Introduce earlier allocation forecasting and targeted irrigation-efficiency support to help farmers plan production and manage periods of low water availability."
+    }
+  }
+  },
+  {
+    "name": "Jamie Wilson",
+    "age": 55,
+    "role": "Irrigated horticulture grower",
+    "region": "Victorian Murray",
+    "state": "VIC",
+    "crop": "Almonds and grapes",
+    "photo": "assets/img/img_sq_5.jpg",
+    "description": "Jamie manages a fictional orchard and vineyard. Permanent plantings need dependable irrigation even when commodity prices soften.",
+    "goals": [
+      "Maintain healthy permanent plantings",
+      "Reduce water use per hectare",
+      "Keep long-term production predictable"
+    ],
+    "concerns": [
+      "Water demand during heatwaves",
+      "Higher input and labour costs",
+      "Long-term orchard investment risk"
+    ],
+
+    "waterSecurity": {
+    "reliability": 82,
+    "risk": "Moderate"
+  },
+
+  "economicImpact": {
+    "volatility": "Moderate",
+    "gviap": "Stable"
+  },
+
+  "policy": {
+    "current": {
+      "summary": "Current Victorian water-management rules prioritise entitlement-based allocations and water trading, requiring irrigators to manage seasonal availability and market exposure."
+    },
+    "proposed": {
+      "summary": "Expand support for irrigation-efficiency upgrades and longer-term water planning to reduce production risk for farms dependent on permanent plantings."
+    }
+  }
+  }
+]
