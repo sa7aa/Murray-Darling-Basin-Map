@@ -608,7 +608,12 @@ h6 {
   background: #dfe9ee;
 }
 
-.home-hero img {
+.home-hero .carousel-inner,
+.home-hero .carousel-item {
+  height: 100%;
+}
+
+.home-hero .carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -620,6 +625,35 @@ h6 {
   position: absolute;
   inset: 0;
   background: linear-gradient(129.08deg, rgba(255, 250, 250, 0) 27.59%, rgba(0, 0, 0, 0.88) 95.67%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home-hero .carousel-indicators {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  margin: 0;
+  gap: 10px;
+}
+
+.home-hero .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+}
+
+.home-hero .carousel-indicators .active {
+  background-color: #ffffff;
+}
+
+.home-hero .carousel-item {
+  position: relative;
 }
 
 .hero-cta {
@@ -630,6 +664,14 @@ h6 {
   z-index: 2;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  text-decoration: none;
+  filter: brightness(0.98);
 }
 
 .cta-arrow-box {
@@ -649,7 +691,6 @@ h6 {
   font-size: 52px;
   line-height: 1;
   color: #f2f2f7;
-  transform: rotate(180deg);
   margin-top: 8px;
 }
 
