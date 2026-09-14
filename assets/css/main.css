@@ -730,7 +730,7 @@ html, body.home-wireframe-page {
 }
 
 .purpose-section {
-  padding-top: 18px;
+  padding-top: 48px;
   margin-bottom: 90px;
 }
 
@@ -739,10 +739,15 @@ html, body.home-wireframe-page {
 .matters-section h2 {
   margin: 0 0 22px;
   font-family: "Inter", sans-serif;
-  font-size: 36px;
-  line-height: 44px;
-  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
   color: #000000;
+  display: block;
+  width: 100%;
+  padding-top: 0;
+  border-top: 1px solid #C9B800;
+  padding-top: 10px;
 }
 
 .purpose-card {
