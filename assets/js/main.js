@@ -137,14 +137,42 @@
 
   /**
    * Auto generate the carousel indicators
+   * Homepage carousel uses explicit three-dot markup and should not be duplicated.
    */
   document.querySelectorAll('.carousel-indicators').forEach((carouselIndicator) => {
-    carouselIndicator.closest('.carousel').querySelectorAll('.carousel-item').forEach((carouselItem, index) => {
+    const carousel = carouselIndicator.closest('.carousel');
+    if (!carousel) {
+      return;
+    }
+
+    const slideCount = carousel.querySelectorAll('.carousel-item').length;
+
+    if (carousel.id === 'homeCarousel') {
+      carouselIndicator.innerHTML = '';
+      Array.from({ length: slideCount }).forEach((_, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.bsTarget = `#${carousel.id}`;
+        button.dataset.bsSlideTo = String(index);
+        button.setAttribute('aria-label', `Slide ${index + 1}`);
+        if (index === 0) {
+          button.classList.add('active');
+          button.setAttribute('aria-current', 'true');
+        }
+        carouselIndicator.appendChild(button);
+      });
+      return;
+    }
+
+    carouselIndicator.innerHTML = '';
+    Array.from({ length: slideCount }).forEach((_, index) => {
+      const indicator = document.createElement('li');
+      indicator.dataset.bsTarget = `#${carousel.id}`;
+      indicator.dataset.bsSlideTo = String(index);
       if (index === 0) {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}" class="active"></li>`;
-      } else {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}"></li>`;
+        indicator.classList.add('active');
       }
+      carouselIndicator.appendChild(indicator);
     });
   });
 
