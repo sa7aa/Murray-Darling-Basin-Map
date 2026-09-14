@@ -603,8 +603,9 @@ html, body.home-wireframe-page {
 }
 
 .home-main {
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -722,6 +723,7 @@ html, body.home-wireframe-page {
 
 .purpose-section,
 .impact-section {
+  width: 100%;
   max-width: 1290px;
   margin: 0 auto;
   padding: 0 75px;
@@ -729,6 +731,7 @@ html, body.home-wireframe-page {
 
 .purpose-section {
   padding-top: 18px;
+  margin-bottom: 90px;
 }
 
 .purpose-section h2,
@@ -764,7 +767,8 @@ html, body.home-wireframe-page {
 }
 
 .impact-section {
-  margin-top: 24px;
+  margin-top: 0;
+  margin-bottom: 86px;
 }
 
 .impact-panel {
@@ -825,6 +829,7 @@ html, body.home-wireframe-page {
   max-width: 1290px;
   margin: 0 auto;
   padding: 0 75px 0;
+  margin-top: 72px;
 }
 
 .site-footer {
