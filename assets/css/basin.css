@@ -114,17 +114,6 @@ select {
   font-weight: 600;
 }
 
-.home-nav a.active::after,
-.home-nav a[aria-current="page"]::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: #2456ee;
-}
-
 .page-heading {
   padding: 18px 3%;
   margin: 0;
@@ -240,8 +229,28 @@ select {
   border: 1px solid #82969e;
 }
 
-.selected {
+.swatch.selected {
+  background: #d7e2d9;
+  border: 2px solid #123bab;
+}
+
+/* marker farmer */
+.farmer-marker { cursor: pointer; }
+.farmer-marker circle { fill: #2456ee; stroke: white; stroke-width: 2px; }
+.farmer-marker text { fill: white; font-size: 12px; font-weight: 700; pointer-events: none; }
+.farmer-marker:hover circle,
+.farmer-marker:focus circle,
+.farmer-marker[aria-pressed="true"] circle { fill: #123bab; stroke: #f5c542; }
+.profile-count-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   background: #2456ee;
+  color: white;
+  font-size: 11px;
 }
 
 .sample {

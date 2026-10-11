@@ -4,7 +4,9 @@
   let farmers,
     regions,
     paths,
+    markers,
     selected,
+    selectedFarmer,
     policy = "current";
     //Used for farmer goals and concerns
   function list(id, values) {
@@ -19,22 +21,26 @@
   //Refresh all dashboard content whenever a region/farmer/policy tabs change
   function update() {
      //Find the farmer profile and map region that match the selected region
-    const farmer = farmers.find((f) => f.region === selected);
+    const regionalFarmers = farmers.filter((f) => f.region === selected);
+    if (!regionalFarmers.includes(farmers[selectedFarmer])) {
+      selectedFarmer = farmers.findIndex((f) => f.region === selected);
+    }
+    const farmer = farmers[selectedFarmer];
     const region = regions.find((f) => f.properties.SWWRPANAME === selected);
     //Dropdowns in sync with the selected area
     el("region-select").value = selected;
-    el("farmer-select").value = farmer ? farmer.region : "";
+    el("farmer-select").replaceChildren(
+      ...(regionalFarmers.length
+        ? regionalFarmers.map((f) => new Option(f.name, String(farmers.indexOf(f))))
+        : [new Option("No sample profile in this region", "")]),
+    );
+    el("farmer-select").value = farmer ? String(selectedFarmer) : "";
+    el("farmer-select").disabled = !farmer;
     if (el("region-name")) el("region-name").textContent = selected;
     if (el("region-state")) el("region-state").textContent = region.properties.STATE;
     //updated map styling
     paths
-      .attr("fill", (d) =>
-        d.properties.SWWRPANAME === selected
-          ? "#2456ee"
-          : farmers.some((f) => f.region === d.properties.SWWRPANAME)
-            ? "#65b5a3"
-            : "#d7e2d9",
-      )
+      .attr("fill", "#d7e2d9")
       .attr("stroke", (d) =>
         d.properties.SWWRPANAME === selected ? "#123bab" : "#829c91",
       )
@@ -45,6 +51,7 @@
         String(d.properties.SWWRPANAME === selected),
       );
     paths.filter((d) => d.properties.SWWRPANAME === selected).raise();
+    markers.attr("aria-pressed", (d) => String(d.properties.SWWRPANAME === selected));
     //display the farmer profile when a profile exists for the region
     el("farmer-profile").hidden = !farmer;
     el("no-profile").hidden = !!farmer;
@@ -98,6 +105,7 @@
       "No sample policy scenario is available for this region.";
 
     //Farmer 
+    if (!farmer) return;
     el("farmer-photo").src = farmer.photo;
     el("farmer-photo").alt =
       "Illustrative stock portrait; not the fictional farmer";
@@ -145,7 +153,7 @@
       geojson,
     );
     const path = d3.geoPath(projection);
-    paths = group
+    paths = group.append("g")
       .selectAll("path")
       .data(regions)
       .join("path")
@@ -167,10 +175,40 @@
         }
       });
     paths.append("title").text((d) => d.properties.SWWRPANAME);
+    // Markers represent regional profile counts, not actual farm locations
+    const markerLayer = group.append("g");
+    function openProfiles(event, d) {
+      event.stopPropagation();
+      selected = d.properties.SWWRPANAME;
+      update();
+      el("farmer-select").focus();
+    }
+    markers = markerLayer.selectAll("g")
+      .data(regions.filter((d) => farmers.some((f) => f.region === d.properties.SWWRPANAME)))
+      .join("g")
+      .attr("class", "farmer-marker")
+      .attr("transform", (d) => `translate(${path.centroid(d)})`)
+      .attr("tabindex", 0)
+      .attr("role", "button")
+      .attr("aria-label", (d) => `${d.properties.SWWRPANAME}: ${farmers.filter((f) => f.region === d.properties.SWWRPANAME).length} farmer profiles. Select to browse.`)
+      .on("click", openProfiles)
+      .on("keydown", (event, d) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openProfiles(event, d);
+        }
+      });
+    markers.append("circle").attr("r", 14);
+    markers.append("text").attr("text-anchor", "middle").attr("dy", "0.35em")
+      .text((d) => farmers.filter((f) => f.region === d.properties.SWWRPANAME).length);
+    markers.append("title").text((d) => `${d.properties.SWWRPANAME}: browse farmer profiles`);
     const zoom = d3
       .zoom()
       .scaleExtent([1, 8])
-      .on("zoom", (event) => group.attr("transform", event.transform));
+      .on("zoom", (event) => {
+        group.attr("transform", event.transform);
+        markers.attr("transform", (d) => `translate(${path.centroid(d)}) scale(${1 / event.transform.k})`);
+      });
     svg.call(zoom);
     el("zoom-in").onclick = () =>
       svg.transition().duration(200).call(zoom.scaleBy, 1.4);
@@ -190,17 +228,13 @@
           (f) => new Option(f.properties.SWWRPANAME, f.properties.SWWRPANAME),
         ),
     );
-    el("farmer-select").replaceChildren(
-      new Option("No sample profile", ""),
-      ...farmers.map((f) => new Option(f.name, f.region)),
-    );
-    el("farmer-select").options[0].disabled = true;
     el("region-select").onchange = (event) => {
       selected = event.target.value;
       update();
     };
     el("farmer-select").onchange = (event) => {
-      selected = event.target.value;
+      selectedFarmer = Number(event.target.value);
+      selected = farmers[selectedFarmer].region;
       update();
     };
     document.querySelectorAll("[data-policy]").forEach(
@@ -213,7 +247,7 @@
     document
       .querySelectorAll(".map-controls button, #region-select, #farmer-select")
       .forEach((control) => (control.disabled = false));
-    selected = farmers[0].region;
+    selected = farmers[0]?.region ?? regions[0].properties.SWWRPANAME;
     update();
     el("map-status").hidden = true;
   } catch (error) {
