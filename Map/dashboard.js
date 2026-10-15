@@ -8,7 +8,14 @@
     selected,
     selectedFarmer,
     policy = "current";
-  let towns, townMarkers, community, communityMarkers, selectedOrganisation = "";
+  let towns, townMarkers, community, communityMarkers, gviapSeries, priceIndices, selectedOrganisation = "";
+  const regionPalette = [
+    "#8dd3c7", "#fb8072", "#80b1d3", "#fdb462", "#b3de69",
+    "#bc80bd", "#ffed6f", "#66c2a5", "#fc8d62", "#8da0cb",
+    "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#a1d99b",
+    "#9ecae1", "#fdae6b", "#bcbddc", "#fbb4ae",
+  ];
+  let regionColors;
   let popupTrigger, popupTimer;
   const sameTown = (organisation, town) =>
     organisation.town.trim().toLowerCase() === town.properties.Town.trim().toLowerCase() &&
@@ -193,7 +200,7 @@
     if (el("region-state")) el("region-state").textContent = region.properties.STATE;
     //updated map styling
     paths
-      .attr("fill", "#d7e2d9")
+      .attr("fill", (d) => regionColors.get(d.properties.SWWRPANAME))
       .attr("stroke", (d) =>
         d.properties.SWWRPANAME === selected ? "#123bab" : "#829c91",
       )
@@ -220,21 +227,18 @@
     const economic = farmer?.economicImpact;
 
     //Water security snapshot
-    el("reliability").textContent = water
-      ? water.reliability === null
-        ? "N/A"
-        : water.reliability + "%"
-      : "--";
+    const reliability = water?.reliability ?? 0;
+    const risk = water?.risk ?? 0;
+    el("reliability").textContent = reliability + "%";
+    el("reliability-bar").value = reliability;
+    el("reliability-bar").hidden = false;
 
-    el("reliability-bar").value = water?.reliability ?? 0;
-    el("reliability-bar").hidden =
-      !water || water.reliability === null;
-
-    el("risk").textContent = water?.risk ?? "--";
+    el("risk").textContent = risk;
+    el("risk-bar").hidden = false;
 
     const riskColor =
       { High: "#cf2027", Moderate: "#a86b00", Low: "#218263" }[
-        water?.risk
+        risk
       ] || "#67727c";
 
     el("risk").style.color = riskColor;
@@ -243,14 +247,17 @@
     [...el("risk-bar").children].forEach((bar, i) =>
       bar.classList.toggle(
         "on",
-        i < ({ High: 3, Moderate: 2, Low: 1 }[water?.risk] || 0),
+        i < ({ High: 3, Moderate: 2, Low: 1 }[risk] || 0),
       ),
     );
 
     // Economic impact
-    el("volatility").textContent = economic?.volatility ?? "--";
-    el("gviap").textContent = economic?.gviap ?? "--";
-    el("dominant-crop").textContent = farmer?.crop ?? "--";
+    const priceReference = getCropPriceReference(farmer?.crop);
+    el("volatility").textContent = priceReference?.value ?? "No matching market index";
+    el("price-reference-note").textContent = priceReference?.note ??
+      "The supplied records do not identify a crop category with a matching ABARES index.";
+    el("gviap").textContent = gviapSeries;
+    el("dominant-crop").textContent = farmer?.crop ?? "Not supplied";
 
     // Policy text
     el("policy-summary").textContent =
@@ -259,16 +266,82 @@
 
     //Farmer 
     if (!farmer) return;
-    el("farmer-photo").src = farmer.photo;
-    el("farmer-photo").alt =
-      "Illustrative stock portrait; not the fictional farmer";
+    el("farmer-photo").hidden = !farmer.photo;
+    if (farmer.photo) el("farmer-photo").src = farmer.photo;
     el("farmer-name").textContent = farmer.name;
-    el("farmer-role").textContent = farmer.age + " | " + farmer.role;
+    el("farmer-role").textContent = farmer.role;
     el("farmer-description").textContent = farmer.description;
+    el("farmer-evidence-note").textContent = farmer.evidenceNote;
     el("farmer-region").textContent = farmer.region + ", " + farmer.state;
-    el("farmer-crop").textContent = farmer.crop;
-    list("farmer-goals", farmer.goals);
-    list("farmer-concerns", farmer.concerns);
+    el("farmer-crop").textContent = farmer.crop ?? "Not supplied in source records";
+    list("farmer-goals", farmer.goals.length ? farmer.goals : ["Not supplied in source records."]);
+    list("farmer-concerns", farmer.concerns.length ? farmer.concerns : ["Not supplied in source records."]);
+    el("farmer-sources").replaceChildren();
+    farmer.sources.forEach((source) => {
+      const item = document.createElement("li");
+      const heading = document.createElement("strong");
+      heading.textContent = `${source.title} — ${source.town}, ${source.state}`;
+      const description = document.createElement("p");
+      description.textContent = source.description || "Description not supplied.";
+      const subject = document.createElement("p");
+      subject.textContent = "Recorded subject: " + (source.subject || "Not supplied");
+      item.append(heading, description, subject);
+      try {
+        const url = new URL(source.url);
+        if (["https:", "http:"].includes(url.protocol)) {
+          const link = document.createElement("a");
+          link.href = url.href;
+          link.textContent = "Open source record";
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          item.append(link);
+        }
+      } catch { /* Leave invalid source identifiers unlinked. */ }
+      el("farmer-sources").append(item);
+    });
+  }
+
+  function getCropPriceReference(cropDescription) {
+    if (!cropDescription || !priceIndices) return null;
+    const crop = cropDescription.toLowerCase();
+    const categories = [];
+    if (/cotton/.test(crop)) categories.push("Industrial crops");
+    if (/grain|rice|sorghum|wheat|barley/.test(crop)) categories.push("Grains");
+    if (/wool|sheep|merino/.test(crop)) categories.push("Wool");
+    if (/dairy|milk/.test(crop)) categories.push("Milk");
+    if (/citrus|almond|grape|fruit|horticultur/.test(crop)) categories.push("Horticulture");
+    if (/cattle|beef|livestock/.test(crop)) categories.push("Livestock slaughtered");
+    if (!categories.length) return null;
+
+    const firstYear = "2015-16";
+    const lastYear = "2024-25";
+    const years = priceIndices.referenceYears.slice(
+      priceIndices.referenceYears.indexOf(firstYear),
+      priceIndices.referenceYears.indexOf(lastYear) + 1,
+    );
+    const results = categories.flatMap((category) => {
+      const record = priceIndices.records.find((item) => item.category === category);
+      if (!record) return [];
+      const changes = [];
+      for (let i = 1; i < years.length; i++) {
+        const previous = record.values[years[i - 1]];
+        const current = record.values[years[i]];
+        if (Number.isFinite(previous) && Number.isFinite(current) && previous !== 0) {
+          changes.push((current / previous - 1) * 100);
+        }
+      }
+      if (changes.length < 2) return [];
+      const mean = changes.reduce((sum, value) => sum + value, 0) / changes.length;
+      const standardDeviation = Math.sqrt(
+        changes.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (changes.length - 1),
+      );
+      return [`${category}: ${standardDeviation.toFixed(1)}%`];
+    });
+    if (!results.length) return null;
+    return {
+      value: results.join("; "),
+      note: `Annual variability in Australia-wide ABARES crop/livestock price indices, 2015–16 to 2024–25 (standard deviation of year-on-year changes) for categories matching the crop description. Market context only; not a local farm-gate price or WRP statistic. 2024–25 is an estimate.`,
+    };
   }
   try {
      // Make sure required data and the D3 library loaded successfully
@@ -278,8 +351,20 @@
     const { geojson, farmers: profiles } = window.basinData;
     farmers = profiles;
     regions = geojson.features;
+    regionColors = new Map(regions.map((feature) => feature.properties.SWWRPANAME)
+      .sort().map((name, index) => [name, regionPalette[index % regionPalette.length]]));
     towns = window.basinData.towns.features;
     community = window.basinData.community;
+    const basinGviap = window.basinData.gviap.records.find((record) =>
+      record.region === "Murray Darling Basin" && record.item === "Total");
+    if (!basinGviap) throw new Error("The MDB GVIAP series is unavailable.");
+    gviapSeries = window.basinData.gviap.referenceYears.map((year) => {
+      const amount = basinGviap.values[year];
+      return amount.status === "published"
+        ? `${year}: A$${(amount.value / 1e9).toFixed(2)}b`
+        : `${year}: not published`;
+    }).join(" · ");
+    priceIndices = window.basinData.commodityPrices;
     //Fix polygon coordinate direction so D3 renders each map region correctly
     const australia = window.basinData.australia;
     for (const feature of [...regions, ...australia.features]) {
@@ -330,7 +415,7 @@
         }
       });
     paths.append("title").text((d) => d.properties.SWWRPANAME);
-    // Markers represent regional profile counts, not actual farm locations
+    // Counts show mapped source records; markers are region centroids, not farm locations.
     const markerLayer = group.append("g");
     function openProfiles(event, d) {
       event.stopPropagation();
@@ -345,7 +430,7 @@
       .attr("transform", (d) => `translate(${path.centroid(d)})`)
       .attr("tabindex", 0)
       .attr("role", "button")
-      .attr("aria-label", (d) => `${d.properties.SWWRPANAME}: ${farmers.filter((f) => f.region === d.properties.SWWRPANAME).length} farmer profiles. Select to browse.`)
+      .attr("aria-label", (d) => `${d.properties.SWWRPANAME}: ${farmers.find((f) => f.region === d.properties.SWWRPANAME)?.sources.length ?? 0} farmer-related source records. Select to browse.`)
       .on("click", openProfiles)
       .on("keydown", (event, d) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -355,8 +440,8 @@
       });
     markers.append("circle").attr("r", 14);
     markers.append("text").attr("text-anchor", "middle").attr("dy", "0.35em")
-      .text((d) => farmers.filter((f) => f.region === d.properties.SWWRPANAME).length);
-    markers.append("title").text((d) => `${d.properties.SWWRPANAME}: browse farmer profiles`);
+      .text((d) => farmers.find((f) => f.region === d.properties.SWWRPANAME)?.sources.length ?? 0);
+    markers.append("title").text((d) => `${d.properties.SWWRPANAME}: farmer-related source record count`);
     function selectTown(event, town) {
       event.stopPropagation();
       // A town selection replaces previous filters so it is always reachable.

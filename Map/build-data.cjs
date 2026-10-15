@@ -1,6 +1,7 @@
 // Combine the GeoJSON map data and farmer profiles into one JavaScript file so the dashboard can load them directly without using fetch()
 const fs = require("node:fs");
 const path = require("node:path");
+require("./build-farmer-profiles.cjs");
 const read = (name) =>
   JSON.parse(fs.readFileSync(path.join(__dirname, name), "utf8"));
 // The summary export stores its field names in the first row.
@@ -58,6 +59,8 @@ const data = {
   geojson: read("mdb_geo_json.json"),
   farmers: read("farmers.json"),
   towns,
+  gviap: read("data/gviap_nrm_2016_2021.json"),
+  commodityPrices: read("data/abare_price_indices.json"),
   community: read("data/MDB_Community_Data_v5_PLAY.json").map((row, index) => ({
     id: String(index),
     title: row["dc:title"],
