@@ -43,13 +43,19 @@
       if (["http:", "https:"].includes(parsed.protocol)) websiteURL = parsed;
     } catch { /* Some identifiers are not web URLs. */ }
     if (websiteURL) {
-      // Request the site's own icon only for the organisation being previewed.
+      // Prefer the locally discovered logo, then try the site's conventional icon.
       const logo = document.createElement("img");
       logo.alt = "";
       logo.referrerPolicy = "no-referrer";
       logo.onload = () => { fallback.hidden = true; };
-      logo.onerror = () => { logo.remove(); fallback.hidden = false; };
-      logo.src = new URL("/favicon.ico", websiteURL).href;
+      let triedWebsiteIcon = !organisation.logo;
+      logo.onerror = () => {
+        if (!triedWebsiteIcon) {
+          triedWebsiteIcon = true;
+          logo.src = new URL("/favicon.ico", websiteURL).href;
+        } else { logo.remove(); fallback.hidden = false; }
+      };
+      logo.src = organisation.logo || new URL("/favicon.ico", websiteURL).href;
       badge.append(logo);
     }
     const eyebrow = document.createElement("p");
@@ -101,7 +107,7 @@
       el(id).replaceChildren(new Option(label, ""), ...values.map((value) => new Option(value, value)));
       el(id).value = filters[id];
     }
-    townMarkers.style("display", (town) => matches(town) ? null : "none");
+    townMarkers.style("display", (town) => el("show-towns").checked && matches(town) ? null : "none");
     // Geographic regions in the summary are distinct from water plan boundaries.
     // Use town coordinates to connect the two, rather than equating their names.
     const matchingRegions = new Set(regions.filter((region) => visible.some((town) =>
@@ -130,8 +136,14 @@
     el("community-filter").value = selectedOrganisation;
     const shown = eligible.filter((item) => !selectedOrganisation || item.id === selectedOrganisation);
     const shownIds = new Set(shown.map((organisation) => organisation.id));
-    communityMarkers.style("display", (organisation) => shownIds.has(organisation.id) ? null : "none");
+    communityMarkers.style("display", (organisation) =>
+      (el("show-community").checked || organisation.id === selectedOrganisation) && shownIds.has(organisation.id) ? null : "none");
     closeCommunity();
+    if (selectedOrganisation) {
+      const organisation = shown.find((item) => item.id === selectedOrganisation);
+      const marker = communityMarkers.filter((item) => item.id === selectedOrganisation).node();
+      if (organisation && marker) openCommunity({ currentTarget: marker }, organisation);
+    }
   }
   function closeCommunity() {
     clearTimeout(popupTimer);
@@ -269,7 +281,8 @@
     towns = window.basinData.towns.features;
     community = window.basinData.community;
     //Fix polygon coordinate direction so D3 renders each map region correctly
-    for (const feature of regions) {
+    const australia = window.basinData.australia;
+    for (const feature of [...regions, ...australia.features]) {
       const polygons =
         feature.geometry.type === "MultiPolygon"
           ? feature.geometry.coordinates
@@ -281,21 +294,20 @@
     }
     //create MDB map
     const svg = d3.select("#basin-map");
-    const mobile = window.matchMedia("(max-width: 700px)");
-    function frameMap() {
-      svg.attr("viewBox", mobile.matches ? "250 0 500 520" : "0 0 1000 520");
-    }
-    frameMap();
-    mobile.addEventListener("change", frameMap);
+    svg.attr("viewBox", "0 0 1000 520");
     const group = svg.append("g");
     const projection = d3.geoMercator().fitExtent(
       [
-        [220, 25],
-        [790, 465],
+        [120, 25],
+        [880, 465],
       ],
-      geojson,
+      australia,
     );
     const path = d3.geoPath(projection);
+    group.append("g").attr("aria-hidden", "true")
+      .selectAll("path").data(australia.features).join("path")
+      .attr("class", "australia-background")
+      .attr("d", path).attr("vector-effect", "non-scaling-stroke");
     paths = group.append("g")
       .selectAll("path")
       .data(regions)
@@ -474,6 +486,10 @@
       filterTowns();
     };
     el("community-filter").disabled = false;
+    for (const id of ["show-towns", "show-community"]) {
+      el(id).disabled = false;
+      el(id).onchange = () => filterTowns();
+    }
     el("community-filter").onchange = (event) => {
       selectedOrganisation = event.target.value;
       filterTowns();

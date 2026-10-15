@@ -189,6 +189,7 @@ select {
 .community-popup .organisation-header { gap: 12px; }
 .community-popup h3 { font-size: 16px; }
 .town-marker { cursor: pointer; }
+.australia-background { fill: #e9e6dd; stroke: #b9b6aa; stroke-width: 0.8; pointer-events: none; }
 .town-symbol-background { fill: #79502f; stroke: #fff8f0; stroke-width: 1.2; }
 .town-marker path { fill: #fff8f0; stroke: #79502f; stroke-width: 1; stroke-linejoin: round; pointer-events: none; }
 .town-marker:focus-visible { outline: none; }
@@ -284,6 +285,10 @@ select {
   gap: 6px;
   align-items: center;
 }
+
+.legend-checkbox { pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.legend-checkbox input { margin: 0; width: 14px; height: 14px; accent-color: #28553c; cursor: pointer; }
+.legend-checkbox input:focus-visible { outline: 2px solid #dd9300; outline-offset: 3px; }
 
 
 

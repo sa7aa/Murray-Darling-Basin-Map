@@ -6,6 +6,7 @@ const read = (name) =>
 // The summary export stores its field names in the first row.
 const [headers, ...summary] = read("data/MDB_Summary.json");
 const locations = read("data/MDB_Towns_Rivers.json");
+const organisationLogos = read("data/organisation-logos.json");
 const towns = {
   type: "FeatureCollection",
   features: summary.map((row) => {
@@ -53,6 +54,7 @@ const summaryRegions = {
 };
 writeGeoJSON("MDB_Regions.geojson", summaryRegions);
 const data = {
+  australia: read("data/Australia.geojson"),
   geojson: read("mdb_geo_json.json"),
   farmers: read("farmers.json"),
   towns,
@@ -60,6 +62,7 @@ const data = {
     id: String(index),
     title: row["dc:title"],
     website: row["dc:identifier"],
+    logo: organisationLogos[row["dc:identifier"]]?.path || null,
     subject: row["dc:subject"],
     description: row["dc:description"],
     address: row["geo:contactAddress"],

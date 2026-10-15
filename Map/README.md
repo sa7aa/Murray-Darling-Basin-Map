@@ -2,6 +2,12 @@
 
 ## Current dashboard filters
 
+`data/Australia.geojson` supplies the muted background outline (Natural Earth
+1:110m Admin 0 Countries, public domain). Source:
+https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/
+It is bundled by `node Map/build-data.cjs` and rendered behind the basin using
+the same projection and zoom transform. The initial view and reset fit Australia.
+
 Generated GeoJSON files in `Map/data` (rebuild with `node Map/build-data.cjs`):
 
 - `MDB_Towns.geojson`: summary towns as Points, including state, region, and river properties.
@@ -25,8 +31,12 @@ button dismisses the card; filtering and zooming also dismiss it.
 Clear filters resets the organisation selection.
 Organisation cards also show `geo:contactAddress` when supplied. The town is
 labelled separately as a nearby location. Cards request the website's own
-`/favicon.ico` as a site icon, with initials if unavailable; these icons load
-on demand and are not verified organisation logos or downloaded local images.
+locally discovered logo or site icon first, then `/favicon.ico`, with the generic
+building illustration if neither loads. Refresh downloaded images with
+`node --use-system-ca Map/discover-logos.cjs`, then `node Map/build-data.cjs`.
+The discovery script checks website structured logo metadata, logo images, and
+declared browser/touch icons. `data/organisation-logos.json` records source URLs
+and local image paths; assets are saved in `assets/img/organisation-logos`.
 
 Run `node Map/build-data.cjs` from the repository root after editing source data.
 This joins summary towns to coordinates in `data/MDB_Towns_Rivers.json`, writes
