@@ -330,6 +330,13 @@ select {
   background: #d7e2d9;
 }
 
+.region-colour-key {
+  width: 18px;
+  height: 14px;
+  border: 1px solid #60766c;
+  background: linear-gradient(90deg, #8dd3c7 0 25%, #fb8072 25% 50%, #80b1d3 50% 75%, #fdb462 75%);
+}
+
 .boundary-credit {
   position: absolute;
   bottom: 2px;
