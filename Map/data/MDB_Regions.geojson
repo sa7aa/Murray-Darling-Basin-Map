@@ -1,0 +1,461 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Central Tablelands",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Cowra"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            148.68333,
+            -33.83333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Central Victoria",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Bridgewater"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            143.94167,
+            -36.59444
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Central West",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Dubbo",
+          "Forbes"
+        ],
+        "Town count": 2,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            148.60111,
+            -32.25694
+          ],
+          [
+            148.00778,
+            -33.38417
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Darling Downs",
+        "States": [
+          "QLD"
+        ],
+        "Towns": [
+          "Chinchilla",
+          "Dalby",
+          "Goondiwindi",
+          "Warwick"
+        ],
+        "Town count": 4,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            150.63,
+            -26.73917
+          ],
+          [
+            151.2625,
+            -27.18167
+          ],
+          [
+            150.30556,
+            -28.54722
+          ],
+          [
+            152.03417,
+            -28.21917
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Far West",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Bourke",
+          "Wilcannia"
+        ],
+        "Town count": 2,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            145.95111,
+            -30.08167
+          ],
+          [
+            143.38194,
+            -31.5625
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Goulburn Valley",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Shepparton"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            145.4,
+            -36.38
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Macedon Ranges",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Kyneton"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            144.45417,
+            -37.24806
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Murray",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Echuca",
+          "Swan Hill"
+        ],
+        "Town count": 2,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            144.75,
+            -36.13
+          ],
+          [
+            143.55,
+            -35.34
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Murraylands",
+        "States": [
+          "SA"
+        ],
+        "Towns": [
+          "Barmera",
+          "Loxton",
+          "Murray Bridge"
+        ],
+        "Town count": 3,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            140.467,
+            -34.25
+          ],
+          [
+            140.57083,
+            -34.45139
+          ],
+          [
+            139.27333,
+            -35.11944
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "New England",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Tamworth"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            150.93,
+            -31.09
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "North East",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Benalla",
+          "Wangaratta"
+        ],
+        "Town count": 2,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            145.98444,
+            -36.55194
+          ],
+          [
+            146.32417,
+            -36.37167
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "North West",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Gunnedah",
+          "Moree",
+          "Narrabri"
+        ],
+        "Town count": 3,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            150.24944,
+            -30.97806
+          ],
+          [
+            149.84167,
+            -29.46333
+          ],
+          [
+            149.78194,
+            -30.32917
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Northern Tablelands",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Inverell"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            151.1125,
+            -29.77639
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Riverina",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Albury",
+          "Deniliquin",
+          "Wagga Wagga"
+        ],
+        "Town count": 3,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            146.91583,
+            -36.08056
+          ],
+          [
+            144.95833,
+            -35.53
+          ],
+          [
+            147.36667,
+            -35.115
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Snowy Valleys",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Tumut"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            148.22306,
+            -35.30333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Southern Tablelands",
+        "States": [
+          "NSW"
+        ],
+        "Towns": [
+          "Yass"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            148.91222,
+            -34.84333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Region": "Sunraysia",
+        "States": [
+          "VIC"
+        ],
+        "Towns": [
+          "Mildura"
+        ],
+        "Town count": 1,
+        "Geometry description": "Member town locations; not a region boundary"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            142.1625,
+            -34.185
+          ]
+        ]
+      }
+    }
+  ]
+}

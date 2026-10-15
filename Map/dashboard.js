@@ -8,6 +8,43 @@
     selected,
     selectedFarmer,
     policy = "current";
+  let towns, townMarkers, statisticalPaths;
+  const filterFields = {
+    "state-filter": ["State", "All states"],
+    "town-filter": ["Town", "All towns"],
+    "summary-region-filter": ["Region", "All regions"],
+    "abs-region-filter": ["ABS SA3 region", "All ABS regions"],
+    "tributary-filter": ["Tributary River", "All tributary rivers"],
+    "major-river-filter": ["Major River", "All major rivers"],
+  };
+  const filters = Object.fromEntries(Object.keys(filterFields).map((id) => [id, ""]));
+  const matches = (town, except) => Object.entries(filters).every(([id, value]) =>
+    id === except || !value || town.properties[filterFields[id][0]] === value);
+
+  function filterTowns() {
+    const visible = towns.filter((town) => matches(town));
+    const active = Object.values(filters).some(Boolean);
+    for (const [id, [field, label]] of Object.entries(filterFields)) {
+      const values = [...new Set(towns.filter((town) => matches(town, id))
+        .map((town) => town.properties[field]))].sort((a, b) => a.localeCompare(b));
+      el(id).replaceChildren(new Option(label, ""), ...values.map((value) => new Option(value, value)));
+      el(id).value = filters[id];
+    }
+    townMarkers.style("display", (town) => matches(town) ? null : "none");
+    const visibleCodes = new Set(visible.map((town) => town.properties["ABS SA3 code"]));
+    statisticalPaths
+      .attr("opacity", (region) => !active || visibleCodes.has(region.properties.sa3_code_2021) ? 1 : 0.12)
+      .classed("is-filtered", (region) => active && visibleCodes.has(region.properties.sa3_code_2021));
+    // Geographic regions in the summary are distinct from water plan boundaries.
+    // Use town coordinates to connect the two, rather than equating their names.
+    const matchingRegions = new Set(regions.filter((region) => visible.some((town) =>
+      d3.geoContains(region, town.geometry.coordinates))));
+    paths.attr("opacity", (region) => !active || matchingRegions.has(region) ? 1 : 0.2);
+    markers.style("display", (region) => !active || matchingRegions.has(region) ? null : "none");
+    el("filter-status").textContent = `${visible.length} of ${towns.length} towns` +
+      (visible.length ? "" : ". No towns match these filters.");
+    el("clear-filters").disabled = !active;
+  }
     //Used for farmer goals and concerns
   function list(id, values) {
     el(id).replaceChildren(
@@ -125,8 +162,9 @@
     const { geojson, farmers: profiles } = window.basinData;
     farmers = profiles;
     regions = geojson.features;
+    towns = window.basinData.towns.features;
     //Fix polygon coordinate direction so D3 renders each map region correctly
-    for (const feature of regions) {
+    for (const feature of [...regions, ...window.basinData.statisticalRegions.features]) {
       const polygons =
         feature.geometry.type === "MultiPolygon"
           ? feature.geometry.coordinates
@@ -150,7 +188,7 @@
         [220, 25],
         [790, 465],
       ],
-      geojson,
+      { type: "FeatureCollection", features: [...regions, ...window.basinData.statisticalRegions.features] },
     );
     const path = d3.geoPath(projection);
     paths = group.append("g")
@@ -175,6 +213,26 @@
         }
       });
     paths.append("title").text((d) => d.properties.SWWRPANAME);
+    statisticalPaths = group.append("g").selectAll("path")
+      .data(window.basinData.statisticalRegions.features).join("path")
+      .attr("class", "abs-region-boundary")
+      .attr("d", path).attr("vector-effect", "non-scaling-stroke")
+      .attr("tabindex", 0).attr("role", "button")
+      .attr("aria-label", (region) => `${region.properties.sa3_name_2021}, ABS statistical region. Filter towns.`)
+      .on("click", selectStatisticalRegion)
+      .on("keydown", (event, region) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectStatisticalRegion(event, region);
+        }
+      });
+    statisticalPaths.append("title").text((region) => `${region.properties.sa3_name_2021} (ABS SA3, 2021)`);
+    function selectStatisticalRegion(event, region) {
+      event.stopPropagation();
+      Object.keys(filters).forEach((id) => { filters[id] = ""; });
+      filters["abs-region-filter"] = region.properties.sa3_name_2021;
+      filterTowns();
+    }
     // Markers represent regional profile counts, not actual farm locations
     const markerLayer = group.append("g");
     function openProfiles(event, d) {
@@ -202,12 +260,38 @@
     markers.append("text").attr("text-anchor", "middle").attr("dy", "0.35em")
       .text((d) => farmers.filter((f) => f.region === d.properties.SWWRPANAME).length);
     markers.append("title").text((d) => `${d.properties.SWWRPANAME}: browse farmer profiles`);
+    function selectTown(event, town) {
+      event.stopPropagation();
+      // A town selection replaces previous filters so it is always reachable.
+      Object.keys(filters).forEach((id) => { filters[id] = ""; });
+      filters["town-filter"] = town.properties.Town;
+      const region = regions.find((feature) => d3.geoContains(feature, town.geometry.coordinates));
+      if (region) selected = region.properties.SWWRPANAME;
+      update();
+      filterTowns();
+    }
+    townMarkers = group.append("g").selectAll("circle")
+      .data(towns).join("circle")
+      .attr("class", "town-marker")
+      .attr("cx", (town) => projection(town.geometry.coordinates)[0])
+      .attr("cy", (town) => projection(town.geometry.coordinates)[1])
+      .attr("r", 4).attr("tabindex", 0).attr("role", "button")
+      .attr("aria-label", (town) => `${town.properties.Town}, ${town.properties.State}. Filter by town.`)
+      .on("click", selectTown)
+      .on("keydown", (event, town) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectTown(event, town);
+        }
+      });
+    townMarkers.append("title").text((town) => `${town.properties.Town}, ${town.properties.State}\n${town.properties.Region}\n${town.properties["Tributary River"]}`);
     const zoom = d3
       .zoom()
       .scaleExtent([1, 8])
       .on("zoom", (event) => {
         group.attr("transform", event.transform);
         markers.attr("transform", (d) => `translate(${path.centroid(d)}) scale(${1 / event.transform.k})`);
+        townMarkers.attr("r", 4 / event.transform.k).attr("stroke-width", 1.5 / event.transform.k);
       });
     svg.call(zoom);
     el("zoom-in").onclick = () =>
@@ -249,9 +333,22 @@
       .forEach((control) => (control.disabled = false));
     selected = farmers[0]?.region ?? regions[0].properties.SWWRPANAME;
     update();
+    for (const id of Object.keys(filterFields)) {
+      el(id).disabled = false;
+      el(id).onchange = (event) => {
+        filters[id] = event.target.value;
+        filterTowns();
+      };
+    }
+    el("clear-filters").onclick = () => {
+      Object.keys(filters).forEach((id) => { filters[id] = ""; });
+      filterTowns();
+    };
+    filterTowns();
     el("map-status").hidden = true;
   } catch (error) {
     console.error(error);
+    el("filter-status").textContent = "Filters unavailable.";
     el("map-status").textContent =
       "Unable to load the basin map: " + error.message;
     el("region-select").options[0].textContent = "Map unavailable";

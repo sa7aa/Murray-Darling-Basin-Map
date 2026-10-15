@@ -134,6 +134,32 @@ select {
   margin-bottom: 12px;
 }
 
+.map-filters {
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border: 1px solid #bdd2db;
+  border-radius: 4px;
+  background: #f2f7f8;
+}
+.map-filters summary { cursor: pointer; font-weight: 700; }
+.filter-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.filter-fields label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.filter-fields select { width: 100%; min-width: 0; }
+.filter-results { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; margin-top: 12px; font-size: 12px; }
+.filter-results button { padding: 6px 12px; }
+.swatch.town { background: #a75021; border: 1px solid #fff; border-radius: 50%; }
+.swatch.abs-region { border: 1px dashed #80529b; background: #f1e7f5; }
+.abs-region-boundary { fill: none; stroke: #80529b; stroke-width: 1; stroke-dasharray: 4 3; cursor: pointer; pointer-events: stroke; }
+.abs-region-boundary.is-filtered { fill: #80529b18; stroke-width: 2; stroke-dasharray: none; }
+.abs-region-boundary:focus-visible { stroke: #4d186a; stroke-width: 3; outline: none; }
+.town-marker { fill: #a75021; stroke: white; stroke-width: 1.5; cursor: pointer; }
+.town-marker:focus-visible { outline: none; stroke: #123bab; stroke-width: 3; }
+
 .map-toolbar label {
   font-size: 12px;
   font-weight: 700;
@@ -263,7 +289,7 @@ select {
 
 .boundary-credit {
   position: absolute;
-  bottom: 16px;
+  bottom: 2px;
   right: 14px;
   font-size: 10px;
   color: #60717a;

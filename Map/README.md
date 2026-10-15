@@ -1,5 +1,40 @@
 # The Farmer's Basin — Map Prototype Setup
 
+## Current dashboard filters
+
+GeoJSON files in `Map/data` (rebuild town and summary exports with `node Map/build-data.cjs`; the ABS polygon file is a downloaded source):
+
+- `MDB_Towns.geojson`: summary towns as Points, including state, region, and river properties.
+- `MDB_Regions.geojson`: summary regions as MultiPoints of their member towns, with town lists and states. These are not boundary polygons.
+- `MDB_Water_Resource_Regions.geojson`: the 19 supplied water resource plan area polygons, distinct from summary regions.
+- `MDB_Summary.geojson`: the town collection used by the dashboard, retained for compatibility.
+- `MDB_ABS_SA3.geojson`: official ABS 2021 SA3 polygons containing the 30 towns, downloaded from the ABS generalised SA3 layer. These appear as purple outlines on the map and have a separate ABS-name filter.
+
+ABS polygon source: https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA3/MapServer/1
+(Australian Bureau of Statistics, CC BY 4.0). Download query: `where=1=1`,
+`outFields=*`, `returnGeometry=true`, `outSR=4326`, `geometryPrecision=4`,
+`maxAllowableOffset=0.005`, `f=geojson`. The saved subset includes only SA3s
+containing a summary town; it does not cover every part of the basin. Polygons
+retain their full statistical extent, including areas outside the basin.
+The build assigns each town its ABS SA3 name and code using point containment,
+and fails if a town does not match exactly one saved SA3. The 2021 edition is
+used consistently throughout this layer; it is not labelled as current boundaries.
+
+Open `map.html` at the repository root. The top filter panel uses
+`data/MDB_Summary.json` for State, Town, Region, Tributary River, and Major River.
+Options narrow together; Clear filters restores all towns. The summary displays
+the matching town count. The water resource region selector continues to
+control the sample farmer panels independently.
+
+Run `node Map/build-data.cjs` from the repository root after editing source data.
+This joins summary towns to coordinates in `data/MDB_Towns_Rivers.json`, writes
+`data/MDB_Summary.geojson`, and bundles towns, boundaries, and farmer profiles in
+`dashboard-data.js`. The dashboard can load this bundle directly from disk.
+Summary regions and water resource plan areas have different names and meanings;
+filtered boundaries are highlighted using town coordinates. Town markers show
+town locations, not individual asset locations. River dropdowns filter town
+records; the supplied boundary file does not contain river line geometry.
+
 ## 1. Folder structure
 
 Put these files in your `Maps` directory like this:

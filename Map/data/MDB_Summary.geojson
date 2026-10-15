@@ -1,0 +1,665 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Albury",
+        "Region": "Riverina",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 16,
+        "ABS SA3 region": "Albury",
+        "ABS SA3 code": "10901"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.91583,
+          -36.08056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "SA",
+        "Town": "Barmera",
+        "Region": "Murraylands",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 6,
+        "ABS SA3 region": "Murray and Mallee",
+        "ABS SA3 code": "40703"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.467,
+          -34.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Benalla",
+        "Region": "North East",
+        "Tributary River": "Broken River",
+        "Major River": "Goulburn River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 8,
+        "ABS SA3 region": "Wangaratta - Benalla",
+        "ABS SA3 code": "20402"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.98444,
+          -36.55194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Bourke",
+        "Region": "Far West",
+        "Tributary River": "Darling River",
+        "Major River": "Darling River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 7,
+        "ABS SA3 region": "Bourke - Cobar - Coonamble",
+        "ABS SA3 code": "10501"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.95111,
+          -30.08167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Bridgewater",
+        "Region": "Central Victoria",
+        "Tributary River": "Loddon River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 6,
+        "ABS SA3 region": "Loddon - Elmore",
+        "ABS SA3 code": "20203"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.94167,
+          -36.59444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "QLD",
+        "Town": "Chinchilla",
+        "Region": "Darling Downs",
+        "Tributary River": "Condamine River",
+        "Major River": "Balonne River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 17,
+        "ABS SA3 region": "Darling Downs (West) - Maranoa",
+        "ABS SA3 code": "30701"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.63,
+          -26.73917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Cowra",
+        "Region": "Central Tablelands",
+        "Tributary River": "Lachlan River",
+        "Major River": "Murrumbidgee",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 17,
+        "ABS SA3 region": "Lachlan Valley",
+        "ABS SA3 code": "10302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.68333,
+          -33.83333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "QLD",
+        "Town": "Dalby",
+        "Region": "Darling Downs",
+        "Tributary River": "Condamine River",
+        "Major River": "Balonne River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 11,
+        "ABS SA3 region": "Darling Downs - East",
+        "ABS SA3 code": "30702"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2625,
+          -27.18167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Deniliquin",
+        "Region": "Riverina",
+        "Tributary River": "Edward River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Upper Murray exc. Albury",
+        "ABS SA3 code": "10903"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.95833,
+          -35.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Dubbo",
+        "Region": "Central West",
+        "Tributary River": "Macquarie River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 12,
+        "ABS SA3 region": "Dubbo",
+        "ABS SA3 code": "10503"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.60111,
+          -32.25694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Echuca",
+        "Region": "Murray",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Campaspe",
+        "ABS SA3 code": "21601"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.75,
+          -36.13
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Forbes",
+        "Region": "Central West",
+        "Tributary River": "Lachlan River",
+        "Major River": "Murrumbidgee",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 9,
+        "ABS SA3 region": "Lachlan Valley",
+        "ABS SA3 code": "10302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.00778,
+          -33.38417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "QLD",
+        "Town": "Goondiwindi",
+        "Region": "Darling Downs",
+        "Tributary River": "Macintyre River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 15,
+        "ABS SA3 region": "Darling Downs (West) - Maranoa",
+        "ABS SA3 code": "30701"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.30556,
+          -28.54722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Gunnedah",
+        "Region": "North West",
+        "Tributary River": "Namoi River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 16,
+        "ABS SA3 region": "Tamworth - Gunnedah",
+        "ABS SA3 code": "11004"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.24944,
+          -30.97806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Inverell",
+        "Region": "Northern Tablelands",
+        "Tributary River": "Macintyre River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Inverell - Tenterfield",
+        "ABS SA3 code": "11002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.1125,
+          -29.77639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Kyneton",
+        "Region": "Macedon Ranges",
+        "Tributary River": "Campaspe River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 8,
+        "ABS SA3 region": "Heathcote - Castlemaine - Kyneton",
+        "ABS SA3 code": "20202"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.45417,
+          -37.24806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "SA",
+        "Town": "Loxton",
+        "Region": "Murraylands",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 4,
+        "ABS SA3 region": "Murray and Mallee",
+        "ABS SA3 code": "40703"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.57083,
+          -34.45139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Mildura",
+        "Region": "Sunraysia",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 10,
+        "ABS SA3 region": "Mildura",
+        "ABS SA3 code": "21502"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.1625,
+          -34.185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Moree",
+        "Region": "North West",
+        "Tributary River": "Gwydir River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 17,
+        "ABS SA3 region": "Moree - Narrabri",
+        "ABS SA3 code": "11003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          149.84167,
+          -29.46333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "SA",
+        "Town": "Murray Bridge",
+        "Region": "Murraylands",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 14,
+        "ABS SA3 region": "Murray and Mallee",
+        "ABS SA3 code": "40703"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.27333,
+          -35.11944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Narrabri",
+        "Region": "North West",
+        "Tributary River": "Namoi River",
+        "Major River": "Barwon River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Moree - Narrabri",
+        "ABS SA3 code": "11003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          149.78194,
+          -30.32917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Shepparton",
+        "Region": "Goulburn Valley",
+        "Tributary River": "Goulburn River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Shepparton",
+        "ABS SA3 code": "21603"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.4,
+          -36.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Swan Hill",
+        "Region": "Murray",
+        "Tributary River": "Murray River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 18,
+        "ABS SA3 region": "Murray River - Swan Hill",
+        "ABS SA3 code": "21503"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.55,
+          -35.34
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Tamworth",
+        "Region": "New England",
+        "Tributary River": "Peel River",
+        "Major River": "Namoi River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 13,
+        "ABS SA3 region": "Tamworth - Gunnedah",
+        "ABS SA3 code": "11004"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.93,
+          -31.09
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Tumut",
+        "Region": "Snowy Valleys",
+        "Tributary River": "Tumut River",
+        "Major River": "Murrumbidgee River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 7,
+        "ABS SA3 region": "Tumut - Tumbarumba",
+        "ABS SA3 code": "11302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.22306,
+          -35.30333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Wagga Wagga",
+        "Region": "Riverina",
+        "Tributary River": "Murrumbidgee River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 12,
+        "ABS SA3 region": "Wagga Wagga",
+        "ABS SA3 code": "11303"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          147.36667,
+          -35.115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "VIC",
+        "Town": "Wangaratta",
+        "Region": "North East",
+        "Tributary River": "Ovens River",
+        "Major River": "Murray River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 12,
+        "ABS SA3 region": "Wangaratta - Benalla",
+        "ABS SA3 code": "20402"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.32417,
+          -36.37167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "QLD",
+        "Town": "Warwick",
+        "Region": "Darling Downs",
+        "Tributary River": "Condamine River",
+        "Major River": "Balonne River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 6,
+        "ABS SA3 region": "Granite Belt",
+        "ABS SA3 code": "30703"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.03417,
+          -28.21917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Wilcannia",
+        "Region": "Far West",
+        "Tributary River": "Paroo River",
+        "Major River": "Darling River",
+        "MDB River": "Darling",
+        "MDB Basin": "Northern",
+        "Number of Assets": 6,
+        "ABS SA3 region": "Broken Hill and Far West",
+        "ABS SA3 code": "10502"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.38194,
+          -31.5625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "State": "NSW",
+        "Town": "Yass",
+        "Region": "Southern Tablelands",
+        "Tributary River": "Yass River",
+        "Major River": "Murrumbidgee River",
+        "MDB River": "Murray",
+        "MDB Basin": "Southern",
+        "Number of Assets": 14,
+        "ABS SA3 region": "Young - Yass",
+        "ABS SA3 code": "10106"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.91222,
+          -34.84333
+        ]
+      }
+    }
+  ]
+}
