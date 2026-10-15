@@ -1,0 +1,281 @@
+[
+ {
+  "Column 1": "State",
+  "Column 2": "Town",
+  "Column 3": "Region",
+  "Column 4": "Tributary River",
+  "Column 5": "MDB River",
+  "Column 6": "MDB Basin",
+  "Column 7": "Number of Assets"
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Yass",
+  "Column 3": "Southern Tablelands",
+  "Column 4": "Yass River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 14
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Tumut",
+  "Column 3": "Snowy Valleys",
+  "Column 4": "Tumut River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 7
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Tamworth",
+  "Column 3": "New England",
+  "Column 4": "Peel River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Wilcannia",
+  "Column 3": "Far West",
+  "Column 4": "Paroo River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 6
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Wangaratta",
+  "Column 3": "North East",
+  "Column 4": "Ovens River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 12
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Gunnedah",
+  "Column 3": "North West",
+  "Column 4": "Namoi River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 16
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Narrabri",
+  "Column 3": "North West",
+  "Column 4": "Namoi River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Wagga Wagga",
+  "Column 3": "Riverina",
+  "Column 4": "Murrumbidgee River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 12
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Albury",
+  "Column 3": "Riverina",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 16
+ },
+ {
+  "Column 1": "SA",
+  "Column 2": "Barmera",
+  "Column 3": "Murraylands",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 6
+ },
+ {
+  "Column 1": "SA",
+  "Column 2": "Loxton",
+  "Column 3": "Murraylands",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 4
+ },
+ {
+  "Column 1": "SA",
+  "Column 2": "Murray Bridge",
+  "Column 3": "Murraylands",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 14
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Echuca",
+  "Column 3": "Murray",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Mildura",
+  "Column 3": "Sunraysia",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 10
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Swan Hill",
+  "Column 3": "Murray",
+  "Column 4": "Murray River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 18
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Dubbo",
+  "Column 3": "Central West",
+  "Column 4": "Macquarie River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 12
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Inverell",
+  "Column 3": "Northern Tablelands",
+  "Column 4": "Macintyre River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "QLD",
+  "Column 2": "Goondiwindi",
+  "Column 3": "Darling Downs",
+  "Column 4": "Macintyre River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 15
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Bridgewater",
+  "Column 3": "Central Victoria",
+  "Column 4": "Loddon River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 6
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Cowra",
+  "Column 3": "Central Tablelands",
+  "Column 4": "Lachlan River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 17
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Forbes",
+  "Column 3": "Central West",
+  "Column 4": "Lachlan River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 9
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Moree",
+  "Column 3": "North West",
+  "Column 4": "Gwydir River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 17
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Shepparton",
+  "Column 3": "Goulburn Valley",
+  "Column 4": "Goulburn River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Deniliquin",
+  "Column 3": "Riverina",
+  "Column 4": "Edward River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 13
+ },
+ {
+  "Column 1": "NSW",
+  "Column 2": "Bourke",
+  "Column 3": "Far West",
+  "Column 4": "Darling River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 7
+ },
+ {
+  "Column 1": "QLD",
+  "Column 2": "Chinchilla",
+  "Column 3": "Darling Downs",
+  "Column 4": "Condamine River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 17
+ },
+ {
+  "Column 1": "QLD",
+  "Column 2": "Dalby",
+  "Column 3": "Darling Downs",
+  "Column 4": "Condamine River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 11
+ },
+ {
+  "Column 1": "QLD",
+  "Column 2": "Warwick",
+  "Column 3": "Darling Downs",
+  "Column 4": "Condamine River",
+  "Column 5": "Darling",
+  "Column 6": "Northern",
+  "Column 7": 6
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Kyneton",
+  "Column 3": "Macedon Ranges",
+  "Column 4": "Campaspe River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 8
+ },
+ {
+  "Column 1": "VIC",
+  "Column 2": "Benalla",
+  "Column 3": "North East",
+  "Column 4": "Broken River",
+  "Column 5": "Murray",
+  "Column 6": "Southern",
+  "Column 7": 8
+ }
+]

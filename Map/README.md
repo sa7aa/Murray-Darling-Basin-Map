@@ -1,5 +1,52 @@
 # The Farmer's Basin — Map Prototype Setup
 
+## Current dashboard filters
+
+`data/Australia.geojson` supplies the muted background outline (Natural Earth
+1:110m Admin 0 Countries, public domain). Source:
+https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/
+It is bundled by `node Map/build-data.cjs` and rendered behind the basin using
+the same projection and zoom transform. The initial view and reset fit Australia.
+
+Generated GeoJSON files in `Map/data` (rebuild with `node Map/build-data.cjs`):
+
+- `MDB_Towns.geojson`: summary towns as Points, including state, region, and river properties.
+- `MDB_Regions.geojson`: summary regions as MultiPoints of their member towns, with town lists and states. These are not boundary polygons.
+- `MDB_Water_Resource_Regions.geojson`: the 19 supplied water resource plan area polygons, distinct from summary regions.
+- `MDB_Summary.geojson`: the town collection used by the dashboard, retained for compatibility.
+Open `map.html` at the repository root. The top filter panel uses
+`data/MDB_Summary.json` for State, Town, Region, Tributary River, and Major River.
+Options narrow together; Clear filters restores all towns. The summary displays
+the matching town count. The water resource region selector continues to
+control the sample farmer panels independently.
+
+The Community Organisation dropdown uses `dc:title` from
+`data/MDB_Community_Data_v5_PLAY.json`. Records are linked to towns using
+`geo:nearestTown` and `geo:State`. Selecting an organisation filters its town;
+geographic filters narrow the organisation options. Each community organisation has a green map symbol, spaced around its nearest town;
+these are not exact office locations. Hovering, focusing, or tapping a symbol
+opens that organisation's card with its website, subject, description, and any
+supplied address. Cards contain no organisation selector. Escape or the close
+button dismisses the card; filtering and zooming also dismiss it.
+Clear filters resets the organisation selection.
+Organisation cards also show `geo:contactAddress` when supplied. The town is
+labelled separately as a nearby location. Cards request the website's own
+locally discovered logo or site icon first, then `/favicon.ico`, with the generic
+building illustration if neither loads. Refresh downloaded images with
+`node --use-system-ca Map/discover-logos.cjs`, then `node Map/build-data.cjs`.
+The discovery script checks website structured logo metadata, logo images, and
+declared browser/touch icons. `data/organisation-logos.json` records source URLs
+and local image paths; assets are saved in `assets/img/organisation-logos`.
+
+Run `node Map/build-data.cjs` from the repository root after editing source data.
+This joins summary towns to coordinates in `data/MDB_Towns_Rivers.json`, writes
+`data/MDB_Summary.geojson`, and bundles towns, boundaries, and farmer profiles in
+`dashboard-data.js`. The dashboard can load this bundle directly from disk.
+Summary regions and water resource plan areas have different names and meanings;
+filtered boundaries are highlighted using town coordinates. Town markers show
+town locations, not individual asset locations. River dropdowns filter town
+records; the supplied boundary file does not contain river line geometry.
+
 ## 1. Folder structure
 
 Put these files in your `Maps` directory like this:

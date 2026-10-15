@@ -1,0 +1,142 @@
+[
+ {
+  "Schema": "Community Data Resource Schema",
+  "Column 2": null
+ },
+ {
+  "Schema": "Organisation",
+  "Column 2": null
+ },
+ {
+  "Schema": "Property",
+  "Column 2": "Definition"
+ },
+ {
+  "Schema": "dc:title",
+  "Column 2": "A name given to the resource."
+ },
+ {
+  "Schema": "dc:creator",
+  "Column 2": "An entity primarily responsible for making the content."
+ },
+ {
+  "Schema": "dc:subject",
+  "Column 2": "The topic of the content (can be repeated)."
+ },
+ {
+  "Schema": "dc:description",
+  "Column 2": "A summary or abstract of the content."
+ },
+ {
+  "Schema": "dc:publisher",
+  "Column 2": "An entity responsible for making the content available."
+ },
+ {
+  "Schema": "dc:contributor",
+  "Column 2": "An entity responsible for making contributions to the resource."
+ },
+ {
+  "Schema": "dc:date",
+  "Column 2": "A point or period of time associated with an event in the lifecycle of the resource."
+ },
+ {
+  "Schema": "dc:type",
+  "Column 2": "The nature or genre of the content on site {Website, Social Media, Citizen Science (inaturalist etc), Other Content (Blog, Directory Listing)}."
+ },
+ {
+  "Schema": "dc:format",
+  "Column 2": "The file format, physical medium, or dimensions of the resource."
+ },
+ {
+  "Schema": "dc:identifier",
+  "Column 2": "An unambiguous reference to the resource within a given context (e.g., FULL URL, handle)."
+ },
+ {
+  "Schema": "dc:language",
+  "Column 2": "The language(s) of the content, typically using ISO 639 codes."
+ },
+ {
+  "Schema": "dc:relation",
+  "Column 2": "A related resource (e.g., linked social media sites, affiliated projects)."
+ },
+ {
+  "Schema": "dc:coverage",
+  "Column 2": "The spatial or temporal topic of the content (e.g., 'Northern Murray-Darling Basin')."
+ },
+ {
+  "Schema": "dc:rights",
+  "Column 2": "Information about rights held in and over the content (e.g., copyright, usage license)."
+ },
+ {
+  "Schema": "Contact",
+  "Column 2": null
+ },
+ {
+  "Schema": "Property",
+  "Column 2": "Definition"
+ },
+ {
+  "Schema": "geo:contactName",
+  "Column 2": "Full name of the primary contact person or organisation."
+ },
+ {
+  "Schema": "geo:contactEmail",
+  "Column 2": "Email address for direct contact or inquiries."
+ },
+ {
+  "Schema": "geo:contactPhone",
+  "Column 2": "Phone number for the project or content creator (optional)."
+ },
+ {
+  "Schema": "geo:contactAddress",
+  "Column 2": "Physical or postal address for the person or group responsible."
+ },
+ {
+  "Schema": "geo:nearestTown",
+  "Column 2": "Closest town or settlement to the project's location."
+ },
+ {
+  "Schema": "geo:nearestRiver",
+  "Column 2": "Closest major or local river system (e.g., 'Namoi River', 'Baaka/Darling')."
+ },
+ {
+  "Schema": "geo:State",
+  "Column 2": "Australian State for the project's location."
+ },
+ {
+  "Schema": "geo:MDBBorder",
+  "Column 2": "Murray Darling Northen / Southern Basin  designation.\t\t\t"
+ },
+ {
+  "Schema": "Agent ",
+  "Column 2": null
+ },
+ {
+  "Schema": "Property",
+  "Column 2": "Definition"
+ },
+ {
+  "Schema": "agent:SiteType",
+  "Column 2": "nonprofit/community/individual/cit-sci/NGO/first-nations"
+ },
+ {
+  "Schema": "agent:SiteKeywords",
+  "Column 2": "Summarise top 10 frequent keywords on the overall site {Keyword}, avoid common words."
+ },
+ {
+  "Schema": "agent:Sentiment",
+  "Column 2": "Based on the overall site content and keywords -  site sentiment {Positive/Negative}"
+ },
+ {
+  "Schema": "agent:Polarity",
+  "Column 2": "Based on overall site content and keywords - site polarity {Objective/Subjective}"
+ },
+ {
+  "Schema": "agent:MDBCommunity_0",
+  "Column 2": "Primary Community {Community Groups, Farmers, First Nations,Citizen Scientists}"
+ },
+ {
+  "Schema": "agent:MDBCommunity_1",
+  "Column 2": "Secondary Community Sub Category  {Fishing/ Sporting/ Tourism/Environmental/Conservation}  or  {Irrigation /Drylands} or {Traditional Owner Corporations/First Nations Land Councils/Ranger Groups/Cultural Heritage} or {Waterwatch/Bird & Frog Monitoring Groups/School-Based Projects/Landcare Monitoring}"
+ }
+]
