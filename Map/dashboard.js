@@ -8,7 +8,11 @@
     selected,
     selectedFarmer,
     policy = "current";
-  let towns, townMarkers;
+  let towns, townMarkers, community, communityMarkers, selectedOrganisation = "";
+  let popupTrigger, popupTimer;
+  const sameTown = (organisation, town) =>
+    organisation.town.trim().toLowerCase() === town.properties.Town.trim().toLowerCase() &&
+    organisation.state.trim().toLowerCase() === town.properties.State.trim().toLowerCase();
   const filterFields = {
     "state-filter": ["State", "All states"],
     "town-filter": ["Town", "All towns"],
@@ -18,11 +22,79 @@
   };
   const filters = Object.fromEntries(Object.keys(filterFields).map((id) => [id, ""]));
   const matches = (town, except) => Object.entries(filters).every(([id, value]) =>
-    id === except || !value || town.properties[filterFields[id][0]] === value);
+    id === except || !value || town.properties[filterFields[id][0]] === value) &&
+    (!selectedOrganisation || sameTown(community.find((item) => item.id === selectedOrganisation), town));
+
+  function showOrganisation(organisation) {
+    const header = document.createElement("div");
+    header.className = "organisation-header";
+    const identity = document.createElement("div");
+    identity.className = "organisation-identity";
+    const badge = document.createElement("span");
+    badge.className = "organisation-logo";
+    badge.setAttribute("aria-hidden", "true");
+    const fallback = document.createElement("img");
+    fallback.src = "assets/img/organisation-default.svg";
+    fallback.alt = "";
+    badge.append(fallback);
+    let websiteURL;
+    try {
+      const parsed = new URL(organisation.website);
+      if (["http:", "https:"].includes(parsed.protocol)) websiteURL = parsed;
+    } catch { /* Some identifiers are not web URLs. */ }
+    if (websiteURL) {
+      // Request the site's own icon only for the organisation being previewed.
+      const logo = document.createElement("img");
+      logo.alt = "";
+      logo.referrerPolicy = "no-referrer";
+      logo.onload = () => { fallback.hidden = true; };
+      logo.onerror = () => { logo.remove(); fallback.hidden = false; };
+      logo.src = new URL("/favicon.ico", websiteURL).href;
+      badge.append(logo);
+    }
+    const eyebrow = document.createElement("p");
+    eyebrow.className = "organisation-eyebrow";
+    eyebrow.textContent = "Community directory";
+    const heading = document.createElement("h3");
+    heading.textContent = organisation.title;
+    const location = document.createElement("p");
+    location.className = "organisation-location";
+    location.textContent = `Near ${organisation.town}, ${organisation.state}`;
+    identity.append(eyebrow, heading, location);
+    header.append(badge, identity);
+    const website = document.createElement("div");
+    website.className = "organisation-website";
+    // Only render web links for HTTP(S) identifiers from the dataset.
+    if (websiteURL) {
+      const link = document.createElement("a");
+      link.href = organisation.website;
+      link.textContent = "Visit website ↗";
+      link.title = organisation.website;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      website.append(link);
+      const domain = document.createElement("span");
+      domain.textContent = websiteURL.hostname.replace(/^www\./, "");
+      website.append(domain);
+    } else website.textContent = organisation.website || "Website not supplied";
+    const subject = document.createElement("div");
+    subject.className = "organisation-subjects";
+    subject.setAttribute("aria-label", "Subject");
+    (organisation.subject || "Subject not supplied").split(",").map((part) => part.trim()).filter(Boolean).forEach((part) => {
+      const tag = document.createElement("span");
+      tag.textContent = part;
+      subject.append(tag);
+    });
+    const description = document.createElement("p");
+    description.className = "organisation-description";
+    description.textContent = organisation.description || "Description not supplied";
+    const content = [header, subject, description];
+    el("community-details").replaceChildren(...content, website);
+  }
 
   function filterTowns() {
     const visible = towns.filter((town) => matches(town));
-    const active = Object.values(filters).some(Boolean);
+    const active = Object.values(filters).some(Boolean) || !!selectedOrganisation;
     for (const [id, [field, label]] of Object.entries(filterFields)) {
       const values = [...new Set(towns.filter((town) => matches(town, id))
         .map((town) => town.properties[field]))].sort((a, b) => a.localeCompare(b));
@@ -39,6 +111,43 @@
     el("filter-status").textContent = `${visible.length} of ${towns.length} towns` +
       (visible.length ? "" : ". No towns match these filters.");
     el("clear-filters").disabled = !active;
+    // Build options from geographic filters independently of the organisation selection.
+    const eligible = community.filter((organisation) => towns.some((town) =>
+      sameTown(organisation, town) && Object.entries(filters).every(([id, value]) =>
+        !value || town.properties[filterFields[id][0]] === value)))
+      .sort((a, b) => a.title.localeCompare(b.title));
+    if (selectedOrganisation && !eligible.some((item) => item.id === selectedOrganisation)) {
+      selectedOrganisation = "";
+      filterTowns();
+      return;
+    }
+    el("community-filter").replaceChildren(new Option("All community organisations", ""),
+      ...eligible.map((organisation) => {
+        const option = new Option(organisation.title, organisation.id);
+        option.title = `${organisation.website || ""}\n${organisation.subject || ""}\n${organisation.description || ""}`;
+        return option;
+      }));
+    el("community-filter").value = selectedOrganisation;
+    const shown = eligible.filter((item) => !selectedOrganisation || item.id === selectedOrganisation);
+    const shownIds = new Set(shown.map((organisation) => organisation.id));
+    communityMarkers.style("display", (organisation) => shownIds.has(organisation.id) ? null : "none");
+    closeCommunity();
+  }
+  function closeCommunity() {
+    clearTimeout(popupTimer);
+    el("community-popup").hidden = true;
+  }
+  function openCommunity(event, organisation) {
+    clearTimeout(popupTimer);
+    popupTrigger = event.currentTarget;
+    el("community-count").textContent = "Near " + organisation.town + ", " + organisation.state;
+    showOrganisation(organisation);
+    el("community-popup").hidden = false;
+    const surface = el("basin-map").parentElement.getBoundingClientRect();
+    const anchor = event.currentTarget.getBoundingClientRect();
+    const popup = el("community-popup");
+    popup.style.left = Math.max(12, Math.min(anchor.right - surface.left + 12, surface.width - popup.offsetWidth - 12)) + "px";
+    popup.style.top = Math.max(12, Math.min(anchor.top - surface.top, surface.height - popup.offsetHeight - 12)) + "px";
   }
     //Used for farmer goals and concerns
   function list(id, values) {
@@ -158,6 +267,7 @@
     farmers = profiles;
     regions = geojson.features;
     towns = window.basinData.towns.features;
+    community = window.basinData.community;
     //Fix polygon coordinate direction so D3 renders each map region correctly
     for (const feature of regions) {
       const polygons =
@@ -239,18 +349,18 @@
       event.stopPropagation();
       // A town selection replaces previous filters so it is always reachable.
       Object.keys(filters).forEach((id) => { filters[id] = ""; });
+      selectedOrganisation = "";
       filters["town-filter"] = town.properties.Town;
       const region = regions.find((feature) => d3.geoContains(feature, town.geometry.coordinates));
       if (region) selected = region.properties.SWWRPANAME;
       update();
       filterTowns();
     }
-    townMarkers = group.append("g").selectAll("circle")
-      .data(towns).join("circle")
+    townMarkers = group.append("g").selectAll("g")
+      .data(towns).join("g")
       .attr("class", "town-marker")
-      .attr("cx", (town) => projection(town.geometry.coordinates)[0])
-      .attr("cy", (town) => projection(town.geometry.coordinates)[1])
-      .attr("r", 4).attr("tabindex", 0).attr("role", "button")
+      .attr("transform", (town) => `translate(${projection(town.geometry.coordinates)})`)
+      .attr("tabindex", 0).attr("role", "button")
       .attr("aria-label", (town) => `${town.properties.Town}, ${town.properties.State}. Filter by town.`)
       .on("click", selectTown)
       .on("keydown", (event, town) => {
@@ -259,14 +369,57 @@
           selectTown(event, town);
         }
       });
+    townMarkers.append("circle").attr("r", 11).attr("class", "town-symbol-background");
+    townMarkers.append("path").attr("d", "M-8,6V-2L-4,-6L0,-2V6ZM1,6V-7H7V6ZM-5,6V2H-3V6M3,-4H5M3,-1H5M3,2H5");
     townMarkers.append("title").text((town) => `${town.properties.Town}, ${town.properties.State}\n${town.properties.Region}\n${town.properties["Tributary River"]}`);
+    // Spread individual symbols around the nearest town, not exact office locations.
+    const markerPositions = new Map();
+    for (const town of towns) {
+      community.filter((organisation) => sameTown(organisation, town)).forEach((organisation, index) => {
+        const angle = index * 2.399963229728653;
+        const radius = 16 + 12 * Math.sqrt(index);
+        markerPositions.set(organisation.id, { point: projection(town.geometry.coordinates), offset: [Math.cos(angle) * radius, Math.sin(angle) * radius] });
+      });
+    }
+    function organisationTransform(organisation, scale = 1) {
+      const position = markerPositions.get(organisation.id);
+      // Start at a quarter size and grow to normal size at 4× zoom.
+      const symbolSize = Math.min(1, 0.25 * scale);
+      return `translate(${position.point}) scale(${1 / scale}) translate(${position.offset}) scale(${symbolSize})`;
+    }
+    communityMarkers = group.append("g").selectAll("g")
+      .data(community).join("g")
+      .attr("class", "community-marker")
+      .attr("transform", (organisation) => organisationTransform(organisation))
+      .attr("aria-label", (organisation) => organisation.title + ". Near " + organisation.town + ". Show details.")
+      .attr("tabindex", 0).attr("role", "button")
+      .attr("aria-controls", "community-popup")
+      .on("mouseenter", openCommunity).on("focus", openCommunity)
+      .on("mouseleave", () => { popupTimer = setTimeout(closeCommunity, 350); })
+      .on("click", (event, town) => { event.stopPropagation(); openCommunity(event, town); el("close-community").focus(); })
+      .on("keydown", (event, town) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault(); event.stopPropagation(); openCommunity(event, town); el("close-community").focus();
+        }
+      });
+    communityMarkers.append("circle").attr("r", 8);
+    communityMarkers.append("path").attr("transform", "scale(0.65)").attr("d", "M-3,-1a3,3 0 1,0 0,-6a3,3 0 1,0 0,6M4,-1a2.5,2.5 0 1,0 0,-5a2.5,2.5 0 1,0 0,5M-8,6v-2q0,-4 5,-4q5,0 5,4v2ZM3,6v-2q0,-2 -1,-3q7,-2 7,3v2Z");
+    el("close-community").onclick = () => { popupTrigger?.focus(); closeCommunity(); };
+    el("community-popup").onmouseenter = () => clearTimeout(popupTimer);
+    el("community-popup").onmouseleave = () => { popupTimer = setTimeout(closeCommunity, 350); };
+    el("community-popup").onfocusin = () => clearTimeout(popupTimer);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !el("community-popup").hidden) { popupTrigger?.focus(); closeCommunity(); }
+    });
     const zoom = d3
       .zoom()
       .scaleExtent([1, 8])
       .on("zoom", (event) => {
         group.attr("transform", event.transform);
+        closeCommunity();
+        communityMarkers.attr("transform", (organisation) => organisationTransform(organisation, event.transform.k));
         markers.attr("transform", (d) => `translate(${path.centroid(d)}) scale(${1 / event.transform.k})`);
-        townMarkers.attr("r", 4 / event.transform.k).attr("stroke-width", 1.5 / event.transform.k);
+        townMarkers.attr("transform", (town) => `translate(${projection(town.geometry.coordinates)}) scale(${1 / event.transform.k})`);
       });
     svg.call(zoom);
     el("zoom-in").onclick = () =>
@@ -317,8 +470,15 @@
     }
     el("clear-filters").onclick = () => {
       Object.keys(filters).forEach((id) => { filters[id] = ""; });
+      selectedOrganisation = "";
       filterTowns();
     };
+    el("community-filter").disabled = false;
+    el("community-filter").onchange = (event) => {
+      selectedOrganisation = event.target.value;
+      filterTowns();
+    };
+
     filterTowns();
     el("map-status").hidden = true;
   } catch (error) {

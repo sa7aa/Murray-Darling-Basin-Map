@@ -41,6 +41,7 @@
             <div><label for="summary-region-filter">Region</label><select id="summary-region-filter" disabled><option value="">All regions</option></select></div>
             <div><label for="tributary-filter">Tributary river</label><select id="tributary-filter" disabled><option value="">All tributary rivers</option></select></div>
             <div><label for="major-river-filter">Major river</label><select id="major-river-filter" disabled><option value="">All major rivers</option></select></div>
+            <div><label for="community-filter">Community Organisation</label><select id="community-filter" disabled><option value="">All community organisations</option></select></div>
             <div>
               <label for="region-select">Water resource region</label>
               <select id="region-select" disabled>
@@ -51,6 +52,10 @@
           <div class="filter-results"><span id="filter-status" role="status">Loading towns...</span><button id="clear-filters" type="button" disabled>Clear filters</button></div>
         </details>
         <div class="map-surface">
+          <div id="community-popup" class="community-popup" role="region" aria-label="Community organisation details" hidden>
+            <div class="community-popup-toolbar"><span id="community-count"></span><button id="close-community" type="button" aria-label="Close organisation details">&times;</button></div>
+            <div id="community-details" class="community-details" aria-live="polite"></div>
+          </div>
           <div class="map-caption">
             <strong>MURRAY-DARLING BASIN</strong
             ><span>Surface water resource plan areas</span>
@@ -95,7 +100,8 @@
             <span><b class="swatch selected"></b>Selected region</span
             ><span><b class="profile-count-key">1</b>Farmer profile count</span
             ><span><b class="swatch other"></b>Regions</span>
-            <span><b class="swatch town"></b>Towns</span>
+            <span><i class="bi bi-buildings-fill town-legend-icon" aria-hidden="true"></i>Towns</span>
+            <span><i class="bi bi-people-fill community-legend-icon" aria-hidden="true"></i>Community organisations</span>
           </div>
         </div>
       </section>

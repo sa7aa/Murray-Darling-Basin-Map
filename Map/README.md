@@ -14,6 +14,20 @@ Options narrow together; Clear filters restores all towns. The summary displays
 the matching town count. The water resource region selector continues to
 control the sample farmer panels independently.
 
+The Community Organisation dropdown uses `dc:title` from
+`data/MDB_Community_Data_v5_PLAY.json`. Records are linked to towns using
+`geo:nearestTown` and `geo:State`. Selecting an organisation filters its town;
+geographic filters narrow the organisation options. Each community organisation has a green map symbol, spaced around its nearest town;
+these are not exact office locations. Hovering, focusing, or tapping a symbol
+opens that organisation's card with its website, subject, description, and any
+supplied address. Cards contain no organisation selector. Escape or the close
+button dismisses the card; filtering and zooming also dismiss it.
+Clear filters resets the organisation selection.
+Organisation cards also show `geo:contactAddress` when supplied. The town is
+labelled separately as a nearby location. Cards request the website's own
+`/favicon.ico` as a site icon, with initials if unavailable; these icons load
+on demand and are not verified organisation logos or downloaded local images.
+
 Run `node Map/build-data.cjs` from the repository root after editing source data.
 This joins summary towns to coordinates in `data/MDB_Towns_Rivers.json`, writes
 `data/MDB_Summary.geojson`, and bundles towns, boundaries, and farmer profiles in

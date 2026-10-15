@@ -152,9 +152,49 @@ select {
 .filter-fields select { width: 100%; min-width: 0; }
 .filter-results { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; margin-top: 12px; font-size: 12px; }
 .filter-results button { padding: 6px 12px; }
+.community-details { align-self: start; min-width: 0; padding: 24px; background: #fff; border: 1px solid #dbe7e0; border-radius: 14px; box-shadow: 0 5px 20px #203e2c08; overflow-wrap: anywhere; font-size: 13px; color: #354a40; }
+.organisation-header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.organisation-identity { min-width: 0; }
+.organisation-logo { position: relative; flex: 0 0 64px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 14px; background: #edf4ee; border: 1px solid #d9e7dd; color: #356349; font-size: 21px; font-weight: 700; overflow: hidden; }
+.organisation-logo img { position: absolute; width: 36px; height: 36px; object-fit: contain; }
+.community-details .organisation-eyebrow { margin: 0 0 7px; color: #698272; text-transform: uppercase; letter-spacing: 1.4px; font-size: 9px; font-weight: 700; }
+.community-details h3 { margin: 0 0 7px; color: #203c2d; font-size: 19px; line-height: 1.3; }
+.community-details .organisation-location { margin: 0; color: #6c7d73; font-size: 12px; }
+.organisation-subjects { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.organisation-subjects span { background: #eff5f1; color: #496953; border-radius: 20px; padding: 5px 9px; font-size: 10px; }
+.organisation-description { line-height: 1.7; margin-bottom: 18px; }
+.organisation-address { border-top: 1px solid #e7ede8; padding-top: 14px; margin-bottom: 18px; }
+.organisation-address strong { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6c7d73; }
+.organisation-address p { margin: 7px 0 0; line-height: 1.6; white-space: pre-line; }
+.organisation-website { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 4px; }
+.organisation-website a { padding: 10px 14px; background: #28553c; color: white; border-radius: 7px; font-size: 12px; font-weight: 700; }
+.organisation-website a:hover { background: #183e29; }
+.organisation-website span { font-size: 10px; color: #738479; }
+#community-count { margin: 0 0 10px; font-size: 11px; font-weight: 700; color: #577361; }
 .swatch.town { background: #a75021; border: 1px solid #fff; border-radius: 50%; }
-.town-marker { fill: #a75021; stroke: white; stroke-width: 1.5; cursor: pointer; }
-.town-marker:focus-visible { outline: none; stroke: #123bab; stroke-width: 3; }
+.swatch.community { background: #28553c; border: 1px solid white; border-radius: 50%; }
+.community-marker { cursor: pointer; }
+.community-marker circle { fill: #28553c; stroke: white; stroke-width: 1.5; }
+.community-marker path { fill: white; pointer-events: none; }
+.community-marker text { fill: #234332; stroke: white; stroke-width: 3px; paint-order: stroke; font-size: 10px; font-weight: bold; pointer-events: none; }
+.community-marker:focus-visible { outline: none; }
+.community-marker:focus-visible circle, .community-marker:hover circle { stroke: #dd9300; stroke-width: 3; }
+.community-popup { position: absolute; z-index: 8; top: 60px; right: 55px; width: 360px; max-width: calc(100% - 24px); max-height: calc(100% - 78px); overflow-y: auto; background: white; border: 1px solid #bed2c5; border-radius: 14px; box-shadow: 0 10px 35px #16352630; }
+.community-popup[hidden] { display: none; }
+.community-popup-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #eff5f1; gap: 10px; }
+.community-popup-toolbar #community-count { margin: 0; }
+.community-popup-toolbar button { border: 0; background: transparent; font-size: 23px; padding: 0 4px; color: #355641; }
+.community-popup .community-details { border: 0; box-shadow: none; padding: 16px; }
+.community-popup .organisation-logo { width: 48px; height: 48px; flex-basis: 48px; }
+.community-popup .organisation-header { gap: 12px; }
+.community-popup h3 { font-size: 16px; }
+.town-marker { cursor: pointer; }
+.town-symbol-background { fill: #79502f; stroke: #fff8f0; stroke-width: 1.2; }
+.town-marker path { fill: #fff8f0; stroke: #79502f; stroke-width: 1; stroke-linejoin: round; pointer-events: none; }
+.town-marker:focus-visible { outline: none; }
+.town-marker:focus-visible circle, .town-marker:hover circle { stroke: #123bab; stroke-width: 2.5; }
+.town-legend-icon { color: #79502f; margin: 0; font-size: 14px; }
+.community-legend-icon { color: #28553c; margin: 0; font-size: 14px; }
 
 .map-toolbar label {
   font-size: 12px;
@@ -244,6 +284,8 @@ select {
   gap: 6px;
   align-items: center;
 }
+
+
 
 .swatch {
   width: 12px;

@@ -56,6 +56,16 @@ const data = {
   geojson: read("mdb_geo_json.json"),
   farmers: read("farmers.json"),
   towns,
+  community: read("data/MDB_Community_Data_v5_PLAY.json").map((row, index) => ({
+    id: String(index),
+    title: row["dc:title"],
+    website: row["dc:identifier"],
+    subject: row["dc:subject"],
+    description: row["dc:description"],
+    address: row["geo:contactAddress"],
+    town: row["geo:nearestTown"],
+    state: row["geo:State"],
+  })),
 };
 // Preserve the supplied water plan polygons as a separately named GeoJSON file.
 writeGeoJSON("MDB_Water_Resource_Regions.geojson", data.geojson);
