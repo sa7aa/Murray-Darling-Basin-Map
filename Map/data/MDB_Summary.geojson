@@ -11,9 +11,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 16,
-        "ABS SA3 region": "Albury",
-        "ABS SA3 code": "10901"
+        "Number of Assets": 16
       },
       "geometry": {
         "type": "Point",
@@ -33,9 +31,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 6,
-        "ABS SA3 region": "Murray and Mallee",
-        "ABS SA3 code": "40703"
+        "Number of Assets": 6
       },
       "geometry": {
         "type": "Point",
@@ -55,9 +51,7 @@
         "Major River": "Goulburn River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 8,
-        "ABS SA3 region": "Wangaratta - Benalla",
-        "ABS SA3 code": "20402"
+        "Number of Assets": 8
       },
       "geometry": {
         "type": "Point",
@@ -77,9 +71,7 @@
         "Major River": "Darling River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 7,
-        "ABS SA3 region": "Bourke - Cobar - Coonamble",
-        "ABS SA3 code": "10501"
+        "Number of Assets": 7
       },
       "geometry": {
         "type": "Point",
@@ -99,9 +91,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 6,
-        "ABS SA3 region": "Loddon - Elmore",
-        "ABS SA3 code": "20203"
+        "Number of Assets": 6
       },
       "geometry": {
         "type": "Point",
@@ -121,9 +111,7 @@
         "Major River": "Balonne River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 17,
-        "ABS SA3 region": "Darling Downs (West) - Maranoa",
-        "ABS SA3 code": "30701"
+        "Number of Assets": 17
       },
       "geometry": {
         "type": "Point",
@@ -143,9 +131,7 @@
         "Major River": "Murrumbidgee",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 17,
-        "ABS SA3 region": "Lachlan Valley",
-        "ABS SA3 code": "10302"
+        "Number of Assets": 17
       },
       "geometry": {
         "type": "Point",
@@ -165,9 +151,7 @@
         "Major River": "Balonne River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 11,
-        "ABS SA3 region": "Darling Downs - East",
-        "ABS SA3 code": "30702"
+        "Number of Assets": 11
       },
       "geometry": {
         "type": "Point",
@@ -187,9 +171,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Upper Murray exc. Albury",
-        "ABS SA3 code": "10903"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -209,9 +191,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 12,
-        "ABS SA3 region": "Dubbo",
-        "ABS SA3 code": "10503"
+        "Number of Assets": 12
       },
       "geometry": {
         "type": "Point",
@@ -231,9 +211,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Campaspe",
-        "ABS SA3 code": "21601"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -253,9 +231,7 @@
         "Major River": "Murrumbidgee",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 9,
-        "ABS SA3 region": "Lachlan Valley",
-        "ABS SA3 code": "10302"
+        "Number of Assets": 9
       },
       "geometry": {
         "type": "Point",
@@ -275,9 +251,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 15,
-        "ABS SA3 region": "Darling Downs (West) - Maranoa",
-        "ABS SA3 code": "30701"
+        "Number of Assets": 15
       },
       "geometry": {
         "type": "Point",
@@ -297,9 +271,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 16,
-        "ABS SA3 region": "Tamworth - Gunnedah",
-        "ABS SA3 code": "11004"
+        "Number of Assets": 16
       },
       "geometry": {
         "type": "Point",
@@ -319,9 +291,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Inverell - Tenterfield",
-        "ABS SA3 code": "11002"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -341,9 +311,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 8,
-        "ABS SA3 region": "Heathcote - Castlemaine - Kyneton",
-        "ABS SA3 code": "20202"
+        "Number of Assets": 8
       },
       "geometry": {
         "type": "Point",
@@ -363,9 +331,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 4,
-        "ABS SA3 region": "Murray and Mallee",
-        "ABS SA3 code": "40703"
+        "Number of Assets": 4
       },
       "geometry": {
         "type": "Point",
@@ -385,9 +351,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 10,
-        "ABS SA3 region": "Mildura",
-        "ABS SA3 code": "21502"
+        "Number of Assets": 10
       },
       "geometry": {
         "type": "Point",
@@ -407,9 +371,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 17,
-        "ABS SA3 region": "Moree - Narrabri",
-        "ABS SA3 code": "11003"
+        "Number of Assets": 17
       },
       "geometry": {
         "type": "Point",
@@ -429,9 +391,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 14,
-        "ABS SA3 region": "Murray and Mallee",
-        "ABS SA3 code": "40703"
+        "Number of Assets": 14
       },
       "geometry": {
         "type": "Point",
@@ -451,9 +411,7 @@
         "Major River": "Barwon River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Moree - Narrabri",
-        "ABS SA3 code": "11003"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -473,9 +431,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Shepparton",
-        "ABS SA3 code": "21603"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -495,9 +451,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 18,
-        "ABS SA3 region": "Murray River - Swan Hill",
-        "ABS SA3 code": "21503"
+        "Number of Assets": 18
       },
       "geometry": {
         "type": "Point",
@@ -517,9 +471,7 @@
         "Major River": "Namoi River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 13,
-        "ABS SA3 region": "Tamworth - Gunnedah",
-        "ABS SA3 code": "11004"
+        "Number of Assets": 13
       },
       "geometry": {
         "type": "Point",
@@ -539,9 +491,7 @@
         "Major River": "Murrumbidgee River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 7,
-        "ABS SA3 region": "Tumut - Tumbarumba",
-        "ABS SA3 code": "11302"
+        "Number of Assets": 7
       },
       "geometry": {
         "type": "Point",
@@ -561,9 +511,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 12,
-        "ABS SA3 region": "Wagga Wagga",
-        "ABS SA3 code": "11303"
+        "Number of Assets": 12
       },
       "geometry": {
         "type": "Point",
@@ -583,9 +531,7 @@
         "Major River": "Murray River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 12,
-        "ABS SA3 region": "Wangaratta - Benalla",
-        "ABS SA3 code": "20402"
+        "Number of Assets": 12
       },
       "geometry": {
         "type": "Point",
@@ -605,9 +551,7 @@
         "Major River": "Balonne River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 6,
-        "ABS SA3 region": "Granite Belt",
-        "ABS SA3 code": "30703"
+        "Number of Assets": 6
       },
       "geometry": {
         "type": "Point",
@@ -627,9 +571,7 @@
         "Major River": "Darling River",
         "MDB River": "Darling",
         "MDB Basin": "Northern",
-        "Number of Assets": 6,
-        "ABS SA3 region": "Broken Hill and Far West",
-        "ABS SA3 code": "10502"
+        "Number of Assets": 6
       },
       "geometry": {
         "type": "Point",
@@ -649,9 +591,7 @@
         "Major River": "Murrumbidgee River",
         "MDB River": "Murray",
         "MDB Basin": "Southern",
-        "Number of Assets": 14,
-        "ABS SA3 region": "Young - Yass",
-        "ABS SA3 code": "10106"
+        "Number of Assets": 14
       },
       "geometry": {
         "type": "Point",

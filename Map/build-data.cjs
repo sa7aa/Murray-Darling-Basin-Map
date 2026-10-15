@@ -6,18 +6,6 @@ const read = (name) =>
 // The summary export stores its field names in the first row.
 const [headers, ...summary] = read("data/MDB_Summary.json");
 const locations = read("data/MDB_Towns_Rivers.json");
-const d3 = require("../assets/vendor/d3/d3.min.js");
-const statisticalRegions = read("data/MDB_ABS_SA3.geojson");
-// D3 uses the opposite exterior-ring winding to RFC 7946 GeoJSON.
-const containsRegions = structuredClone(statisticalRegions);
-for (const feature of containsRegions.features) {
-  const polygons = feature.geometry.type === "MultiPolygon"
-    ? feature.geometry.coordinates : [feature.geometry.coordinates];
-  for (const polygon of polygons) {
-    if (d3.geoArea({ type: "Polygon", coordinates: polygon }) > 2 * Math.PI)
-      polygon.forEach((ring) => ring.reverse());
-  }
-}
 const towns = {
   type: "FeatureCollection",
   features: summary.map((row) => {
@@ -29,11 +17,6 @@ const towns = {
     if (!location || !Number.isFinite(location.Longitude) || !Number.isFinite(location.Latitude)) {
       throw new Error(`Missing coordinates for ${properties.Town}, ${properties.State}`);
     }
-    const matches = containsRegions.features.filter((region) =>
-      d3.geoContains(region, [location.Longitude, location.Latitude]));
-    if (matches.length !== 1) throw new Error(`Expected one ABS SA3 region for ${properties.Town}`);
-    properties["ABS SA3 region"] = matches[0].properties.sa3_name_2021;
-    properties["ABS SA3 code"] = matches[0].properties.sa3_code_2021;
     return {
       type: "Feature",
       properties,
@@ -73,7 +56,6 @@ const data = {
   geojson: read("mdb_geo_json.json"),
   farmers: read("farmers.json"),
   towns,
-  statisticalRegions,
 };
 // Preserve the supplied water plan polygons as a separately named GeoJSON file.
 writeGeoJSON("MDB_Water_Resource_Regions.geojson", data.geojson);

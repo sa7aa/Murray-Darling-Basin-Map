@@ -8,12 +8,11 @@
     selected,
     selectedFarmer,
     policy = "current";
-  let towns, townMarkers, statisticalPaths;
+  let towns, townMarkers;
   const filterFields = {
     "state-filter": ["State", "All states"],
     "town-filter": ["Town", "All towns"],
     "summary-region-filter": ["Region", "All regions"],
-    "abs-region-filter": ["ABS SA3 region", "All ABS regions"],
     "tributary-filter": ["Tributary River", "All tributary rivers"],
     "major-river-filter": ["Major River", "All major rivers"],
   };
@@ -31,10 +30,6 @@
       el(id).value = filters[id];
     }
     townMarkers.style("display", (town) => matches(town) ? null : "none");
-    const visibleCodes = new Set(visible.map((town) => town.properties["ABS SA3 code"]));
-    statisticalPaths
-      .attr("opacity", (region) => !active || visibleCodes.has(region.properties.sa3_code_2021) ? 1 : 0.12)
-      .classed("is-filtered", (region) => active && visibleCodes.has(region.properties.sa3_code_2021));
     // Geographic regions in the summary are distinct from water plan boundaries.
     // Use town coordinates to connect the two, rather than equating their names.
     const matchingRegions = new Set(regions.filter((region) => visible.some((town) =>
@@ -164,7 +159,7 @@
     regions = geojson.features;
     towns = window.basinData.towns.features;
     //Fix polygon coordinate direction so D3 renders each map region correctly
-    for (const feature of [...regions, ...window.basinData.statisticalRegions.features]) {
+    for (const feature of regions) {
       const polygons =
         feature.geometry.type === "MultiPolygon"
           ? feature.geometry.coordinates
@@ -188,7 +183,7 @@
         [220, 25],
         [790, 465],
       ],
-      { type: "FeatureCollection", features: [...regions, ...window.basinData.statisticalRegions.features] },
+      geojson,
     );
     const path = d3.geoPath(projection);
     paths = group.append("g")
@@ -213,26 +208,6 @@
         }
       });
     paths.append("title").text((d) => d.properties.SWWRPANAME);
-    statisticalPaths = group.append("g").selectAll("path")
-      .data(window.basinData.statisticalRegions.features).join("path")
-      .attr("class", "abs-region-boundary")
-      .attr("d", path).attr("vector-effect", "non-scaling-stroke")
-      .attr("tabindex", 0).attr("role", "button")
-      .attr("aria-label", (region) => `${region.properties.sa3_name_2021}, ABS statistical region. Filter towns.`)
-      .on("click", selectStatisticalRegion)
-      .on("keydown", (event, region) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          selectStatisticalRegion(event, region);
-        }
-      });
-    statisticalPaths.append("title").text((region) => `${region.properties.sa3_name_2021} (ABS SA3, 2021)`);
-    function selectStatisticalRegion(event, region) {
-      event.stopPropagation();
-      Object.keys(filters).forEach((id) => { filters[id] = ""; });
-      filters["abs-region-filter"] = region.properties.sa3_name_2021;
-      filterTowns();
-    }
     // Markers represent regional profile counts, not actual farm locations
     const markerLayer = group.append("g");
     function openProfiles(event, d) {
