@@ -1,4 +1,4 @@
-/* Supplied basin boundaries and fictional farm scenarios are loaded separately. */
+﻿/* Supplied basin boundaries and fictional farm scenarios are loaded separately. */
 (async function () {
   const el = (id) => document.getElementById(id);
   let farmers,
@@ -181,21 +181,12 @@
   //Refresh all dashboard content whenever a region/farmer/policy tabs change
   function update() {
      //Find the farmer profile and map region that match the selected region
-    const regionalFarmers = farmers.filter((f) => f.region === selected);
-    if (!regionalFarmers.includes(farmers[selectedFarmer])) {
-      selectedFarmer = farmers.findIndex((f) => f.region === selected);
-    }
-    const farmer = farmers[selectedFarmer];
+    selectedFarmer = farmers.findIndex((f) => f.region === selected);
+    const farmer = farmers[selectedFarmer] || null;
     const region = regions.find((f) => f.properties.SWWRPANAME === selected);
     //Dropdowns in sync with the selected area
     el("region-select").value = selected;
-    el("farmer-select").replaceChildren(
-      ...(regionalFarmers.length
-        ? regionalFarmers.map((f) => new Option(f.name, String(farmers.indexOf(f))))
-        : [new Option("No sample profile in this region", "")]),
-    );
     el("farmer-select").value = farmer ? String(selectedFarmer) : "";
-    el("farmer-select").disabled = !farmer;
     if (el("region-name")) el("region-name").textContent = selected;
     if (el("region-state")) el("region-state").textContent = region.properties.STATE;
     //updated map styling
@@ -269,36 +260,35 @@
     el("farmer-photo").hidden = !farmer.photo;
     if (farmer.photo) el("farmer-photo").src = farmer.photo;
     el("farmer-name").textContent = farmer.name;
-    el("farmer-role").textContent = farmer.role;
+    el("farmer-role").textContent = farmer.age
+      ? `${farmer.age} | ${farmer.role}`
+      : farmer.role;
     el("farmer-description").textContent = farmer.description;
-    el("farmer-evidence-note").textContent = farmer.evidenceNote;
+    el("farmer-photo").alt = "Illustrative stock portrait, not a real local farmer";
     el("farmer-region").textContent = farmer.region + ", " + farmer.state;
     el("farmer-crop").textContent = farmer.crop ?? "Not supplied in source records";
+    const cropData = farmer.cropWaterUse || [];
+    el("farmer-crop-data").hidden = !cropData.length;
+    const cropGeography = farmer.cropDataGeography || "Australia";
+    el("farmer-crop-data-scope").textContent = cropGeography === "Australia"
+      ? "Australia-wide ABS estimates, 2020–21. National context only."
+      : `ABS estimate, 2020–21 · ${cropGeography} NRM.`;
+    el("farmer-crop-data-list").replaceChildren();
+    const number = new Intl.NumberFormat("en-AU", { maximumFractionDigits: 0 });
+    cropData.forEach((item) => {
+      const row = document.createElement("li");
+      const area = Number.isFinite(item.areaWateredHa)
+        ? `${number.format(item.areaWateredHa)} ha watered`
+        : "area not supplied";
+      const volume = Number.isFinite(item.volumeAppliedML)
+        ? `${number.format(item.volumeAppliedML)} ML applied`
+        : "volume not supplied";
+      row.textContent = `${item.crop}: ${area}; ${volume}.`;
+      el("farmer-crop-data-list").append(row);
+    });
     list("farmer-goals", farmer.goals.length ? farmer.goals : ["Not supplied in source records."]);
     list("farmer-concerns", farmer.concerns.length ? farmer.concerns : ["Not supplied in source records."]);
-    el("farmer-sources").replaceChildren();
-    farmer.sources.forEach((source) => {
-      const item = document.createElement("li");
-      const heading = document.createElement("strong");
-      heading.textContent = `${source.title} — ${source.town}, ${source.state}`;
-      const description = document.createElement("p");
-      description.textContent = source.description || "Description not supplied.";
-      const subject = document.createElement("p");
-      subject.textContent = "Recorded subject: " + (source.subject || "Not supplied");
-      item.append(heading, description, subject);
-      try {
-        const url = new URL(source.url);
-        if (["https:", "http:"].includes(url.protocol)) {
-          const link = document.createElement("a");
-          link.href = url.href;
-          link.textContent = "Open source record";
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          item.append(link);
-        }
-      } catch { /* Leave invalid source identifiers unlinked. */ }
-      el("farmer-sources").append(item);
-    });
+
   }
 
   function getCropPriceReference(cropDescription) {
@@ -343,6 +333,7 @@
       note: `Annual variability in Australia-wide ABARES crop/livestock price indices, 2015–16 to 2024–25 (standard deviation of year-on-year changes) for categories matching the crop description. Market context only; not a local farm-gate price or WRP statistic. 2024–25 is an estimate.`,
     };
   }
+
   try {
      // Make sure required data and the D3 library loaded successfully
     if (!window.d3) throw new Error("The map library could not load.");
@@ -361,7 +352,7 @@
     gviapSeries = window.basinData.gviap.referenceYears.map((year) => {
       const amount = basinGviap.values[year];
       return amount.status === "published"
-        ? `${year}: A$${(amount.value / 1e9).toFixed(2)}b`
+        ? `${year}: AUD ${(amount.value / 1e9).toFixed(2)}b`
         : `${year}: not published`;
     }).join(" · ");
     priceIndices = window.basinData.commodityPrices;
@@ -415,7 +406,7 @@
         }
       });
     paths.append("title").text((d) => d.properties.SWWRPANAME);
-    // Counts show mapped source records; markers are region centroids, not farm locations.
+    // Persona markers show profile availability at region centroids, not farm locations.
     const markerLayer = group.append("g");
     function openProfiles(event, d) {
       event.stopPropagation();
@@ -430,7 +421,10 @@
       .attr("transform", (d) => `translate(${path.centroid(d)})`)
       .attr("tabindex", 0)
       .attr("role", "button")
-      .attr("aria-label", (d) => `${d.properties.SWWRPANAME}: ${farmers.find((f) => f.region === d.properties.SWWRPANAME)?.sources.length ?? 0} farmer-related source records. Select to browse.`)
+      .attr("aria-label", (d) => {
+        const farmer = farmers.find((f) => f.region === d.properties.SWWRPANAME);
+        return `${farmer.name}, farmer persona for ${d.properties.SWWRPANAME}. Select to view profile.`;
+      })
       .on("click", openProfiles)
       .on("keydown", (event, d) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -439,9 +433,13 @@
         }
       });
     markers.append("circle").attr("r", 14);
-    markers.append("text").attr("text-anchor", "middle").attr("dy", "0.35em")
-      .text((d) => farmers.find((f) => f.region === d.properties.SWWRPANAME)?.sources.length ?? 0);
-    markers.append("title").text((d) => `${d.properties.SWWRPANAME}: farmer-related source record count`);
+    markers.append("circle").attr("class", "persona-icon-head").attr("cx", 0).attr("cy", -4).attr("r", 3);
+    markers.append("path").attr("class", "persona-icon-body")
+      .attr("d", "M-6,7 C-6,2 -4,0 0,0 C4,0 6,2 6,7 Z");
+    markers.append("title").text((d) => {
+      const farmer = farmers.find((f) => f.region === d.properties.SWWRPANAME);
+      return `${farmer.name} — ${d.properties.SWWRPANAME} farmer persona`;
+    });
     function selectTown(event, town) {
       event.stopPropagation();
       // A town selection replaces previous filters so it is always reachable.
@@ -541,8 +539,13 @@
       selected = event.target.value;
       update();
     };
+    el("farmer-select").replaceChildren(
+      new Option("Select a sample profile", ""),
+      ...farmers.map((farmer, index) => new Option(`${farmer.name} — ${farmer.region}`, String(index))),
+    );
     el("farmer-select").onchange = (event) => {
       selectedFarmer = Number(event.target.value);
+      if (!Number.isInteger(selectedFarmer) || !farmers[selectedFarmer]) return;
       selected = farmers[selectedFarmer].region;
       update();
     };

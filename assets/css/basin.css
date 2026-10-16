@@ -303,14 +303,15 @@ select {
   border: 2px solid #123bab;
 }
 
-/* marker farmer */
+/* Farmer persona markers indicate profile availability, not farm locations. */
 .farmer-marker { cursor: pointer; }
 .farmer-marker circle { fill: #2456ee; stroke: white; stroke-width: 2px; }
-.farmer-marker text { fill: white; font-size: 12px; font-weight: 700; pointer-events: none; }
+.farmer-marker .persona-icon-head { fill: white; stroke: none; pointer-events: none; }
+.farmer-marker .persona-icon-body { fill: white; pointer-events: none; }
 .farmer-marker:hover circle,
 .farmer-marker:focus circle,
 .farmer-marker[aria-pressed="true"] circle { fill: #123bab; stroke: #f5c542; }
-.profile-count-key {
+.persona-key {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -319,7 +320,7 @@ select {
   border-radius: 50%;
   background: #2456ee;
   color: white;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .sample {
@@ -427,6 +428,10 @@ select {
   margin: 18px auto 12px;
 }
 
+#farmer-photo[hidden] {
+  display: none;
+}
+
 #farmer-name {
   text-align: center;
   font-size: 18px;
@@ -470,6 +475,23 @@ select {
 .profile-facts dd {
   margin: 0;
   color: #63707b;
+}
+
+.crop-data-reference {
+  padding: 2px 0 8px;
+  border-top: 1px solid #d9dde1;
+}
+
+.crop-data-reference h4 {
+  margin-top: 14px;
+}
+
+.crop-data-reference p {
+  margin: 5px 0;
+}
+
+.crop-data-reference ul {
+  margin: 6px 0;
 }
 
 h4 {

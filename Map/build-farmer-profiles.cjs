@@ -7,6 +7,7 @@ const geojson = read("mdb_geo_json.json");
 const [headers, ...rows] = read("data/MDB_Summary.json");
 const townLocations = read("data/MDB_Towns_Rivers.json");
 const resources = read("data/MDB_Community_Data_v5.json");
+const cropWaterUse = read("data/water_use_nrm_2020_2021.json");
 const personaThemes = {
   "Condamine-Balonne": {
     role: "Cotton, grain and irrigation community composite",
@@ -139,6 +140,29 @@ for (const resource of resources) {
 
 if (unmatched.length) throw new Error(`Could not map farmer resources: ${unmatched.join("; ")}`);
 
+const nationalCropCategories = [
+  { match: /cotton/i, label: "Cotton", source: "Cotton" },
+  { match: /\b(rice)\b/i, label: "Rice", source: "Rice" },
+  { match: /grain|cereal|broadacre/i, label: "Cereals for grain or seed (excluding rice)", source: "Cereals for grain or seed, excluding rice" },
+  { match: /grape/i, label: "Grapevines", source: "Grapevines" },
+  { match: /vegetable/i, label: "Vegetables", source: "Vegetables" },
+  { match: /citrus|almond|fruit|horticulture|summerfruit|pome/i, label: "Fruit and nut crops", source: "Fruit trees, nut trees, plantation or berry fruits" },
+];
+const australiaCropRecords = cropWaterUse.records.filter((item) =>
+  item.region === "Australia" && item.status === "published_estimate");
+function nationalCropReferences(cropDescription) {
+  return nationalCropCategories.filter((category) => category.match.test(cropDescription || ""))
+    .map((category) => {
+      const valueFor = (measure) => australiaCropRecords.find((item) =>
+        item.measure.startsWith(`Water use - ${category.source} - ${measure}`))?.estimate ?? null;
+      return {
+        crop: category.label,
+        areaWateredHa: valueFor("Area watered (ha)"),
+        volumeAppliedML: valueFor("Volume applied (ML)"),
+      };
+    }).filter((item) => item.areaWateredHa !== null || item.volumeAppliedML !== null);
+}
+
 const profiles = [...resourcesByRegion].filter(([, items]) => items.length).map(([region, sources]) => {
   const states = [...new Set(sources.map((source) => source.state))].sort();
   const themes = personaThemes[region];
@@ -152,8 +176,9 @@ const profiles = [...resourcesByRegion].filter(([, items]) => items.length).map(
     region,
     state: states.join(", "),
     crop: themes.crop,
-    description: `This profile summarises farming-related sources associated with ${[...new Set(sources.map((source) => source.town))].sort().join(", ")}. It describes regional themes, not one farmer's account.`,
-    evidenceNote: "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
+    description: `Regional themes from farmer-related records in ${[...new Set(sources.map((source) => source.town))].sort().join(", ")}; not an individual farmer's account.`,
+    evidenceNote: "Goals and concerns are inferred from the linked records.",
+    cropWaterUse: nationalCropReferences(themes.crop),
     goals: themes.goals,
     concerns: themes.concerns,
     waterSecurity: { reliability: null, risk: null },
@@ -166,5 +191,5 @@ const profiles = [...resourcesByRegion].filter(([, items]) => items.length).map(
   };
 });
 
-fs.writeFileSync(path.join(__dirname, "farmers.json"), JSON.stringify(profiles, null, 2) + "\n");
+fs.writeFileSync(path.join(__dirname, "farmer-evidence.json"), JSON.stringify(profiles, null, 2) + "\n");
 console.log(`Grouped ${profiles.reduce((total, profile) => total + profile.sources.length, 0)} farmer-related records into ${profiles.length} basin-region evidence cards.`);

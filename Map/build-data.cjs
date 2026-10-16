@@ -54,10 +54,40 @@ const summaryRegions = {
   })),
 };
 writeGeoJSON("MDB_Regions.geojson", summaryRegions);
+const farmerProfiles = read("farmers.json");
+const farmerEvidence = read("farmer-evidence.json");
+const cropWaterUse = read("data/water_use_nrm_2020_2021.json");
+const nationalCropCategories = [
+  { match: /cotton/i, label: "Cotton", source: "Cotton" },
+  { match: /rice/i, label: "Rice", source: "Rice" },
+  { match: /grain|cereal|broadacre/i, label: "Cereals for grain or seed (excluding rice)", source: "Cereals for grain or seed, excluding rice" },
+  { match: /grape/i, label: "Grapevines", source: "Grapevines" },
+  { match: /vegetable/i, label: "Vegetables", source: "Vegetables" },
+  { match: /citrus|almond|fruit|horticulture|summerfruit|pome/i, label: "Fruit and nut crops", source: "Fruit trees, nut trees, plantation or berry fruits" },
+];
+const cropRecordsFor = (regionName) => cropWaterUse.records.filter((item) =>
+  item.region === regionName && item.status === "published_estimate");
+const farmers = farmerProfiles.map((profile) => ({
+  ...profile,
+  cropDataGeography: profile.nrmReference || "Australia",
+  cropWaterUse: profile.includeCropWaterUse === false ? [] : nationalCropCategories.filter((category) =>
+    category.match.test(profile.crop || ""))
+    .map((category) => {
+      const records = cropRecordsFor(profile.nrmReference || "Australia");
+      const valueFor = (measure) => records.find((item) =>
+        item.measure.startsWith(`Water use - ${category.source} - ${measure}`))?.estimate ?? null;
+      return {
+        crop: category.label,
+        areaWateredHa: valueFor("Area watered (ha)"),
+        volumeAppliedML: valueFor("Volume applied (ML)"),
+      };
+    }).filter((item) => item.areaWateredHa !== null || item.volumeAppliedML !== null),
+}));
 const data = {
   australia: read("data/Australia.geojson"),
   geojson: read("mdb_geo_json.json"),
-  farmers: read("farmers.json"),
+  farmers,
+  farmerEvidence,
   towns,
   gviap: read("data/gviap_nrm_2016_2021.json"),
   commodityPrices: read("data/abare_price_indices.json"),

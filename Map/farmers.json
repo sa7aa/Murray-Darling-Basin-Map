@@ -1,1106 +1,136 @@
 [
+{
+  "name": "Emily",
+  "age": 33,
+  "role": "Irrigated cropping farmer",
+    "region": "Murrumbidgee",
+  "state": "NSW",
+  "crop": "Almonds, citrus and vegetables",
+    "nrmReference": "Riverina",
+  "photo": "assets/img/img_sq_9.png",
+
+  "description": "Emily runs a family-operated horticulture farm with her husband and three children. The farm depends heavily on reliable irrigation to maintain crop quality and protect permanent plantings. Changes in water availability can increase operating costs, disrupt production planning and place pressure on the family's main source of income.",
+
+  "goals": [
+    "Maintain reliable access to water for crop production",
+    "Plan planting and production around expected water availability",
+    "Keep the family farm financially sustainable as the household's main source of income"
+  ],
+
+  "concerns": [
+    "Having to shift toward lower-water-use crops when allocations are uncertain",
+    "Long-term water availability and security",
+    "Securing enough water to protect permanent almond and citrus plantings during low-allocation periods",
+    "Long-term drought and climate variability"
+  ],
+
+  "waterSecurity": {
+    "reliability": 46,
+    "risk": "High"
+  },
+
+  "economicImpact": {
+    "volatility": "High",
+    "gviap": "Variable"
+  },
+
+  "policy": {
+    "current": {
+      "summary": "Current water-sharing rules allocate available water according to entitlement type, with General Security users receiving lower and more variable allocations than High Security users."
+    },
+
+    "proposed": {
+      "summary": "Introduce earlier allocation forecasting and targeted irrigation-efficiency support to help farmers plan production and manage periods of low water availability."
+    }
+  }
+  },
   {
-    "id": "farmer-evidence-condamine-balonne",
-    "name": "Condamine-Balonne farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Cotton, grain and irrigation community composite",
+    "name": "Jamie Wilson",
+    "age": 55,
+    "role": "Irrigated horticulture grower",
+    "region": "Victorian Murray",
+    "state": "VIC",
+    "crop": "Almonds and grapes",
+    "nrmReference": "Murray",
+    "photo": "assets/img/img_sq_5.jpg",
+    "description": "Jamie manages a fictional orchard and vineyard. Permanent plantings need dependable irrigation even when commodity prices soften.",
+    "goals": [
+      "Maintain healthy permanent plantings",
+      "Reduce water use per hectare",
+      "Keep long-term production predictable"
+    ],
+    "concerns": [
+      "Water demand during heatwaves",
+      "Higher input and labour costs",
+      "Long-term orchard investment risk"
+    ],
+
+    "waterSecurity": {
+    "reliability": 82,
+    "risk": "Moderate"
+  },
+
+  "economicImpact": {
+    "volatility": "Moderate",
+    "gviap": "Stable"
+  },
+
+  "policy": {
+    "current": {
+      "summary": "Current Victorian water-management rules prioritise entitlement-based allocations and water trading, requiring irrigators to manage seasonal availability and market exposure."
+    },
+    "proposed": {
+      "summary": "Expand support for irrigation-efficiency upgrades and longer-term water planning to reduce production risk for farms dependent on permanent plantings."
+    }
+  }
+  },
+  {
+    "name": "Casey",
+    "role": "Cotton and grain grower",
+    "photo": "assets/img/img_sq_1.jpg",
     "region": "Condamine-Balonne",
     "state": "QLD",
-    "crop": "Cotton and grain are named in regional grower records.",
-    "description": "This profile summarises farming-related sources associated with Chinchilla, Dalby, Warwick. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
+    "crop": "Cotton and grain",
+    "nrmReference": "Condamine",
+    "includeCropWaterUse": false,
+    "description": "Casey grows cotton and grain in the Condamine-Balonne region. Cotton production depends on irrigation, so seasonal water availability shapes planting and farm planning. Local grower and irrigation groups connect producers with industry information and resources.",
     "goals": [
-      "Inferred: plan cotton or grain production around irrigation and water access.",
-      "Inferred: protect farm water resources and maintain access to farmer support."
+      "Inferred: plan crop production with irrigation and water access in mind.",
+      "Inferred: stay connected with local grower and irrigation networks."
     ],
     "concerns": [
       "Inferred: water access and groundwater protection may matter to local growers.",
-      "Inferred: drought, flood or fire impacts may create a need for rural support."
+      "Inferred: seasonal water availability may affect irrigation planning."
     ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
+    "waterSecurity": { "reliability": null, "risk": null },
+    "economicImpact": { "volatility": null, "gviap": null },
     "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Central Downs Irrigators Limited",
-        "town": "Chinchilla",
-        "state": "QLD",
-        "subject": "Irrigation, peak body, contact",
-        "description": "Irrigation peak body listing with address, phone, and email for Central Downs irrigators.",
-        "url": "https://irrigationaustralia.com.au/members/central-downs-irrigators-limited",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Darling Downs Cotton Growers‚ Inc (Cotton Australia directory)",
-        "town": "Chinchilla",
-        "state": "QLD",
-        "subject": "Cotton, grower association, contacts",
-        "description": "Grower association listing with role-based contact details (phone numbers).",
-        "url": "https://cottonaustralia.com.au/cotton-grower-association",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Farm Angels",
-        "town": "Chinchilla",
-        "state": "QLD",
-        "subject": "Farm support, disaster relief, Chinchilla",
-        "description": "Chinchilla-connected charity supporting farmers and rural communities with tailored assistance.",
-        "url": "https://farmangels.org.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Save Our Darling Downs",
-        "town": "Chinchilla",
-        "state": "QLD",
-        "subject": "Coal seam gas, water protection, sustainable agriculture, Gasfield Free, Condamine River",
-        "description": "Grassroots farmers opposing CSG since 2010. 28 families declared 27,928 hectares Gasfield Free. Documents Condamine River impacts, groundwater contamination, Great Artesian Basin threats.",
-        "url": "www.saveourdarlingdowns.org.au",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Darling Downs Cotton Growers Incorporated (Facebook)",
-        "town": "Dalby",
-        "state": "QLD",
-        "subject": "cotton,growers,community,events",
-        "description": "Cotton growers incorporated association Facebook presence with activity posts",
-        "url": "https://www.facebook.com/DDCGInc/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Western Downs Grower Group (Facebook)",
-        "town": "Dalby",
-        "state": "QLD",
-        "subject": "grain,growers,contractors,community",
-        "description": "Western Downs grain growers/contractors group Facebook presence described as incorporated not-for-profit",
-        "url": "https://www.facebook.com/p/Western-Downs-Grower-Group-61557510621106/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "AgForce Queensland",
-        "town": "Warwick",
-        "state": "QLD",
-        "subject": "farmer advocacy, rural industry, representation",
-        "description": "Membership‚based advocacy organisation representing Queensland producers across beef, sheep and grains industries.",
-        "url": "https://www.agforceqld.org.au",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
+      "current": { "summary": "No region-specific policy finding is asserted by this sample profile." },
+      "proposed": { "summary": "No proposed policy or modelled outcome is asserted by this sample profile." }
+    }
   },
   {
-    "id": "farmer-evidence-gwydir",
-    "name": "Gwydir farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Cotton and irrigated agriculture community composite",
-    "region": "Gwydir",
-    "state": "NSW",
-    "crop": "Cotton is named in regional grower records; the irrigators association also references broadacre crops.",
-    "description": "This profile summarises farming-related sources associated with Moree. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: plan cotton production with current allocation and entitlement information.",
-      "Inferred: keep informed about irrigation research and environmental flow updates."
-    ],
-    "concerns": [
-      "Inferred: seasonal water availability and entitlement changes may affect planning.",
-      "Inferred: balancing irrigation with environmental flows may be a local consideration."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "GVIA ‚Contact",
-        "town": "Moree",
-        "state": "NSW",
-        "subject": "Contact metadata, organisational profile",
-        "description": "Explicit contact details (phone, email, address) for GVIA",
-        "url": "https://www.gvia.org.au/contact/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Gwydir Cotton Growers Association (Instagram)",
-        "town": "Moree",
-        "state": "NSW",
-        "subject": "Cotton farming, agronomic events, field days, industry awards, young farmer development, Moree Plains agriculture",
-        "description": "Instagram account for Gwydir Cotton Growers Association (126 posts, 613 followers, active 2025). Covers field days, agronomic events, Young Aggies, cotton industry awards, and Moree Plains farm life. Visual documentation of cotton farming practices and community events.",
-        "url": "https://www.instagram.com/gwydircga/",
-        "date": 2025,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Gwydir Valley Cotton Growers Association (Facebook)",
-        "town": "Moree",
-        "state": "NSW",
-        "subject": "Industry events, farmer recognition, community celebration, cotton production news",
-        "description": "Facebook page for Gwydir Valley Cotton Growers Association. Located: 100 Balo St, Moree NSW 2400. Phone: +61 427 527 890. Website: gwydircotton.com.au. Posts event photos from 2025 Charity Dinner & Awards and industry announcements.",
-        "url": "https://www.facebook.com/gwydircotton/",
-        "date": 2025,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Gwydir Valley Irrigators Association",
-        "town": "Moree",
-        "state": "NSW",
-        "subject": "Irrigation water management, water entitlements, agricultural sustainability, environmental flows, cotton industry, water policy, community partnerships",
-        "description": "Representative body for 400+ water entitlement holders in Gwydir Valley (centred Moree). Publishes real-time environmental flow updates (Mehi River, Barwon River, Gingham, Mallowa, Whittakers Lagoon). Tracks water policy, irrigation research, cotton and broadacre crop sustainability. Contact: 02 6752 1399 | gvia@gvia.org.au | 100 Balo St, Moree NSW 2400.",
-        "url": "https://www.gvia.org.au/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-lachlan",
-    "name": "Lachlan farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Lachlan catchment landholder and irrigator composite",
-    "region": "Lachlan",
-    "state": "NSW",
-    "crop": "The records describe irrigators, sustainable agriculture and grazing; no dominant crop is identified.",
-    "description": "This profile summarises farming-related sources associated with Cowra, Forbes. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: improve soil health and sustainable land management.",
-      "Inferred: maintain productive water access in the Lachlan catchment."
-    ],
-    "concerns": [
-      "Inferred: water policy and licence access may affect irrigators.",
-      "Inferred: landholders may need support for restoration and sustainable farming."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Kangarooby Catchment Landcare",
-        "town": "Cowra",
-        "state": "NSW",
-        "subject": "Landcare, local group, contact, workshops, agriculture",
-        "description": "Local Landcare group page with phone and email contact details within the Mid Lachlan network.",
-        "url": "https://midlachlanlandcare.org/local-landcare/kangarooby-creek-catchment-landcare/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Mid Lachlan Landcare",
-        "town": "Cowra",
-        "state": "NSW",
-        "subject": "Sustainable agriculture, regenerative grazing, biodiversity, citizen science, soil microbiology",
-        "description": "Community-based non-profit organization supporting landholders in the Cowra region with sustainable farming and restoration.",
-        "url": "https://midlachlanlandcare.org/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Lachlan Valley Water (LVW)",
-        "town": "Forbes",
-        "state": "NSW",
-        "subject": "Water advocacy, Irrigation, Water policy, Agricultural water use, Water licence holders, Farm water management",
-        "description": "Independent industry advocacy group funded by water licence holders across Lachlan catchment, representing irrigators and farmers working to ensure fair water access for productive agricultural use",
-        "url": "https://lvw.com.au/about-us/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-macquarie-castlereagh",
-    "name": "Macquarie-Castlereagh farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Grazing and irrigated water-user composite",
-    "region": "Macquarie-Castlereagh",
-    "state": "NSW",
-    "crop": "A Bourke case study describes Merino sheep grazing; other records describe Macquarie Valley irrigators.",
-    "description": "This profile summarises farming-related sources associated with Bourke, Dubbo. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: maintain grazing land and soil through managed grazing practices.",
-      "Inferred: secure water access for productive use where irrigation is used."
-    ],
-    "concerns": [
-      "Inferred: rainfall and soil conditions may influence grazing decisions.",
-      "Inferred: water access and licence policy may affect irrigators."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Soils For Life — Gurrawarra",
-        "town": "Bourke",
-        "state": "NSW",
-        "subject": "regenerative agriculture, holistic management, grazing, Merino sheep, rangelands, soil health, cell grazing",
-        "description": "A case study documenting a 9,969 ha grazing property near Bourke using Holistic Management, cell grazing, and Total Grazing Pressure fencing. Includes rainfall, soil, and infrastructure data.",
-        "url": "https://soilsforlife.org.au/gurrawarra/",
-        "date": 2024,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Macquarie River Food & Fibre (MRFF)",
-        "town": "Dubbo",
-        "state": "NSW",
-        "subject": "Irrigation advocacy, water licences",
-        "description": "Represents water users and licence holders along the Macquarie River including townships such as Dubbo and Wellington, advocating for water access and representing irrigators:contentReference[oaicite:41]{index=41}.",
-        "url": "https://www.mrff.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "NSW Farmers Association ‚Dubbo Branch",
-        "town": "Dubbo",
-        "state": "NSW",
-        "subject": "Farmer advocacy, regional branch",
-        "description": "Association representing NSW farmers, the Dubbo branch secretary Mrs†Kilby advocates for local farming community:contentReference[oaicite:43]{index=43}.",
-        "url": "https://www.nswfarmers.org.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-queensland-border-rivers-moonie",
-    "name": "Queensland Border Rivers-Moonie farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Cotton, broadacre and irrigated farming composite",
-    "region": "Queensland Border Rivers-Moonie",
-    "state": "QLD",
-    "crop": "Cotton, grains and broadacre farming are named in local records.",
-    "description": "This profile summarises farming-related sources associated with Goondiwindi. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: improve soil management and farm sustainability.",
-      "Inferred: use grower field days and networks to share farming practices."
-    ],
-    "concerns": [
-      "Inferred: water management and allocation policy may affect irrigation planning.",
-      "Inferred: soil health and natural resource management are local themes."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Border Rivers Food & Fibre",
-        "town": "Goondiwindi",
-        "state": "QLD",
-        "subject": "Irrigation, water policy, cotton, grains, Murray-Darling Basin Plan",
-        "description": "Professional irrigator organization representing ~60,000 hectares irrigated agriculture in Border Rivers valley. Cross-border NSW-QLD.",
-        "url": "https://www.brff.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Cotton Grower Associations (Macintyre Valley entry)",
-        "town": "Goondiwindi",
-        "state": "QLD",
-        "subject": "Cotton growers, producer association",
-        "description": "Cotton Australia listing page containing PO Box and executive contacts for Macintyre Valley Cotton Growers‚ Association.",
-        "url": "https://cottonaustralia.com.au/cotton-grower-association",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Macintyre Ag Alliance",
-        "town": "Goondiwindi",
-        "state": "QLD",
-        "subject": "Agriculture, environmental stewardship, soil health, regenerative agriculture, landholder engagement, water management",
-        "description": "Macintyre Ag Alliance is a not-for-profit, landholder-driven community group based in Goondiwindi since 1989 (originally Waggamba Landcare). Covers 13,000 km≤ of broadacre, dryland, cotton, and irrigated farming. Facilitates field days, workshops, and annual Agribusiness Summit. Focus on soil conservation, regenerative practices, and natural resource management.",
-        "url": "https://www.macintyreagalliance.com/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Macintyre Brook Irrigators Association (directory)",
-        "town": "Goondiwindi",
-        "state": "QLD",
-        "subject": "Irrigation association, directory",
-        "description": "Directory listing for irrigators association (contact form).",
-        "url": "https://www.mycommunitydirectory.com.au/Outlet/183680/Macintyre_Brook_Irrigators_Association_Inc",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Macintyre Valley Cotton Committee (Field Day)",
-        "town": "Goondiwindi",
-        "state": "QLD",
-        "subject": "Cotton, field day, producer community",
-        "description": "Field Day committee contact page listing PO Box and email contact.",
-        "url": "https://macvalleycotton.com.au/contact/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-namoi",
-    "name": "Namoi farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Cotton and irrigated agriculture community composite",
-    "region": "Namoi",
-    "state": "NSW",
-    "crop": "Cotton and irrigated agriculture are named in regional records.",
-    "description": "This profile summarises farming-related sources associated with Gunnedah, Narrabri, Tamworth. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: improve irrigation efficiency and keep up with water allocation information.",
-      "Inferred: learn from grower field days and technical workshops."
-    ],
-    "concerns": [
-      "Inferred: water availability and water policy may affect crop planning.",
-      "Inferred: protection of Namoi catchment waterways is a documented community theme."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Gunnedah Show Society",
-        "town": "Gunnedah",
-        "state": "NSW",
-        "subject": "Agricultural show, rural community, livestock, farming events, community gatherings, agricultural heritage, working dog trials",
-        "description": "Not-for-profit agricultural society established 1888. Volunteer-run organization hosting annual show, working dog trials, AgQuip rodeo, and community events. Represents broad agricultural community social infrastructure and networking forum.",
-        "url": "https://www.gunnedahshowsociety.com.au",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Upper Namoi Cotton Growers Association",
-        "town": "Gunnedah",
-        "state": "NSW",
-        "subject": "Cotton farming, irrigation, water management, agricultural community, field days, irrigation efficiency, water allocation, farmer representation",
-        "description": "Representative body for cotton growers in Upper Namoi Valley with 1.2K Facebook followers. Organizes field days, technical workshops on irrigation efficiency. Shares information on water management practices, industry events, and community concerns. Based in Gunnedah.",
-        "url": "https://www.facebook.com/uppernamoicotton/",
-        "date": 2024,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Mullaley Gas & Pipeline Accord (via EJA)",
-        "town": "Narrabri",
-        "state": "NSW",
-        "subject": "Farmer activism, water protection, CSG opposition, Namoi River water protection, Great Artesian Basin protection, pipeline opposition, Federal Court litigation, water trigger application, legal challenge to gas infrastructure",
-        "description": "Volunteer community action group of farmers and residents from Namoi region. No standalone MGPA website, publicly represented via Environmental Justice Australia case page (updated Dec 2025). Operated 10+ years protecting Namoi catchment waterways and farmland from CSG risks. Spokesperson: Noni Wells. Legal representative: Environmental Justice Australia. Filed Federal Court judicial review challenging Environment Minister's decision not to apply water trigger to Narrabri Lateral Pipeline (50km gas transmission pipeline integral to Santos Narrabri Gas Project). Federal Court hearing Nov 2025, decision pending.",
-        "url": "https://envirojustice.org.au/legal-work/climate-justice/the-narrabri-pipeline-challenge/",
-        "date": 2025,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Namoi Water (Website)",
-        "town": "Narrabri",
-        "state": "NSW",
-        "subject": "Irrigated agriculture, industry representation",
-        "description": "Peak industry group for irrigated agriculture in the Namoi valleys, public contact details referenced in search snippets",
-        "url": "https://namoiwater.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Lower Namoi Cotton Growers‚ Association",
-        "town": "Tamworth",
-        "state": "NSW",
-        "subject": "Cotton farming, irrigation",
-        "description": "Regional association representing cotton growers, publishes newsletters with updates on water policy and cropping practices",
-        "url": "https://www.insidecotton.com",
-        "date": 2007,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "WaterInsights / Upper Namoi Water in the Landscape Initiative",
-        "town": "Tamworth",
-        "state": "NSW",
-        "subject": "Water management, irrigation",
-        "description": "A TRLA-led initiative introducing farmers to the WaterInsights platform to understand water allocations and share plans:contentReference[oaicite:3]{index=3}",
-        "url": "https://landcare.nsw.gov.au/groups/tamworth-regional-landcare-assoc/empowering-the-peel-valley-community-with-waterinsights",
-        "date": 2025,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-new-south-wales-border-rivers",
-    "name": "New South Wales Border Rivers farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Cotton-growing community composite",
-    "region": "New South Wales Border Rivers",
-    "state": "NSW",
-    "crop": "Cotton is named in the supplied local record.",
-    "description": "This profile summarises farming-related sources associated with Inverell. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: use cotton industry resources to support efficient production."
-    ],
-    "concerns": [
-      "The single supplied record gives limited evidence about local farmer priorities."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Macintyre Valley Cotton Sector",
-        "town": "Inverell",
-        "state": "NSW",
-        "subject": "Cotton production, BMP, water efficiency, sustainable agriculture",
-        "description": "Cotton sector represented through Mungindi Association and Cotton Australia BMP. Local farms near Inverell.",
-        "url": "https://cottonaustralia.com.au/cotton-grower-association",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-new-south-wales-murray-and-lower-darling",
-    "name": "New South Wales Murray and Lower Darling farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Rice and irrigation community composite",
-    "region": "New South Wales Murray and Lower Darling",
-    "state": "NSW",
-    "crop": "Rice growing and irrigation are named in regional records.",
-    "description": "This profile summarises farming-related sources associated with Albury, Deniliquin. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: plan production using irrigation delivery and water allocation information.",
-      "Inferred: stay connected to rice grower and irrigator networks."
-    ],
-    "concerns": [
-      "Inferred: water access and allocation policy may affect irrigation planning.",
-      "Inferred: river operations and water management are relevant local themes."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Murray Irrigation Limited",
-        "town": "Albury",
-        "state": "NSW",
-        "subject": "Water delivery, irrigation network, news",
-        "description": "Not-for-profit company delivering water in NSW Murray Regulated River system, news feed with dates.",
-        "url": "https://www.murrayirrigation.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Ricegrowers‚ Association of Australia (RGA)",
-        "town": "Albury",
-        "state": "NSW",
-        "subject": "Agricultural association, contact info",
-        "description": "RGA contact page listing Leeton and Deniliquin offices with phone/email.",
-        "url": "https://www.rga.org.au/rga",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "NSW Farmers Deniliquin Branch ‚EventDetail page",
-        "town": "Deniliquin",
-        "state": "NSW",
-        "subject": "Farmers, Deniliquin branch, meetings",
-        "description": "NSW Farmers Deniliquin Branch meeting page with contact details for Chair/Secretary and event scheduling.",
-        "url": "https://www.nswfarmers.org.au/EventDetail?EventKey=BRDENI0226&WebsiteKey=da5d907f-f3f9-47eb-9495-689ec91aac80",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Ricegrowers‚ Association of Australia ‚Facebook page",
-        "town": "Deniliquin",
-        "state": "NSW",
-        "subject": "Rice growers, irrigation, agriculture",
-        "description": "Group page representing rice farmers in NSW and Victoria with organisational posts.",
-        "url": "https://www.facebook.com/Ricegrowers/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Southern Riverina Irrigators ‚Facebook page",
-        "town": "Deniliquin",
-        "state": "NSW",
-        "subject": "Irrigation, advocacy, MDB",
-        "description": "Peak irrigation body representing Riverina farmers with advocacy/news posts.",
-        "url": "https://www.facebook.com/southernriverinairrigators/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-northern-victoria",
-    "name": "Northern Victoria farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Mixed farming and landcare community composite",
-    "region": "Northern Victoria",
-    "state": "VIC",
-    "crop": "Records mention dairy, pome fruit and Jersey cattle; they do not identify one dominant farm type.",
-    "description": "This profile summarises farming-related sources associated with Benalla, Bridgewater, Kyneton, Shepparton, Wangaratta. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: improve sustainable farming and soil management.",
-      "Inferred: access practical advice, workshops and farmer support networks."
-    ],
-    "concerns": [
-      "Inferred: soil health, weeds and river health are documented landcare themes.",
-      "Inferred: dairy and horticulture productivity are relevant sector themes."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Gecko CLaN Landcare ‚Contact Us",
-        "town": "Benalla",
-        "state": "VIC",
-        "subject": "Landcare network, community engagement, contact details, Benalla, Broken River catchment",
-        "description": "Gecko CLaN contact page inviting enquiries and connections to local Landcare groups, provides phone and postal/in-person addresses and links to social media.",
-        "url": "https://www.geckoclan.com.au/contact-us/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Goulburn Murray Landcare Network ‚Contact Us",
-        "town": "Benalla",
-        "state": "VIC",
-        "subject": "Landcare, agricultural floodplains, Goulburn Broken catchment, landcare groups, citizen science apps, facilitators",
-        "description": "GMLN website contact page listing organizational address, phone and emails for the president and facilitators, supports a network of landcare and environmental groups across the Goulburn Broken and North Central catchments.",
-        "url": "https://gmln.com.au/contact-us/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Upper Broken River Landcare Group ‚Up2Us Landcare Alliance",
-        "town": "Benalla",
-        "state": "VIC",
-        "subject": "river guardians, pest plants, revegetation, sustainable farming, Broken River, Lake Nilahcootie, soil health, alternative fertiliser trials",
-        "description": "Up2Us profile for Upper Broken River Landcare Group, outlines strategic focus on river health and sustainable farming, gives membership information and provides president contact details.",
-        "url": "https://www.up2us.org.au/groups/project-six-z675c",
-        "date": 2024,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Loddon Plains Future Farming Regenerative and Sustainable Agriculture Group (Facebook group)",
-        "town": "Bridgewater",
-        "state": "VIC",
-        "subject": "regenerative agriculture, sustainable farming, soil health, wind erosion",
-        "description": "Forum for Loddon Plains farming community to share methods, ideas, stories toward sustainable/regenerative agriculture",
-        "url": "https://www.facebook.com/groups/lplnag/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Ashbourne Landcare (UCLN)",
-        "town": "Kyneton",
-        "state": "VIC",
-        "subject": "landholders, headwaters, weed action, surveys, regenerative agriculture",
-        "description": "Landcare group profile including headwaters of Campaspe, working bees/events, monitoring projects, includes committee roles and contact email/PO Box.",
-        "url": "https://www.uppercampaspelandcare.org.au/landcare-groups/ashbourne-landcare/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Baynton Sidonia Landcare (UCLN)",
-        "town": "Kyneton",
-        "state": "VIC",
-        "subject": "farmers, revegetation, weed control, education, partnerships",
-        "description": "Long-standing Landcare group with nearly 40 years history, describes activities and partnerships, provides president/secretary contacts.",
-        "url": "https://www.uppercampaspelandcare.org.au/landcare-groups/baynton-sidonia-landcare/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Fruit Growers Victoria (Facebook)",
-        "town": "Shepparton",
-        "state": "VIC",
-        "subject": "horticulture, pome fruit industry, growers",
-        "description": "Facebook presence for peak pome fruit body supporting growers through events/updates",
-        "url": "https://www.facebook.com/FruitGrowersVic/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Murray Dairy (Facebook)",
-        "town": "Shepparton",
-        "state": "VIC",
-        "subject": "dairy farming, productivity, workshops",
-        "description": "Facebook page supporting dairy farmers with tools, workshops, and one-to-one support",
-        "url": "https://www.facebook.com/murraydairy/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Murray Valley Jersey Breeders Club (Facebook Group)",
-        "town": "Shepparton",
-        "state": "VIC",
-        "subject": "dairy breeding, show circuit, farmer community",
-        "description": "Facebook group for Jersey breeders, posts about participation/recognition",
-        "url": "https://www.facebook.com/groups/1016731265058869/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Next Generation Farmers North East Victoria (VFF Wangaratta branch)",
-        "town": "Wangaratta",
-        "state": "VIC",
-        "subject": "farmer advocacy, branch, community",
-        "description": "Facebook page representing the Wangaratta branch of a farmer federation, likely shares local farming community issues/events.",
-        "url": "https://www.facebook.com/vffwang/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Wangaratta Farmers Market Inc. (About/Contact)",
-        "town": "Wangaratta",
-        "state": "VIC",
-        "subject": "farmers market, accreditation, community event",
-        "description": "Not-for-profit farmers market with recurring monthly event schedule, provides venue and contact details.",
-        "url": "https://wangarattafarmersmarket.com.au/about-us/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-south-australian-murray-region",
-    "name": "South Australian Murray Region farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Riverland horticulture and Murray Plains farming composite",
+    "name": "Morgan",
+    "role": "Riverland horticulture grower",
+    "photo": "assets/img/img_sq_8.jpg",
     "region": "South Australian Murray Region",
     "state": "SA",
-    "crop": "Citrus, almonds and grapes are named in a Riverland irrigation record; Murray Plains records describe farming systems work.",
-    "description": "This profile summarises farming-related sources associated with Barmera, Murray Bridge. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
+    "crop": "Citrus, almonds and grapes",
+    "nrmReference": "South Australian Murray Darling Basin",
+    "description": "Morgan grows citrus, almonds and grapes in the Riverland. Horticulture there relies on irrigation, making water delivery central to planning across orchards and vineyards. Local irrigation networks and farming-systems resources support production decisions.",
     "goals": [
-      "Inferred: coordinate irrigation water delivery with horticultural production.",
-      "Inferred: use farming systems research and development resources."
+      "Inferred: coordinate irrigation delivery with horticultural production.",
+      "Inferred: use local farming-systems research and grower resources."
     ],
     "concerns": [
-      "Inferred: water delivery and irrigation are central regional considerations.",
-      "The supplied records give limited direct evidence about individual farmer concerns."
+      "Inferred: reliable water delivery may be important for horticultural production.",
+      "Inferred: seasonal water availability may affect irrigation planning."
     ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
+    "waterSecurity": { "reliability": null, "risk": null },
+    "economicImpact": { "volatility": null, "gviap": null },
     "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "Central Irrigation Trust (CIT)",
-        "town": "Barmera",
-        "state": "SA",
-        "subject": "irrigation, River Murray, horticulture, growers, water delivery, Riverland, citrus, almonds, grapes, Barmera",
-        "description": "A local irrigation company pumping water from the River Murray to 1,600 growers across 12 Irrigation Districts in the Riverland, including the Barmera area.",
-        "url": "https://cit.org.au/",
-        "date": "N/A",
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Ag Excellence ‚Murray Plains Farmers listing",
-        "town": "Murray Bridge",
-        "state": "SA",
-        "subject": "directory,contact,farming,Murray Plains",
-        "description": "Contact directory listing for Murray Plains Farmers including contact name, phone, and email.",
-        "url": "https://agex.org.au/groups/murray-plains-farmers/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Murray Bridge Show",
-        "town": "Murray Bridge",
-        "state": "SA",
-        "subject": "agricultural show,community,events",
-        "description": "Show website providing show information and likely volunteer and event details.",
-        "url": "https://murraybridgeshow.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Murray Plains Farmers",
-        "town": "Murray Bridge",
-        "state": "SA",
-        "subject": "farming,systems group,RD&E,Murray Plains",
-        "description": "Not-for-profit farming systems group website describing region and coordination role.",
-        "url": "https://murrayplainsfarmers.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-victorian-murray",
-    "name": "Victorian Murray farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Irrigated horticulture and dairy community composite",
-    "region": "Victorian Murray",
-    "state": "VIC",
-    "crop": "Records mention table grapes, summerfruit and dairy farming; they do not identify one dominant crop.",
-    "description": "This profile summarises farming-related sources associated with Echuca, Mildura, Swan Hill. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: use research, extension and grower networks to support farm decisions.",
-      "Inferred: maintain crop quality, vine health or dairy productivity, depending on farm type."
-    ],
-    "concerns": [
-      "Water security and irrigation policy are documented community themes.",
-      "Inferred: crop-specific issues differ across horticulture and dairy farms."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "GMID Water Leadership",
-        "town": "Echuca",
-        "state": "VIC",
-        "subject": "Water security, irrigation, advocacy, Basin Plan",
-        "description": "Advocacy group/voice for water security in the Goulburn Murray Irrigation District",
-        "url": "https://www.facebook.com/fairflow4/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "GMID Water Leadership Forum (C4GS)",
-        "town": "Echuca",
-        "state": "VIC",
-        "subject": "Water policy, forum, GMID stakeholders, irrigation",
-        "description": "Project overview describing the GMID Water Leadership Forum for stakeholders shaping water policy implementation",
-        "url": "https://www.c4gs.com.au/projects/gmid-water-leadership-forum",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Irrigation Farmers Network (Facebook)",
-        "town": "Echuca",
-        "state": "VIC",
-        "subject": "Irrigation, events, research updates, farmers",
-        "description": "IFN social media stream sharing events and practical research updates",
-        "url": "https://www.facebook.com/IrrigationFN/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Australian Table Grape Association",
-        "town": "Mildura",
-        "state": "VIC",
-        "subject": "table grapes, horticulture, Mildura",
-        "description": "Peak table grape industry body with head office in Mildura, publishes news, research/statistics, and provides contact details.",
-        "url": "https://australiangrapes.com.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Mallee Sustainable Farming",
-        "town": "Mildura",
-        "state": "VIC",
-        "subject": "sustainable agriculture, Mallee, drought/dust",
-        "description": "Farmer-led non-profit publishing projects, events, blogs/podcasts and research/extension updates for low-rainfall Mallee farming regions.",
-        "url": "https://msfp.org.au/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Sunraysia Table Grape Growers Association",
-        "town": "Mildura",
-        "state": "VIC",
-        "subject": "growers, Sunraysia, table grapes",
-        "description": "Facebook presence for Sunraysia table grape growers, aims to be a support and extension network for industry and community.",
-        "url": "https://www.facebook.com/Sunraysiagrapes/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Irrigation Farmers Network",
-        "town": "Swan Hill",
-        "state": "VIC",
-        "subject": "irrigation,research,extension",
-        "description": "Farmer-driven not-for-profit research and extension organisation for irrigated farm systems",
-        "url": "https://irrigationfn.com.au/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Swan Hill District Show (website)",
-        "town": "Swan Hill",
-        "state": "VIC",
-        "subject": "agriculture,community",
-        "description": "Show website celebrating agriculture and community, annual event narrative",
-        "url": "https://www.swanhillshow.com.au/",
-        "date": 2025,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Swan Hill Summerfruit Association",
-        "town": "Swan Hill",
-        "state": "VIC",
-        "subject": "horticulture,summerfruit",
-        "description": "Facebook group/community for summerfruit growers and seasonal activity",
-        "url": "https://www.facebook.com/groups/239342744737484/",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Victorian Agricultural Shows: Swan Hill Show listing",
-        "town": "Swan Hill",
-        "state": "VIC",
-        "subject": "metadata,contact",
-        "description": "Listing for Swan Hill District A & P Society contact details (secretary, email, phone, address)",
-        "url": "https://www.vicagshows.com.au/swan-hill-show",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
-  },
-  {
-    "id": "farmer-evidence-murrumbidgee",
-    "name": "Murrumbidgee farmer (composite)",
-    "personaType": "Evidence-based composite; not an individual farmer",
-    "age": null,
-    "role": "Murrumbidgee irrigated agriculture community composite",
-    "region": "Murrumbidgee",
-    "state": "NSW",
-    "crop": "The supplied records describe irrigated agriculture but do not establish a dominant crop.",
-    "description": "This profile summarises farming-related sources associated with Tumut, Wagga Wagga, Yass. It describes regional themes, not one farmer's account.",
-    "evidenceNote": "The linked records are the evidence for this profile. Goals and concerns marked as Inferred are interpretations of those records, not direct statements from farmers.",
-    "goals": [
-      "Inferred: use irrigation research and allocation information in farm planning.",
-      "Inferred: improve productivity and sustainability through local extension resources."
-    ],
-    "concerns": [
-      "Water allocations and availability are explicit themes in the supplied records.",
-      "Inferred: water policy and irrigation operations may affect farm planning."
-    ],
-    "waterSecurity": {
-      "reliability": null,
-      "risk": null
-    },
-    "economicImpact": {
-      "volatility": null,
-      "gviap": null
-    },
-    "policy": {
-      "current": {
-        "summary": "No region-specific policy finding is asserted by this evidence summary."
-      },
-      "proposed": {
-        "summary": "No proposed policy or modelled outcome is asserted by this evidence summary."
-      }
-    },
-    "sources": [
-      {
-        "title": "MPII updates on water availability",
-        "town": "Tumut",
-        "state": "NSW",
-        "subject": "water allocation, regulated river, irrigation, statements, Murrumbidgee",
-        "description": "MPII landing page listing dated water allocation statements and reports for the Murrumbidgee regulated river water source.",
-        "url": "https://mpii-riverina.squarespace.com/water-availability",
-        "date": null,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Irrigation Research and Extension Committee (IREC)",
-        "town": "Wagga Wagga",
-        "state": "NSW",
-        "subject": "Irrigated agriculture, research, collaboration, publications, Murrumbidgee Valley",
-        "description": "Independent voice/network for irrigated agriculture in the Murrumbidgee Valley, connects irrigators, researchers, industry and agencies, provides newsletters/publications and contact details",
-        "url": "https://irec.org.au/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Murrumbidgee Irrigation",
-        "town": "Wagga Wagga",
-        "state": "NSW",
-        "subject": "Irrigation company, customers, water allocations, projects, newsletters",
-        "description": "Irrigation service provider in the Murrumbidgee Valley, offers customer resources (water allocations etc.), news, and contact details",
-        "url": "https://www.mirrigation.com.au/",
-        "date": 2026,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "NSWIC ‚New South Wales Irrigators‚ Council",
-        "town": "Wagga Wagga",
-        "state": "NSW",
-        "subject": "Irrigators, irrigation communities, water policy, Murray‚Darling Basin Plan",
-        "description": "Peak body representing irrigators and irrigation communities, enumerates policy categories (allocations, compliance, water markets, Aboriginal water etc.) and provides contact details",
-        "url": "https://www.nswic.org.au/nswic/",
-        "date": 2023,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Rivers of Carbon ‚Yass River Linkages",
-        "town": "Yass",
-        "state": "NSW",
-        "subject": "Yass River, riparian restoration, incentives, outcomes",
-        "description": "Project supporting restoration of degraded Yass River sections with landholder incentives and reporting outcomes metrics",
-        "url": "https://riversofcarbon.org.au/rivers-of-carbon-yass-river-linkages/",
-        "date": 2015,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      },
-      {
-        "title": "Yass Landcare Group",
-        "town": "Yass",
-        "state": "NSW",
-        "subject": "Climate adaptation, revegetation, genetic diversity",
-        "description": "Community-led revegetation work to improve long-term plant survival under changing conditions",
-        "url": "https://yan.org.au/projects/climate-ready-revegetation",
-        "date": 2020,
-        "dataset": "data/MDB_Community_Data_v5.json"
-      }
-    ]
+      "current": { "summary": "No region-specific policy finding is asserted by this sample profile." },
+      "proposed": { "summary": "No proposed policy or modelled outcome is asserted by this sample profile." }
+    }
   }
 ]
