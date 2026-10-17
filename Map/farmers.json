@@ -1,48 +1,70 @@
 [
-{
-  "name": "Emily",
-  "age": 33,
-  "role": "Irrigated cropping farmer",
+  {
+    "name": "Emily",
+    "age": 33,
+    "role": "Irrigated cropping farmer",
     "region": "Murrumbidgee",
-  "state": "NSW",
-  "crop": "Almonds, citrus and vegetables",
+    "state": "NSW",
+    "crop": "Almonds, citrus and vegetables",
     "nrmReference": "Riverina",
-  "photo": "assets/img/img_sq_9.png",
-
-  "description": "Emily runs a family-operated horticulture farm with her husband and three children. The farm depends heavily on reliable irrigation to maintain crop quality and protect permanent plantings. Changes in water availability can increase operating costs, disrupt production planning and place pressure on the family's main source of income.",
-
-  "goals": [
-    "Maintain reliable access to water for crop production",
-    "Plan planting and production around expected water availability",
-    "Keep the family farm financially sustainable as the household's main source of income"
-  ],
-
-  "concerns": [
-    "Having to shift toward lower-water-use crops when allocations are uncertain",
-    "Long-term water availability and security",
-    "Securing enough water to protect permanent almond and citrus plantings during low-allocation periods",
-    "Long-term drought and climate variability"
-  ],
-
-  "waterSecurity": {
-    "reliability": 46,
-    "risk": "High"
-  },
-
-  "economicImpact": {
-    "volatility": "High",
-    "gviap": "Variable"
-  },
-
-  "policy": {
-    "current": {
-      "summary": "Current water-sharing rules allocate available water according to entitlement type, with General Security users receiving lower and more variable allocations than High Security users."
+    "photo": "assets/img/img_sq_9.png",
+    "description": "Emily runs a family-operated horticulture farm with her husband and three children. The farm depends heavily on reliable irrigation to maintain crop quality and protect permanent plantings. Changes in water availability can increase operating costs, disrupt production planning and place pressure on the family's main source of income.",
+    "goals": [
+      "Maintain reliable access to water for crop production",
+      "Plan planting and production around expected water availability",
+      "Keep the family farm financially sustainable as the household's main source of income"
+    ],
+    "concerns": [
+      "Having to shift toward lower-water-use crops when allocations are uncertain",
+      "Long-term water availability and security",
+      "Securing enough water to protect permanent almond and citrus plantings during low-allocation periods",
+      "Long-term drought and climate variability"
+    ],
+    "waterSecurity": {
+      "reliability": null,
+      "risk": null
     },
-
-    "proposed": {
-      "summary": "Introduce earlier allocation forecasting and targeted irrigation-efficiency support to help farmers plan production and manage periods of low water availability."
+    "economicImpact": {
+      "volatility": "High",
+      "gviap": "Variable"
+    },
+    "policy": {
+      "current": {
+        "summary": "The regulated-river plan sets allocation priorities and carryover rules for licence holders. General-security allocations are made after higher-priority requirements are met.",
+        "sourceTitle": "NSW Water — Murrumbidgee water-sharing plans",
+        "sourceUrl": "https://www.water.nsw.gov.au/our-work/plans-and-strategies/water-sharing-plans/murrumbidgee-region",
+        "rules": [
+          "Allocation priority depends on licence category; general-security water is allocated after higher-priority requirements.",
+          "Eligible general-security accounts can carry over up to 30% of entitlement, subject to a 100% account limit."
+        ],
+        "farmerImpact": "If Emily holds a general-security entitlement, lower seasonal allocations could leave less water for irrigating almonds, citrus and vegetables. She may need to adjust irrigation schedules, prioritise crops or seek additional water where trading is available. Carryover may offer flexibility between seasons, subject to her entitlement and the rules.",
+        "title": "Murrumbidgee water-sharing plans",
+        "sources": [
+          {
+            "category": "Policy rules",
+            "title": "NSW Water — Murrumbidgee water-sharing plans",
+            "url": "https://www.water.nsw.gov.au/our-work/plans-and-strategies/water-sharing-plans/murrumbidgee-region",
+            "supports": "Regional plans and their current status"
+          },
+          {
+            "category": "Policy rules",
+            "title": "NSW Water — Murrumbidgee Water Allocation Statement",
+            "url": "https://www.water.nsw.gov.au/sites/default/files/2026-03/WAS-murrumbidgee-20260316.pdf",
+            "supports": "Allocation priority and general-security carryover rules"
+          },
+          {
+            "category": "Current allocation data",
+            "title": "NSW Water — Current allocation statements",
+            "url": "https://www.water.nsw.gov.au/our-work/allocations-and-availability/allocations/water-allocation-statements",
+            "supports": "Latest seasonal allocation statements for the Murrumbidgee"
+          }
+        ]
+      },
+      "proposed": {
+        "summary": "Illustrative scenario — publish earlier in-season allocation outlooks alongside projected carryover availability for Murrumbidgee regulated-river users.",
+        "farmerImpact": "Earlier, clearer outlooks could help Emily plan irrigation and crop decisions; they would not increase the water available."
+      }
     }
-  }
   },
   {
     "name": "Jamie Wilson",
@@ -53,7 +75,7 @@
     "crop": "Almonds and grapes",
     "nrmReference": "Murray",
     "photo": "assets/img/img_sq_5.jpg",
-    "description": "Jamie manages a fictional orchard and vineyard. Permanent plantings need dependable irrigation even when commodity prices soften.",
+    "description": "Jamie manages a orchard and vineyard. Permanent plantings need dependable irrigation even when commodity prices soften.",
     "goals": [
       "Maintain healthy permanent plantings",
       "Reduce water use per hectare",
@@ -64,25 +86,51 @@
       "Higher input and labour costs",
       "Long-term orchard investment risk"
     ],
-
     "waterSecurity": {
-    "reliability": 82,
-    "risk": "Moderate"
-  },
-
-  "economicImpact": {
-    "volatility": "Moderate",
-    "gviap": "Stable"
-  },
-
-  "policy": {
-    "current": {
-      "summary": "Current Victorian water-management rules prioritise entitlement-based allocations and water trading, requiring irrigators to manage seasonal availability and market exposure."
+      "reliability": null,
+      "risk": null
     },
-    "proposed": {
-      "summary": "Expand support for irrigation-efficiency upgrades and longer-term water planning to reduce production risk for farms dependent on permanent plantings."
+    "economicImpact": {
+      "volatility": "Moderate",
+      "gviap": "Stable"
+    },
+    "policy": {
+      "current": {
+        "summary": "Victorian water shares receive seasonal allocations based on water availability. High-reliability shares are allocated before low-reliability shares; this order does not guarantee a full allocation.",
+        "sourceTitle": "Victoria DEECA — How water is managed",
+        "sourceUrl": "https://accounts.water.vic.gov.au/water-explained/how-is-water-managed/",
+        "rules": [
+          "Seasonal determinations use storage levels, expected inflows and system commitments; high-reliability shares are allocated before low-reliability shares.",
+          "In the Murray system, carryover above the entitlement volume may sit in a spillable account and can be written off if storages spill."
+        ],
+        "farmerImpact": "Jamie’s almond orchard and vineyard need irrigation across seasons. If allocations are low, they may need to adjust irrigation plans or consider water purchases where available. Carryover can help shift water between seasons, but spillable-account water may not be available immediately and could be lost if storages spill.",
+        "title": "Victoria’s North and Murray water arrangements",
+        "sources": [
+          {
+            "category": "Policy rules",
+            "title": "Victoria DEECA — How water is managed",
+            "url": "https://accounts.water.vic.gov.au/water-explained/how-is-water-managed/",
+            "supports": "Entitlement reliability and seasonal determinations"
+          },
+          {
+            "category": "Policy rules",
+            "title": "Victoria DEECA — Water accounting",
+            "url": "https://accounts.water.vic.gov.au/water-explained/how-do-we-account-for-water/",
+            "supports": "Carryover and spillable-account write-offs"
+          },
+          {
+            "category": "Current allocation data",
+            "title": "Victoria DEECA — Current water snapshot",
+            "url": "https://www.water.vic.gov.au/our-programs/water-monitoring-and-reporting/current-water-snapshot",
+            "supports": "Current seasonal determinations by water system"
+          }
+        ]
+      },
+      "proposed": {
+        "summary": "Illustrative scenario — not an official government proposal: publish seasonal allocation updates and spillable-account risk together before key irrigation planning periods.",
+        "farmerImpact": "A combined outlook could help Jamie plan irrigation timing and water purchases; it would not change allocation rules or water availability."
+      }
     }
-  }
   },
   {
     "name": "Casey",
@@ -102,11 +150,44 @@
       "Inferred: water access and groundwater protection may matter to local growers.",
       "Inferred: seasonal water availability may affect irrigation planning."
     ],
-    "waterSecurity": { "reliability": null, "risk": null },
-    "economicImpact": { "volatility": null, "gviap": null },
+    "waterSecurity": {
+      "reliability": null,
+      "risk": null
+    },
+    "economicImpact": {
+      "volatility": null,
+      "gviap": null
+    },
     "policy": {
-      "current": { "summary": "No region-specific policy finding is asserted by this sample profile." },
-      "proposed": { "summary": "No proposed policy or modelled outcome is asserted by this sample profile." }
+      "current": {
+        "summary": "The plan’s rules vary by water source and supply arrangement. Scheme-supplied water follows the relevant operations manual; unsupplemented water and some groundwater follow the water management protocol.",
+        "sourceTitle": "Queensland Government — Condamine and Balonne Water Plan area",
+        "sourceUrl": "https://www.business.qld.gov.au/industries/mining-energy-water/water/catchments-planning/water-plan-areas/condamine-balonne",
+        "rules": [
+          "Announced limits can restrict how much water may be taken under some entitlements; supplemented scheme rules are set out in the scheme operations manual.",
+          "Trading and seasonal water assignments are subject to the rules for the relevant scheme, water source and entitlement."
+        ],
+        "farmerImpact": "Casey’s cotton and grain planning depends on which water source and scheme apply to the farm. A change in announced limits or scheme operations could affect irrigation timing or the area planted. Casey may consider water trading or seasonal assignment where permitted; the relevant rules and availability vary by entitlement and scheme.",
+        "title": "Condamine and Balonne Water Plan",
+        "sources": [
+          {
+            "category": "Policy rules",
+            "title": "Queensland Government — Condamine and Balonne Water Plan area",
+            "url": "https://www.business.qld.gov.au/industries/mining-energy-water/water/catchments-planning/water-plan-areas/condamine-balonne",
+            "supports": "Water management protocol and scheme-specific operating manuals"
+          },
+          {
+            "category": "Current allocation data",
+            "title": "Queensland Government — Announced entitlements and allocations",
+            "url": "https://www.business.qld.gov.au/industries/mining-energy-water/water/authorisations/announced-entitlements",
+            "supports": "Current announced limits and allocations by management area"
+          }
+        ]
+      },
+      "proposed": {
+        "summary": "Illustrative scenario — not an official government proposal: provide a single scheme-specific seasonal update combining announced limits, operating rules, and water assignment or trading information.",
+        "farmerImpact": "A consolidated update could make it easier for Casey to plan cotton irrigation and planting around current access information; it would not increase allocations."
+      }
     }
   },
   {
@@ -126,11 +207,50 @@
       "Inferred: reliable water delivery may be important for horticultural production.",
       "Inferred: seasonal water availability may affect irrigation planning."
     ],
-    "waterSecurity": { "reliability": null, "risk": null },
-    "economicImpact": { "volatility": null, "gviap": null },
+    "waterSecurity": {
+      "reliability": 0,
+      "risk": 0
+    },
+    "economicImpact": {
+      "volatility": null,
+      "gviap": null
+    },
     "policy": {
-      "current": { "summary": "No region-specific policy finding is asserted by this sample profile." },
-      "proposed": { "summary": "No proposed policy or modelled outcome is asserted by this sample profile." }
+      "current": {
+        "summary": "South Australia allocates River Murray water under its Water Allocation Plan. Available water is determined after system needs, including conveyance losses and critical human water needs, are considered.",
+        "sourceTitle": "SA Government — How River Murray water is allocated",
+        "sourceUrl": "https://www.environment.sa.gov.au/topics/water/water-licences-permits/planning/water-allocation-plans/allocating-water",
+        "rules": [
+          "In dry years, South Australia may receive a third share of available River Murray water rather than its full Basin Agreement entitlement.",
+          "Eligible Class 3 high-security holders may apply for private carryover of up to 20% when the announced trigger is met; availability is decided each year."
+        ],
+        "farmerImpact": "Morgan’s citrus, almond and grape plantings need irrigation through the growing season. Reduced allocations could mean prioritising essential irrigation, reviewing water purchases or adjusting farm expenditure. Private carryover may provide flexibility only when Morgan meets the eligibility rules and the annual trigger is met; it is unavailable in 2026–27.",
+        "title": "River Murray Water Allocation Plan",
+        "sources": [
+          {
+            "category": "Policy rules",
+            "title": "SA Government — How River Murray water is allocated",
+            "url": "https://www.environment.sa.gov.au/topics/water/water-licences-permits/planning/water-allocation-plans/allocating-water",
+            "supports": "Allocation framework and dry-year sharing"
+          },
+          {
+            "category": "Policy rules",
+            "title": "SA Government — River Murray private carryover",
+            "url": "https://www.environment.sa.gov.au/topics/water-and-river-murray/water-licences-allocations-and-markets/water-allocation-and-carryover/carryover-for-the-river-murray-prescribed-watercourse",
+            "supports": "Eligibility, annual trigger and 20% limit"
+          },
+          {
+            "category": "Current allocation data",
+            "title": "SA Government — Current River Murray allocations",
+            "url": "https://www.environment.sa.gov.au/topics/water-and-river-murray/water-licences-allocations-and-markets/water-allocation-and-carryover/current-allocations",
+            "supports": "Current allocation and carryover announcements; no private carryover in 2026–27"
+          }
+        ]
+      },
+      "proposed": {
+        "summary": "Illustrative scenario — not an official government proposal: publish allocation probability updates and carryover eligibility information together earlier in the South Australian water year.",
+        "farmerImpact": "Earlier updates could help Morgan compare irrigation and carryover plans for orchards and vineyards; they would not add water to the system."
+      }
     }
   }
 ]

@@ -218,14 +218,18 @@
     const economic = farmer?.economicImpact;
 
     //Water security snapshot
-    const reliability = water?.reliability ?? 0;
-    const risk = water?.risk ?? 0;
-    el("reliability").textContent = reliability + "%";
-    el("reliability-bar").value = reliability;
-    el("reliability-bar").hidden = false;
+    const reliability = Number.isFinite(water?.reliability)
+      ? water.reliability
+      : null;
+    const risk = water?.risk ?? null;
+    el("reliability").textContent = reliability === null
+      ? "Data unavailable"
+      : reliability + "%";
+    el("reliability-bar").value = reliability ?? 0;
+    el("reliability-bar").hidden = reliability === null;
 
-    el("risk").textContent = risk;
-    el("risk-bar").hidden = false;
+    el("risk").textContent = risk ?? "Data unavailable";
+    el("risk-bar").hidden = !risk;
 
     const riskColor =
       { High: "#cf2027", Moderate: "#a86b00", Low: "#218263" }[
@@ -250,10 +254,75 @@
     el("gviap").textContent = gviapSeries;
     el("dominant-crop").textContent = farmer?.crop ?? "Not supplied";
 
-    // Policy text
-    el("policy-summary").textContent =
-      farmer?.policy?.[policy]?.summary ??
-      "No sample policy scenario is available for this region.";
+    // Show sourced regional policy or plan information when available.
+    const policyEntry = farmer?.policy?.[policy];
+    const policySummary = el("policy-summary");
+    policySummary.replaceChildren();
+    const summary = document.createElement("p");
+    summary.textContent = policyEntry?.summary ?? "No verified policy information is available for this region.";
+    policySummary.append(summary);
+
+    if (policy === "current" && policyEntry?.rules?.length) {
+      const rulesLabel = document.createElement("strong");
+      rulesLabel.className = "policy-inline-heading";
+      rulesLabel.textContent = "Policy rules";
+      const rules = document.createElement("ul");
+      for (const rule of policyEntry.rules) {
+        const item = document.createElement("li");
+        item.textContent = rule;
+        rules.append(item);
+      }
+      policySummary.append(rulesLabel, rules);
+    }
+
+    if (policyEntry?.farmerImpact) {
+      const impactLabel = document.createElement("strong");
+      impactLabel.className = "policy-inline-heading";
+      impactLabel.textContent = policy === "current"
+        ? "Potential farmer impacts"
+        : "Possible scenario impact";
+      const impact = document.createElement("p");
+      impact.textContent = policyEntry.farmerImpact;
+      policySummary.append(impactLabel, impact);
+    }
+
+    const policySources = policyEntry?.sources ?? (
+      policyEntry?.sourceUrl
+        ? [{
+            title: policyEntry.sourceTitle || "Official source",
+            url: policyEntry.sourceUrl,
+            category: "Policy rules",
+            supports: "Regional policy information",
+          }]
+        : []
+    );
+    if (policy === "current" && policySources.length) {
+      const sourceLabel = document.createElement("strong");
+      sourceLabel.className = "policy-inline-heading";
+      sourceLabel.textContent = "Sources";
+      const sources = document.createElement("ul");
+      sources.className = "policy-source-list";
+      policySummary.append(sourceLabel, sources);
+      for (const source of policySources) {
+      try {
+        const sourceUrl = new URL(source.url);
+        if (!["http:", "https:"].includes(sourceUrl.protocol)) continue;
+        const item = document.createElement("li");
+        item.append(document.createTextNode(`${source.category || "Official source"}: `));
+        const sourceLink = document.createElement("a");
+        sourceLink.href = sourceUrl.href;
+        sourceLink.textContent = source.title || "Official source";
+        sourceLink.target = "_blank";
+        sourceLink.rel = "noopener noreferrer";
+        if (source.supports) {
+          sourceLink.setAttribute("aria-label", `${source.title || "Official source"}: ${source.supports}`);
+        }
+        item.append(sourceLink);
+        if (source.supports) item.append(document.createTextNode(` — ${source.supports}`));
+        sources.append(item);
+      } catch { /* Ignore invalid source URLs. */ }
+      }
+    }
 
     //Farmer 
     if (!farmer) return;

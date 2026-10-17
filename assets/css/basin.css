@@ -472,6 +472,14 @@ select {
   font-weight: 600;
 }
 
+.farm-type-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  vertical-align: -5px;
+}
+
 .profile-facts dd {
   margin: 0;
   color: #63707b;
@@ -618,7 +626,28 @@ progress::-moz-progress-bar {
   color: #5a6571;
   font-size: 12px;
   line-height: 1.7;
-  min-height: 90px;
+  min-height: 0;
+}
+
+.policy-summary p {
+  margin: 0 0 10px;
+}
+
+.policy-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.policy-inline-heading {
+  display: block;
+  margin-top: 10px;
+  color: #243b57;
+  font-size: 12px;
+}
+
+.policy-source-list {
+  margin: 4px 0 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
 table {
