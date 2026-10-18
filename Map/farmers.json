@@ -21,8 +21,8 @@
       "Long-term drought and climate variability"
     ],
     "waterSecurity": {
-      "reliability": null,
-      "risk": null
+      "reliability": 0,
+      "risk": 0
     },
     "economicImpact": {
       "volatility": "High",
@@ -87,8 +87,8 @@
       "Long-term orchard investment risk"
     ],
     "waterSecurity": {
-      "reliability": null,
-      "risk": null
+      "reliability": 0,
+      "risk": 0
     },
     "economicImpact": {
       "volatility": "Moderate",
@@ -151,8 +151,8 @@
       "Inferred: seasonal water availability may affect irrigation planning."
     ],
     "waterSecurity": {
-      "reliability": null,
-      "risk": null
+      "reliability": 0,
+      "risk": 0
     },
     "economicImpact": {
       "volatility": null,
