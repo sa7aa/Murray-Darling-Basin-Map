@@ -4,21 +4,146 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - AgriCulture Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Home - The Farmer's Basin</title>
+  <meta name="description" content="The Farmer's Basin: an interactive map showing how water security differs for farmers across the Murray-Darling Basin.">
+  <meta name="keywords" content="Murray-Darling Basin, water security, farmers, policy, One Basin CRC">
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <!-- Inter added: main.css uses it for every home section but it was never loaded -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"/>
+
+  <!-- Home page styles (can be moved into main.css) -->
+  <style>
+    /* Why it Matters */
+    .matters-intro {
+      max-width: 900px;
+      margin: 0 0 24px;
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      line-height: 30px;
+      color: #2f2f2f;
+    }
+
+    .matters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .matters-stat {
+      background: linear-gradient(0deg, rgba(195, 224, 243, 0.29), rgba(195, 224, 243, 0.29)), #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+    }
+
+    .matters-stat strong {
+      display: block;
+      font-size: 44px;
+      line-height: 1.1;
+      font-weight: 700;
+      color: #094EFF;
+      margin-bottom: 10px;
+    }
+
+    .matters-stat span {
+      display: block;
+      font-size: 16px;
+      line-height: 24px;
+      color: #2f2f2f;
+    }
+
+    .matters-stat small {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #67727c;
+    }
+
+    /* Footer (same as about.html) */
+    .about-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 36px 4% !important;
+      font-family: "Inter", sans-serif;
+    }
+
+    .about-footer-brand {
+      color: #ffffff;
+      max-width: 420px;
+    }
+
+    .about-footer-brand strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .about-footer-brand p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: #eef4ff;
+    }
+
+    .about-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .about-footer-nav a {
+      color: #25313a;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .about-footer-nav a:hover,
+    .about-footer-nav a:focus-visible {
+      color: #094EFF;
+      text-decoration: underline;
+    }
+
+    .about-footer-nav i {
+      margin-right: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .matters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .matters-intro {
+        font-size: 17px;
+        line-height: 27px;
+      }
+
+      .about-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-footer-nav a {
+        color: #ffffff;
+      }
+    }
+  </style>
 </head>
 
 <body class="home-wireframe-page">
@@ -29,7 +154,7 @@
       </a>
 
       <nav class="home-nav" aria-label="Main navigation">
-        <a href="home.html" class="active">Home</a>
+        <a href="home.html" class="active" aria-current="page">Home</a>
         <a href="map.html">Map</a>
         <a href="about.html">About</a>
       </nav>
@@ -56,7 +181,8 @@
         <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
 
-      <a href="Map/index.html" class="hero-cta-button" aria-label="Explore farmers impact">
+      <!-- Check this link: the nav uses map.html, these CTAs use Map/index.html -->
+      <a href="Map/index.html" class="hero-cta-button">
         <span>Explore Farmers Impact</span>
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M5 12h11.5m0 0-4.5-4.5M16.5 12l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -68,7 +194,10 @@
       <h2>Purpose</h2>
       <div class="purpose-card">
         <p>
-          Australian farmers across the Murray-Basin experience disproportionate levels of water security depending on geographical area, water entitlements and availability, The Farmer's Basin serves to contextualise and visualise how water security impacts farmers across the Murray-Darling Basin.
+          Australian farmers across the Murray-Darling Basin experience very different levels of water security
+          depending on where they farm, the water entitlements they hold and how much water is available each
+          year. The Farmer's Basin brings this together to show how water security affects farmers across
+          the Basin.
         </p>
       </div>
     </section>
@@ -78,16 +207,17 @@
 
       <div class="impact-panel">
         <div class="impact-copy">
+          <!-- Icons use empty alt text because the label next to each one already says what it is -->
           <ul class="impact-list">
-            <li><img src="assets/img/map-symbol.png" alt="Map icon"><span>Compare Regional Security</span></li>
-            <li><img src="assets/img/water drop.png" alt="Water icon"><span>View Allocation Reliability</span></li>
-            <li><img src="assets/img/map-symbol.png" alt="Map icon"><span>Assess Water Market Conditions</span></li>
-            <li><img src="assets/img/person.png" alt="Person icon"><span>Farmer Profiles</span></li>
-            <li><img src="assets/img/paper.png" alt="Paper icon"><span>Compare Policy Impacts</span></li>
-            <li><img src="assets/img/money-increasing.png" alt="Money icon"><span>Review Economic Indicators &amp; Risk</span></li>
+            <li><img src="assets/img/map-symbol.png" alt=""><span>Compare Regional Security</span></li>
+            <li><img src="assets/img/water drop.png" alt=""><span>View Allocation Reliability</span></li>
+            <li><img src="assets/img/map-symbol.png" alt=""><span>Assess Water Market Conditions</span></li>
+            <li><img src="assets/img/person.png" alt=""><span>Farmer Profiles</span></li>
+            <li><img src="assets/img/paper.png" alt=""><span>Compare Policy Impacts</span></li>
+            <li><img src="assets/img/money-increasing.png" alt=""><span>Review Economic Indicators &amp; Risk</span></li>
           </ul>
 
-          <a href="Map/index.html" class="impact-cta-button" aria-label="View interactive map">
+          <a href="Map/index.html" class="impact-cta-button">
             <span>View Interactive Map</span>
           </a>
         </div>
@@ -100,11 +230,45 @@
 
     <section class="matters-section">
       <h2>Why it Matters</h2>
+      <p class="matters-intro">
+        The Basin underpins a major share of Australian agriculture, but the water it supplies is not shared
+        evenly. When allocations fall, some regions feel it first and hardest.
+      </p>
+      <!-- Each figure needs a cited source to meet the data-accuracy requirement. Fill in the two marked TODO. -->
+      <div class="matters-grid">
+        <div class="matters-stat">
+          <strong>8,400</strong>
+          <span>irrigated agricultural businesses depend on the Basin</span>
+          <small>Source: Murray-Darling Basin Authority, 2023</small>
+        </div>
+        <div class="matters-stat">
+          <strong>$30B</strong>
+          <span>in Basin agricultural output each year</span>
+          <small>Source: <!-- TODO: add source --></small>
+        </div>
+        <div class="matters-stat">
+          <strong>37%</strong>
+          <span>decline in rice production, driven by reduced water availability</span>
+          <small>Source: <!-- TODO: add source and year range --></small>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer-inner"></div>
+    <div class="site-footer-inner about-footer">
+      <div class="about-footer-brand">
+        <strong>The Farmer's Basin</strong>
+        <p>An RMIT Digital Innovation Project for One Basin CRC.</p>
+        <p>&copy; 2026 The Farmer's Basin team</p>
+      </div>
+      <nav class="about-footer-nav" aria-label="Footer navigation">
+        <a href="home.html">Home</a>
+        <a href="map.html">Map</a>
+        <a href="about.html">About</a>
+        <a href="https://github.com/sa7aa/Murray-Darling-Basin-Map" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i>GitHub</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
