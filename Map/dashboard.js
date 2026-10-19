@@ -115,8 +115,6 @@
       el(id).value = filters[id];
     }
     townMarkers.style("display", (town) => el("show-towns").checked && matches(town) ? null : "none");
-    // Geographic regions in the summary are distinct from water plan boundaries.
-    // Use town coordinates to connect the two, rather than equating their names.
     const matchingRegions = new Set(regions.filter((region) => visible.some((town) =>
       d3.geoContains(region, town.geometry.coordinates))));
     paths.attr("opacity", (region) => !active || matchingRegions.has(region) ? 1 : 0.2);
@@ -218,16 +216,15 @@
     const economic = farmer?.economicImpact;
 
     //Water security snapshot
-    const reliability = Number.isFinite(water?.reliability)
-      ? water.reliability
+    const allocation = Number.isFinite(water?.allocation)
+      ? water.allocation
       : null;
     const risk = water?.risk ?? null;
-    el("reliability").textContent = reliability === null
+    el("allocation").textContent = allocation === null
       ? "Data unavailable"
-      : reliability + "%";
-    el("reliability-bar").value = reliability ?? 0;
-    el("reliability-bar").hidden = reliability === null;
-
+      : allocation + "%";
+    el("allocation-bar").value = allocation ?? 0;
+    el("allocation-bar").hidden = allocation === null;
     el("risk").textContent = risk ?? "Data unavailable";
     el("risk-bar").hidden = !risk;
 
@@ -246,13 +243,48 @@
       ),
     );
 
-    // Economic impact
-    const priceReference = getCropPriceReference(farmer?.crop);
-    el("volatility").textContent = priceReference?.value ?? "No matching market index";
-    el("price-reference-note").textContent = priceReference?.note ??
-      "The supplied records do not identify a crop category with a matching ABARES index.";
-    el("gviap").textContent = gviapSeries;
-    el("dominant-crop").textContent = farmer?.crop ?? "Not supplied";
+    // Calculate the profile-specific economic impact from source allocations
+    // and separate hypothetical intervention assumptions.
+    const scenario = economic?.waterCostScenario;
+    const assumptions = scenario?.assumptions;
+    const allocationPct = farmer?.allocationData?.percentage;
+    const hasScenarioInputs = Number.isFinite(allocationPct) &&
+      Number.isFinite(assumptions?.assumedEntitlementML) &&
+      Number.isFinite(assumptions?.baselineDemandML);
+    const money = (value) => Number.isFinite(value)
+      ? `A$${new Intl.NumberFormat("en-AU", { maximumFractionDigits: 0 }).format(value)}`
+      : "Data unavailable";
+    if (hasScenarioInputs) {
+      const allocatedML = assumptions.assumedEntitlementML * allocationPct / 100 +
+        Math.max(0, assumptions.existingCarryoverML ?? 0);
+      const currentShortfallML = Math.max(0, assumptions.baselineDemandML - allocatedML);
+      const pricePerML = assumptions.temporaryWaterPriceAUDPerML ?? 0;
+      const currentCost = currentShortfallML * pricePerML;
+      let proposedCost = currentCost;
+
+      if (scenario.type === "purchase-assistance") {
+        const assistance = currentCost * (assumptions.assistanceRate ?? 0);
+        proposedCost = currentCost - assistance;
+      } else if (scenario.type === "irrigation-efficiency") {
+        const demandReduction = assumptions.demandReductionRate ?? 0;
+        const proposedDemandML = assumptions.baselineDemandML * (1 - demandReduction);
+        const proposedShortfallML = Math.max(0, proposedDemandML - allocatedML);
+        proposedCost = proposedShortfallML * pricePerML;
+      }
+
+      el("current-water-cost").textContent = money(currentCost);
+      el("proposed-water-cost").textContent = money(proposedCost);
+      const reduction = currentCost - proposedCost;
+      const reductionPercent = currentCost > 0 ? reduction / currentCost : 0;
+      const percent = new Intl.NumberFormat("en-AU", { style: "percent", maximumFractionDigits: 0 }).format(reductionPercent);
+      el("farmer-expense-reduction").textContent = `${money(reduction)} (${percent})`;
+      el("dominant-crop").textContent = farmer?.crop ?? "Not supplied";
+    } else {
+      el("current-water-cost").textContent = "Data unavailable";
+      el("proposed-water-cost").textContent = "Data unavailable";
+      el("farmer-expense-reduction").textContent = "Data unavailable";
+      el("dominant-crop").textContent = farmer?.crop ?? "Not supplied";
+    }
 
     // Show sourced regional policy or plan information when available.
     const policyEntry = farmer?.policy?.[policy];
