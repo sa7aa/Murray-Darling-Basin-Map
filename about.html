@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>About - AgriCulture Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>About - The Farmer's Basin</title>
+  <meta name="description" content="About The Farmer's Basin: an interactive map showing how water security differs for farmers across the Murray-Darling Basin.">
+  <meta name="keywords" content="Murray-Darling Basin, water security, farmers, policy, One Basin CRC">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,18 +27,239 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- About page styles (can be moved into main.css) -->
+  <style>
+    .about-wrap {
+      max-width: 1290px;
+      margin: 0 auto;
+      padding: 0 75px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      color: #2f2f2f;
+    }
+
+    .about-block {
+      margin-top: 64px;
+    }
+
+    .about-block h2 {
+      margin: 0 0 22px;
+      padding-top: 10px;
+      border-top: 1px solid #C9B800;
+      font-family: "Inter", sans-serif;
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .about-lead {
+      font-size: 18px;
+      line-height: 30px;
+      max-width: 900px;
+    }
+
+    /* Mission card */
+    .mission-card {
+      background: linear-gradient(0deg, rgba(195, 224, 243, 0.29), rgba(195, 224, 243, 0.29)), #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .mission-card p {
+      font-size: 19px;
+      line-height: 30px;
+      margin: 0;
+    }
+
+    .mission-stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mission-stat {
+      background: #ffffff;
+      border: 1px solid #d9e7dd;
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+
+    .mission-stat strong {
+      display: block;
+      font-size: 30px;
+      color: #094EFF;
+      line-height: 1.1;
+    }
+
+    .mission-stat span {
+      font-size: 14px;
+      color: #56675c;
+    }
+
+    /* Feature cards */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      padding: 24px;
+      height: 100%;
+    }
+
+    .about-card .about-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #C6E3F3;
+      color: #094EFF;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .about-card h3 {
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+
+    .about-card p {
+      font-size: 15px;
+      line-height: 24px;
+      margin: 0;
+      color: #4a4a4a;
+    }
+
+    /* Regional voices */
+    .voice-card {
+      border-left: 4px solid #28553c;
+      background: #f2f7f3;
+    }
+
+    .voice-card .voice-region {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #28553c;
+      margin-bottom: 8px;
+    }
+
+    /* Team */
+    .team-card {
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #094EFF 0%, #8dc6e8 100%);
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .team-card .team-role {
+      font-size: 14px;
+      color: #67727c;
+    }
+
+    /* Acknowledgements and sources */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .about-list {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 26px;
+      color: #4a4a4a;
+    }
+
+    .about-list a {
+      color: #094EFF;
+    }
+
+    .country-note {
+      margin-top: 64px;
+      padding: 24px 28px;
+      border-radius: 8px;
+      background: #1f2a24;
+      color: #eafff1;
+      font-size: 15px;
+      line-height: 26px;
+    }
+
+    .country-note strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .about-cta {
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    .about-cta p {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
+    .about-cta .impact-cta-button {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .mission-card,
+      .about-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-wrap {
+        padding: 0 20px;
+      }
+
+      .about-lead,
+      .mission-card p {
+        font-size: 17px;
+        line-height: 27px;
+      }
+    }
+  </style>
 </head>
 
-<body class="testimonials-page">
+<!-- Body class changed from "testimonials-page": main.css hides every img/svg on that class, which was hiding the logo -->
+<body class="about-team-page">
 
   <header class="home-header">
     <div class="home-header-inner">
 
       <a href="home.html" class="home-brand" aria-label="Go to homepage">
-        <img
-          src="assets/img/logo-farmers.png"
-          alt="The Farmer's Basin logo"
-        >
+        <img src="assets/img/logo-farmers.png" alt="The Farmer's Basin logo">
       </a>
 
       <nav class="home-nav" aria-label="Main navigation">
@@ -56,7 +277,6 @@
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
       <div class="container position-relative">
         <h1>About</h1>
-  
         <nav class="breadcrumbs">
           <ol>
             <li><a href="home.html">Home</a></li>
@@ -66,6 +286,190 @@
       </div>
     </div><!-- End Page Title -->
 
+    <div class="about-wrap">
+
+      <!-- Mission -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="mission-heading">
+        <h2 id="mission-heading">Our Mission</h2>
+        <div class="mission-card">
+          <p>
+            The Farmer's Basin makes the uneven reality of water security across the Murray-Darling Basin
+            visible. We bring water availability, allocation reliability and regional agriculture together on
+            one interactive map, so the people shaping water policy can see who is most exposed and why.
+          </p>
+          <div class="mission-stats">
+            <div class="mission-stat">
+              <strong>8,400</strong>
+              <span>irrigated agricultural businesses rely on the Basin</span>
+            </div>
+            <div class="mission-stat">
+              <strong>2000 &ndash; 2021</strong>
+              <span>years of catchment-level water market data behind the map</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The problem -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="problem-heading">
+        <h2 id="problem-heading">Why We Built It</h2>
+        <p class="about-lead">
+          A farmer's access to water depends on where they farm, what kind of entitlement they hold, each
+          year's allocation decisions and the season they're facing. General-security holders, concentrated in
+          NSW catchments such as the Murrumbidgee, are usually the first and hardest hit in dry years, while
+          high-security holders downstream are rarely affected. That information is spread across many
+          datasets, which makes the difference between regions hard to see from a policy desk. We think water
+          insecurity in the Basin is shaped by policy design as much as by geography or drought, and that it
+          needs to be seen to be addressed.
+        </p>
+      </section>
+
+      <!-- What the platform does -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="features-heading">
+        <h2 id="features-heading">What You Can Do Here</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-map" aria-hidden="true"></i></div>
+            <h3>Explore the Basin</h3>
+            <p>Select a region on the map to see its water availability, allocation reliability and the agriculture that depends on it.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></div>
+            <h3>Meet Farmer Personas</h3>
+            <p>Each region is represented by a farmer persona with their farm type, goals, key concerns and income risk.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-sliders" aria-hidden="true"></i></div>
+            <h3>Compare Policies</h3>
+            <p>Switch between the current policy and a proposed equity-focused policy to see how outcomes change for different farmers.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+            <h3>Read the Economics</h3>
+            <p>See price volatility, irrigated production trends and dominant crops for each region, all traced back to cited data.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Regional voices -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="voices-heading">
+        <h2 id="voices-heading">Voices from the Basin</h2>
+        <p class="about-lead">
+          Behind every allocation figure is a community. These regional organisations show how differently
+          water policy is felt across the Basin.
+        </p>
+        <div class="about-grid">
+          <div class="about-card voice-card">
+            <span class="voice-region">Gwydir, NSW</span>
+            <h3>Gwydir Valley Irrigators Association</h3>
+            <p>Reports that only around 19% of long-term river flows remain available for irrigation in the Gwydir, following water recovery under the Basin Plan.</p>
+          </div>
+          <div class="about-card voice-card">
+            <span class="voice-region">Riverland, SA</span>
+            <h3>Central Irrigation Trust</h3>
+            <p>Shows how water trading lets high-security regions sustain permanent horticulture by buying entitlements from elsewhere in the Basin.</p>
+          </div>
+          <div class="about-card voice-card">
+            <span class="voice-region">Cowra, NSW</span>
+            <h3>Mid Lachlan Landcare</h3>
+            <p>Runs farmer-inclusive sustainability projects, showing that farming and environmental recovery don't have to be at odds.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who it's for -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="audience-heading">
+        <h2 id="audience-heading">Who It's For</h2>
+        <div class="about-split">
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-bank" aria-hidden="true"></i></div>
+            <h3>Policymakers and government officers</h3>
+            <p>People working in water management, agriculture and regional planning who need a clear, no-GIS-required view of how decisions land in different regions.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+            <h3>Basin communities and stakeholders</h3>
+            <p>The Murray-Darling Basin Authority, regional and local governments, agricultural organisations and farmers who live with these decisions and hold the local knowledge.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="team-heading">
+        <h2 id="team-heading">The Team</h2>
+        <p class="about-lead">
+          We're a team of RMIT students building The Farmer's Basin as part of One Basin CRC's project,
+          <em>Unlocking collaborations for transformation: Towards a platform for data and knowledge sharing</em>.
+        </p>
+        <!-- Update each team-role with the person's actual role -->
+        <div class="about-grid">
+          <div class="about-card team-card">
+            <div class="team-avatar" aria-hidden="true">DW</div>
+            <h3>Deng Wol</h3>
+            <p class="team-role">Team member</p>
+          </div>
+          <div class="about-card team-card">
+            <div class="team-avatar" aria-hidden="true">MS</div>
+            <h3>Madelaine Siebert</h3>
+            <p class="team-role">Team member</p>
+          </div>
+          <div class="about-card team-card">
+            <div class="team-avatar" aria-hidden="true">NV</div>
+            <h3>Nguyen Phuong Vo</h3>
+            <p class="team-role">Team member</p>
+          </div>
+          <div class="about-card team-card">
+            <div class="team-avatar" aria-hidden="true">SA</div>
+            <h3>Sara Al Fahdawi</h3>
+            <p class="team-role">Team member</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners and data -->
+      <section class="about-block" data-aos="fade-up" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Partners &amp; Data</h2>
+        <div class="about-split">
+          <div class="about-card">
+            <h3>With thanks to</h3>
+            <ul class="about-list">
+              <li>Associate Professor Elizabeth Tait, project client</li>
+              <li>One Basin CRC</li>
+              <li>RMIT University</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h3>Where our data comes from</h3>
+            <ul class="about-list">
+              <li><a href="https://www.agriculture.gov.au/abares/research-topics/water/mdb-water-market-dataset" target="_blank" rel="noopener">ABARES MDB Water Market Catchment Dataset</a> (Walsh, Westwood &amp; Gupta, 2021)</li>
+              <li><a href="https://www.mdba.gov.au/basin/why-murray-darling-basin-matters/our-reliance-basin-water" target="_blank" rel="noopener">Murray-Darling Basin Authority</a></li>
+              <li>Zeleke &amp; Luckett (2025), southern Basin supply and demand analysis</li>
+            </ul>
+            <p class="mt-3 mb-0" style="font-size:14px;color:#67727c;">
+              Public data is often released with a delay, so figures may not reflect current-year allocations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Acknowledgement of Country -->
+      <aside class="country-note" data-aos="fade-up">
+        <strong>Acknowledgement of Country</strong>
+        We acknowledge the Traditional Owners of the lands and waters of the Murray-Darling Basin and pay our
+        respects to Elders past and present. We recognise their continuing connection to the rivers that
+        sustain the communities this project is about.
+      </aside>
+
+      <!-- CTA -->
+      <section class="about-cta" data-aos="fade-up">
+        <p>See how water security changes from region to region.</p>
+        <a href="map.html" class="impact-cta-button">
+          <span>View Interactive Map</span>
+          <i class="bi bi-arrow-right" aria-hidden="true" style="margin:0;"></i>
+        </a>
+      </section>
+
+    </div>
   </main>
 
   <footer class="site-footer">
