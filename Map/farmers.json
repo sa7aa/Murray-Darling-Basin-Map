@@ -21,23 +21,31 @@
       "Long-term drought and climate variability"
     ],
     "waterSecurity": {
-      "reliability": 0,
-      "risk": 0
+      "allocation": 45,
+      "risk": "High"
     },
     "economicImpact": {
-      "volatility": "High",
-      "gviap": "Variable"
+      "waterCostScenario": {
+        "type": "purchase-assistance",
+        "assumptions": {
+          "assumedEntitlementML": 100,
+          "baselineDemandML": 100,
+          "existingCarryoverML": 0,
+          "temporaryWaterPriceAUDPerML": 500,
+          "assistanceRate": 0.2
+        }
+      }
     },
     "policy": {
       "current": {
-        "summary": "The regulated-river plan sets allocation priorities and carryover rules for licence holders. General-security allocations are made after higher-priority requirements are met.",
+        "summary": "Water allocations in the Murrumbidgee regulated river depend on licence categories and seasonal water availability. This profile assumes Emily holds a general-security entitlement, with a reported allocation of 45% as of 1 October 2026.",
         "sourceTitle": "NSW Water — Murrumbidgee water-sharing plans",
         "sourceUrl": "https://www.water.nsw.gov.au/our-work/plans-and-strategies/water-sharing-plans/murrumbidgee-region",
         "rules": [
-          "Allocation priority depends on licence category; general-security water is allocated after higher-priority requirements.",
-          "Eligible general-security accounts can carry over up to 30% of entitlement, subject to a 100% account limit."
+          "General-security allocations are made after higher-priority categories have received their allocations.",
+          "Eligible general-security accounts may carry over up to 30% of entitlement; total account balance is limited to 100% of entitlement."
         ],
-        "farmerImpact": "If Emily holds a general-security entitlement, lower seasonal allocations could leave less water for irrigating almonds, citrus and vegetables. She may need to adjust irrigation schedules, prioritise crops or seek additional water where trading is available. Carryover may offer flexibility between seasons, subject to her entitlement and the rules.",
+        "farmerImpact": "Under the assumed general-security entitlement, Emily's 45% allocation would provide 45 ML against her illustrative 100 ML seasonal water requirement, leaving a 55 ML shortfall. At an assumed water purchase price of AUD 500/ML, purchasing the additional water would cost approximately AUD 27,500 before any proposed financial assistance.",
         "title": "Murrumbidgee water-sharing plans",
         "sources": [
           {
@@ -54,16 +62,24 @@
           },
           {
             "category": "Current allocation data",
-            "title": "NSW Water — Current allocation statements",
-            "url": "https://www.water.nsw.gov.au/our-work/allocations-and-availability/allocations/water-allocation-statements",
-            "supports": "Latest seasonal allocation statements for the Murrumbidgee"
+            "title": "NSW Water - Summary of current water allocations",
+            "url": "https://www.water.nsw.gov.au/our-work/allocations-and-availability/allocations/summary-current-water-allocations",
+            "supports": "Current seasonal allocation information"
           }
         ]
       },
       "proposed": {
-        "summary": "Illustrative scenario — publish earlier in-season allocation outlooks alongside projected carryover availability for Murrumbidgee regulated-river users.",
-        "farmerImpact": "Earlier, clearer outlooks could help Emily plan irrigation and crop decisions; they would not increase the water available."
+        "summary": "Targeted Irrigation Water Assistance - Hypothetical. Introduce 20% financial assistance for eligible temporary water purchases by irrigators experiencing allocation shortfalls.",
+        "farmerImpact": "Emily's modelled additional water expense decreases from A$27,500 to A$22,000. The seasonal allocation remains unchanged."
       }
+    },
+    "allocationData": {
+      "percentage": 45,
+      "entitlementType": "General security (assumed for this illustrative profile)",
+      "geography": "Murrumbidgee regulated river",
+      "date": "2026-10-01",
+      "sourceTitle": "NSW Water - Summary of current water allocations",
+      "sourceUrl": "https://www.water.nsw.gov.au/our-work/allocations-and-availability/allocations/summary-current-water-allocations"
     }
   },
   {
@@ -87,23 +103,31 @@
       "Long-term orchard investment risk"
     ],
     "waterSecurity": {
-      "reliability": 0,
-      "risk": 0
+      "allocation": 75,
+      "risk": "Moderate"
     },
     "economicImpact": {
-      "volatility": "Moderate",
-      "gviap": "Stable"
+      "waterCostScenario": {
+        "type": "purchase-assistance",
+        "assumptions": {
+          "assumedEntitlementML": 100,
+          "baselineDemandML": 100,
+          "existingCarryoverML": 0,
+          "temporaryWaterPriceAUDPerML": 500,
+          "assistanceRate": 0.2
+        }
+      }
     },
     "policy": {
       "current": {
-        "summary": "Victorian water shares receive seasonal allocations based on water availability. High-reliability shares are allocated before low-reliability shares; this order does not guarantee a full allocation.",
+        "summary": "The Victorian Murray system makes seasonal determinations for high- and low-reliability water shares according to available resources. This profile assumes Jamie holds a high-reliability water share, which is allocated before low-reliability shares; the Murray HRWS determination is 75% as of 1 October 2026.",
         "sourceTitle": "Victoria DEECA — How water is managed",
         "sourceUrl": "https://accounts.water.vic.gov.au/water-explained/how-is-water-managed/",
         "rules": [
-          "Seasonal determinations use storage levels, expected inflows and system commitments; high-reliability shares are allocated before low-reliability shares.",
-          "In the Murray system, carryover above the entitlement volume may sit in a spillable account and can be written off if storages spill."
+          "Seasonal determinations depend on available resources; high-reliability water shares are allocated before low-reliability shares.",
+          "Carryover may be held in spillable accounts when total allocation exceeds entitlement; spillable water can be unavailable until permitted and may be written off if relevant storages spill."
         ],
-        "farmerImpact": "Jamie’s almond orchard and vineyard need irrigation across seasons. If allocations are low, they may need to adjust irrigation plans or consider water purchases where available. Carryover can help shift water between seasons, but spillable-account water may not be available immediately and could be lost if storages spill.",
+        "farmerImpact": "Under the assumed high-reliability share, Jamie?s 75% seasonal allocation may leave less water for the modeled 100 ML demand. In the illustrative cost model, the 25 ML shortfall costs AUD 12,500 at AUD 500/ML before assistance. Carryover and spillable-account rules may affect usable water.",
         "title": "Victoria’s North and Murray water arrangements",
         "sources": [
           {
@@ -127,21 +151,29 @@
         ]
       },
       "proposed": {
-        "summary": "Illustrative scenario — not an official government proposal: publish seasonal allocation updates and spillable-account risk together before key irrigation planning periods.",
-        "farmerImpact": "A combined outlook could help Jamie plan irrigation timing and water purchases; it would not change allocation rules or water availability."
+        "summary": "Water Purchase Cost Support - Hypothetical. Introduce 20% assistance toward eligible temporary water purchases for irrigation-dependent horticulture growers facing allocation shortfalls.",
+        "farmerImpact": "Jamie's modelled additional water expense decreases from A$12,500 to A$10,000 without changing existing allocation rules."
       }
+    },
+    "allocationData": {
+      "percentage": 75,
+      "entitlementType": "High-reliability water share (assumed for this illustrative profile)",
+      "geography": "Victorian Murray system",
+      "date": "2026-10-01",
+      "sourceTitle": "Victoria DEECA ? Current water snapshot",
+      "sourceUrl": "https://www.water.vic.gov.au/our-programs/water-monitoring-and-reporting/current-water-snapshot"
     }
   },
   {
     "name": "Casey",
     "role": "Cotton and grain grower",
     "photo": "assets/img/img_sq_1.jpg",
-    "region": "Condamine-Balonne",
+    "region": "Condamine–Balonne",
     "state": "QLD",
     "crop": "Cotton and grain",
     "nrmReference": "Condamine",
     "includeCropWaterUse": false,
-    "description": "Casey grows cotton and grain in the Condamine-Balonne region. Cotton production depends on irrigation, so seasonal water availability shapes planting and farm planning. Local grower and irrigation groups connect producers with industry information and resources.",
+    "description": "Casey grows cotton and grain in the Condamine–Balonne region. Cotton production depends on irrigation, so seasonal water availability shapes planting and farm planning. Local grower and irrigation groups connect producers with industry information and resources.",
     "goals": [
       "Inferred: plan crop production with irrigation and water access in mind.",
       "Inferred: stay connected with local grower and irrigation networks."
@@ -151,23 +183,32 @@
       "Inferred: seasonal water availability may affect irrigation planning."
     ],
     "waterSecurity": {
-      "reliability": 0,
-      "risk": 0
+      "allocation": 38,
+      "risk": "High",
+      "allocationNote": "Prototype value supplied by the project; no specific Queensland entitlement or scheme has been identified."
     },
     "economicImpact": {
-      "volatility": null,
-      "gviap": null
+      "waterCostScenario": {
+        "type": "purchase-assistance",
+        "assumptions": {
+          "assumedEntitlementML": 100,
+          "baselineDemandML": 100,
+          "existingCarryoverML": 0,
+          "temporaryWaterPriceAUDPerML": 500,
+          "assistanceRate": 0.2
+        }
+      }
     },
     "policy": {
       "current": {
-        "summary": "The plan’s rules vary by water source and supply arrangement. Scheme-supplied water follows the relevant operations manual; unsupplemented water and some groundwater follow the water management protocol.",
+        "summary": "The Condamine–Balonne plan operates through water management protocols and scheme-specific operating rules. This profile assumes Casey holds a medium-priority entitlement in the St George Water Supply Scheme, where the 2026–27 announced allocation is 38% effective 1 July 2026. This is scheme-specific, not a Condamine–Balonne-wide percentage.",
         "sourceTitle": "Queensland Government — Condamine and Balonne Water Plan area",
         "sourceUrl": "https://www.business.qld.gov.au/industries/mining-energy-water/water/catchments-planning/water-plan-areas/condamine-balonne",
         "rules": [
-          "Announced limits can restrict how much water may be taken under some entitlements; supplemented scheme rules are set out in the scheme operations manual.",
-          "Trading and seasonal water assignments are subject to the rules for the relevant scheme, water source and entitlement."
+          "Water access rules depend on the entitlement, water source and supply arrangement; scheme-supplied water is subject to the applicable operations manual.",
+          "St George medium-priority announced allocation is 38% for 2026–27, effective 1 July 2026; this figure applies to that scheme and priority."
         ],
-        "farmerImpact": "Casey’s cotton and grain planning depends on which water source and scheme apply to the farm. A change in announced limits or scheme operations could affect irrigation timing or the area planted. Casey may consider water trading or seasonal assignment where permitted; the relevant rules and availability vary by entitlement and scheme.",
+        "farmerImpact": "Under the assumed St George medium-priority entitlement, Casey's 38% seasonal allocation would provide 38 ML against an illustrative 100 ML water requirement, leaving a 62 ML shortfall. At an assumed temporary water purchase price of AUD 500/ML, obtaining the additional water would cost approximately AUD 31,000 before any proposed financial assistance. Water availability for purchase is not guaranteed.",
         "title": "Condamine and Balonne Water Plan",
         "sources": [
           {
@@ -178,16 +219,24 @@
           },
           {
             "category": "Current allocation data",
-            "title": "Queensland Government — Announced entitlements and allocations",
-            "url": "https://www.business.qld.gov.au/industries/mining-energy-water/water/authorisations/announced-entitlements",
-            "supports": "Current announced limits and allocations by management area"
+            "title": "Sunwater — St George scheme announced allocations",
+            "url": "https://www.sunwater.com.au/schemes/st-george/",
+            "supports": "St George scheme 2026–27 medium-priority announced allocation, effective 1 July 2026"
           }
         ]
       },
       "proposed": {
-        "summary": "Illustrative scenario — not an official government proposal: provide a single scheme-specific seasonal update combining announced limits, operating rules, and water assignment or trading information.",
-        "farmerImpact": "A consolidated update could make it easier for Casey to plan cotton irrigation and planting around current access information; it would not increase allocations."
+        "summary": "Seasonal Water Cost Assistance - Hypothetical. Provide 20% assistance for eligible temporary water purchases by medium-priority irrigation entitlement holders facing seasonal shortfalls.",
+        "farmerImpact": "Casey's modelled additional water expense decreases from A$31,000 to A$24,800. The policy reduces expenses but does not increase water availability."
       }
+    },
+    "allocationData": {
+      "percentage": 38,
+      "entitlementType": "St George Water Supply Scheme medium priority (assumed for this illustrative profile)",
+      "geography": "St George Water Supply Scheme, Queensland",
+      "date": "2026-07-01",
+      "sourceTitle": "Sunwater — St George scheme announced allocations",
+      "sourceUrl": "https://www.sunwater.com.au/schemes/st-george/"
     }
   },
   {
@@ -208,23 +257,31 @@
       "Inferred: seasonal water availability may affect irrigation planning."
     ],
     "waterSecurity": {
-      "reliability": 0,
-      "risk": 0
+      "allocation": 100,
+      "risk": "Low"
     },
     "economicImpact": {
-      "volatility": null,
-      "gviap": null
+      "waterCostScenario": {
+        "type": "irrigation-efficiency",
+        "assumptions": {
+          "assumedEntitlementML": 100,
+          "baselineDemandML": 100,
+          "existingCarryoverML": 0,
+          "demandReductionRate": 0.1,
+          "temporaryWaterPriceAUDPerML": 500
+        }
+      }
     },
     "policy": {
       "current": {
-        "summary": "South Australia allocates River Murray water under its Water Allocation Plan. Available water is determined after system needs, including conveyance losses and critical human water needs, are considered.",
+        "summary": "South Australian River Murray Class 3 (High Security) irrigators have a 100% allocation for 2026–27, announced 15 July 2026. Private carryover is unavailable for 2026–27 because the trigger was not met.",
         "sourceTitle": "SA Government — How River Murray water is allocated",
         "sourceUrl": "https://www.environment.sa.gov.au/topics/water/water-licences-permits/planning/water-allocation-plans/allocating-water",
         "rules": [
-          "In dry years, South Australia may receive a third share of available River Murray water rather than its full Basin Agreement entitlement.",
-          "Eligible Class 3 high-security holders may apply for private carryover of up to 20% when the announced trigger is met; availability is decided each year."
+          "Class 3 high-security allocation reached 100% for the 2026–27 water year on 15 July 2026.",
+          "Private carryover is available only when the qualifying trigger is met; it is unavailable for 2026–27."
         ],
-        "farmerImpact": "Morgan’s citrus, almond and grape plantings need irrigation through the growing season. Reduced allocations could mean prioritising essential irrigation, reviewing water purchases or adjusting farm expenditure. Private carryover may provide flexibility only when Morgan meets the eligibility rules and the annual trigger is met; it is unavailable in 2026–27.",
+        "farmerImpact": "Under the assumed Class 3 entitlement and 100 ML baseline demand, Morgan has 100 ML modeled available and no baseline shortfall. The model therefore estimates no additional water-purchase cost; future seasonal conditions may differ.",
         "title": "River Murray Water Allocation Plan",
         "sources": [
           {
@@ -243,14 +300,22 @@
             "category": "Current allocation data",
             "title": "SA Government — Current River Murray allocations",
             "url": "https://www.environment.sa.gov.au/topics/water-and-river-murray/water-licences-allocations-and-markets/water-allocation-and-carryover/current-allocations",
-            "supports": "Current allocation and carryover announcements; no private carryover in 2026–27"
+            "supports": "Class 3 allocation is 100% for 2026–27; private carryover is unavailable for that water year"
           }
         ]
       },
       "proposed": {
-        "summary": "Illustrative scenario — not an official government proposal: publish allocation probability updates and carryover eligibility information together earlier in the South Australian water year.",
-        "farmerImpact": "Earlier updates could help Morgan compare irrigation and carryover plans for orchards and vineyards; they would not add water to the system."
+        "summary": "Irrigation Efficiency Support - Hypothetical. Introduce efficiency assistance for improvements in water delivery and irrigation practices for permanent horticulture. The model assumes these improvements reduce Morgan's seasonal water requirement by 10%. This is not an announced government program.",
+        "farmerImpact": "Morgan's modelled water demand falls from 100 ML to 90 ML, creating a 10 ML water buffer under the assumed full allocation. Estimated additional water-purchase cost remains A$0 before and after. The model excludes capital and operating costs of efficiency upgrades."
       }
+    },
+    "allocationData": {
+      "percentage": 100,
+      "entitlementType": "Class 3 high-security (assumed for this illustrative profile)",
+      "geography": "South Australian River Murray",
+      "date": "2026-07-15",
+      "sourceTitle": "SA Government ? Current River Murray allocations",
+      "sourceUrl": "https://www.environment.sa.gov.au/topics/water-and-river-murray/water-licences-allocations-and-markets/water-allocation-and-carryover/current-allocations"
     }
   }
 ]

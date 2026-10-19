@@ -671,6 +671,14 @@ td {
   font-weight: 600;
 }
 
+.economic-impact-table td {
+  text-align: right;
+}
+
+.economic-impact-table .economic-savings {
+  color: #08a752;
+}
+
 tr:last-child > * {
   border: 0;
 }

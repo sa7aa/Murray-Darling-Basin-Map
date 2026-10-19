@@ -157,13 +157,13 @@
             <h3><i class="bi bi-water"></i>Water Security Snapshot</h3>
             <div class="stats-grid">
               <div class="stat">
-                <span>Allocation reliability</span
-                ><strong id="reliability">--</strong
+                <span>Seasonal allocation*</span
+                ><strong id="allocation">--</strong
                 ><progress
-                  id="reliability-bar"
+                  id="allocation-bar"
                   max="100"
                   value="0"
-                  aria-label="Allocation reliability"
+                  aria-label="Seasonal allocation percentage"
                 ></progress>
               </div>
               <div class="stat">
@@ -194,7 +194,7 @@
                 aria-pressed="false"
                 disabled
               >
-                Policy Scenario</button
+                Proposed Policy</button
               >
             </div>
             <div id="policy-summary" class="policy-summary" aria-live="polite">
@@ -203,26 +203,14 @@
           </div>
           <div class="data-panel">
             <h3><i class="bi bi-graph-up-arrow"></i>Economic Impact</h3>
-            <p class="muted panel-subtitle">Market and Basin references for context; neither is a statistic measured for the selected water region.</p>
-            <table>
+            <table class="economic-impact-table">
               <tbody>
-                <tr>
-                  <th scope="row">Crop-market price-index variability</th>
-                  <td id="volatility">--</td>
-                </tr>
-                <tr>
-                  <th scope="row">Basin-wide GVIAP reference (AUD)</th>
-                  <td id="gviap">--</td>
-                </tr>
-                <tr>
-                  <th scope="row">Crop-market reference</th>
-                  <td id="dominant-crop">--</td>
-                </tr>
+                <tr><th scope="row">Current additional water cost</th><td id="current-water-cost">--</td></tr>
+                <tr><th scope="row">Cost under proposed policy</th><td id="proposed-water-cost">--</td></tr>
+                <tr><th scope="row">Reduction in farmer expense</th><td id="farmer-expense-reduction" class="economic-savings">--</td></tr>
+                <tr><th scope="row">Dominant crops</th><td id="dominant-crop">--</td></tr>
               </tbody>
             </table>
-            <p id="price-reference-note" class="muted panel-subtitle">Price index variability is calculated from the supplied ABARES national annual series where a crop category matches.</p>
-            <p class="muted panel-subtitle">GVIAP: 2016–17 to 2020–21. Geography: Murray–Darling Basin total; repeated for context, not a selected-region value.</p>
-            <p><a href="https://www.agriculture.gov.au/abares" target="_blank" rel="noopener noreferrer">Source: ABARES agricultural commodities statistics</a> · <a href="https://www.abs.gov.au/statistics/industry/agriculture/water-use-australian-farms/2020-21" target="_blank" rel="noopener noreferrer">ABS Water Account, Table 13.1</a></p>
           </div>
         </section>
       </div>
